@@ -1,0 +1,59 @@
+nav {
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+
+}
+body {
+
+    margin: 0px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: bisque;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+li {
+    float: left;
+    display: inline;
+    height: 45px;
+ 
+  }
+
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 0px 40px;
+    text-decoration: none;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #login {
+    float: right;
+  }
+
+  li a:hover {
+    background-color: beige;
+  }
+
+  .hero-image {
+    position: relative;
+    width: 100%;
+    background-color: gray;
+    background-position: 100% 75%;
+    height: 100vh;
+    top: 0;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    display: flex;
+  }
