@@ -1,0 +1,88 @@
+#meals {
+    margin: 7em auto;
+    width: 60%;
+  }
+  
+  #menuh {
+    font-size: 3em;
+    text-align: center;
+    padding: 0 1em 0.1em 1em;
+    color: var(--white);
+  }
+  
+  #sloganh {
+    font-size: 2em;
+    text-align: center;
+    padding: 0.1em 1em 1em 1em;
+    color: var(--deepblue);
+    font-family: 'garamond, serif';
+    font-style: italic;
+  }
+  
+  #popular {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: auto;
+  }
+  
+  .portion {
+    box-shadow: var(--boxShadow);
+    border-radius: 3px;
+    padding: 2em;
+    margin: 1em;
+    background-color: var(--white);
+  }
+  
+  .porth {
+    padding: 0.5em;
+    font-size: 1.3em;
+    color: var(--seafoam);
+  }
+  
+  .portp {
+    padding: 0 0.5em;
+    font-size: 0.9em;
+    color: var(--deepblue);
+  }
+  
+  #salimg {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 17em;
+  }
+  
+  #shrimg {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 17em;
+  }
+  
+  #lobimg {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 17em;
+  }
+  
+  #paeimg {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 17em;
+  }
+  
+  #fisimg {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 17em;
+  }
+  
+  #craimg {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 17em;
+  }
