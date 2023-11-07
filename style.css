@@ -1,3 +1,16 @@
+:root {
+  --primary-color-1: #FFEECC; /* Creamy Yellow */
+  --primary-color-2: #FFDDCC; /* Peachy Pink */
+  --primary-color-3: #FFCCCC; /* Soft Coral */
+  --primary-color-4: #FEBBCC; /* Blush Pink */
+}
+
+html {
+  /* font faimly */
+  line-height: 2;
+  box-sizing: border-box;
+}
+
 nav {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -14,15 +27,15 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: bisque;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+    background-color:var(--primary-color-4);
 }
 
 li {
     float: left;
     display: inline;
-    height: 45px;
+    height: 50px;
+
+    border-right: 2px solid black;
  
   }
 
@@ -38,22 +51,52 @@ li {
     justify-content: center;
     align-items: center;
   }
+
+  .logo {
+    width: 50px;
+  }
+
   #login {
+    cursor: pointer;
     float: right;
+    border-left: 2px solid black;
+
   }
 
   li a:hover {
-    background-color: beige;
+    background-color: var(--primary-color-3);
   }
 
   .hero-image {
     position: relative;
     width: 100%;
-    background-color: gray;
-    background-position: 100% 75%;
-    height: 100vh;
+    background-image: url(/heroimg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
     top: 0;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     display: flex;
   }
+
+  .filters {
+    margin: 20px 0 50px;
+    text-align: center;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    background: var(--primary-color-4);
+    font-size: 1em;
+    cursor: pointer;
+    border: 1px solid #000000;
+    margin: 10px;
+  }
+  
+  .button:hover {
+    background-color: var(--primary-color-3);
+  }
+  
