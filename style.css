@@ -1,31 +1,15 @@
-#meals {
-    margin: 7em auto;
-    width: 60%;
-  }
+:root {
+  --boxShadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  --white: rgb(255, 255, 255);
+}
+
+#productsWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(300px, 1fr));
+  margin: auto;
+}
   
-  #menuh {
-    font-size: 3em;
-    text-align: center;
-    padding: 0 1em 0.1em 1em;
-    color: var(--white);
-  }
-  
-  #sloganh {
-    font-size: 2em;
-    text-align: center;
-    padding: 0.1em 1em 1em 1em;
-    color: var(--deepblue);
-    font-family: 'garamond, serif';
-    font-style: italic;
-  }
-  
-  #popular {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    margin: auto;
-  }
-  
-  .portion {
+.product {
     box-shadow: var(--boxShadow);
     border-radius: 3px;
     padding: 2em;
