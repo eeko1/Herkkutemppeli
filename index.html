@@ -7,71 +7,497 @@
     <title>Herkkutemppeli</title>
 </head>
 <body>
+  <!-- G = Gluteeniton
+  L = Laktoositon
+  M = Maidoton
+  P = Pähkinätön
+  E = Ei sisällä kananmunaa
+  S = Soijaton
+  V = Vegaani 
+  K = Kasvissyöjä -->
     <section id="products">
         <h2 id="productsTitle">Tuotteet</h2>
         <div id="productsWrapper">
           <section class="product">
-            <img src="pics/salmon.jpg" id="salimg" alt="Grilled salmon fillet dish on a plate">
-            <h3 class="productTitle">Grilled Salmon Fillet</h3>
-            <p class="productDesc">Salmon fillet grilled to perfection, seasoned with a mix of herbs and spices. Accompanied by a slice of lemon and a side of steamed vegetables for a balanced meal.</p>
-            <p class="productAllergens">M, L, K</p>
-            <p class="productPrice">6,70€</p>
-            <button class="productAdd">&#43;</button>
-        </section>
+            <img src="image/chickenSalad.jpg" class="productImage" alt="Chickensalad with cucumbers, avocados and onions in bowl">
+            <h3 class="productName">Sliced Chicken Salad</h3>
+            <p class="productsDescription">Tender grilled chicken breast served atop a bed of crisp greens, cherry tomatoes, and zesty Italian dressing.</p>
+            <div class="moreInfo">
+              <p class="productAllergens">G, L, M, P, E, S</p>
+              <p class="productPrice">13,90€</p>
+              <button class="productAdd">&#43;</button>
+            </div>
+          </section>
           <section class="product">
-            <img src="pics/shrimp.jpg" id="shrimg" alt="Shrimp scampi dish on a plate">
-            <h3 class="porth">Shrimp Scampi</h3>
-            <p class="portp">Shrimp cooked in a sauce of garlic, white wine, and butter, offering a rich, flavorful experience. Typically served over pasta or rice to soak up the sauce.</p>
-            <p class="productAllergens">VL, G</p>
-            <p class="productPrice">6,70€</p>
+            <img src="image/italianSalad.jpeg" class="productImage" alt="italiansalad with cucumbers, cutted tomatoes, cheese cubes, basil leaves and onions on a plate">
+            <h3 class="productName">Italian Salad</h3>
+            <p class="productsDescription">A delightful blend of fresh lettuce, cucumbers, black olives, and feta cheese, drizzled with balsamic vinaigrette, capturing the essence of Italy.</p>
+            <p class="productAllergens">L, P, S</p>
+            <p class="productPrice">16,90€</p>
             <button class="productAdd">&#43;</button>
           </section>
           <section class="product">
-            <img src="pics/lobster.jpg" id="lobimg" alt="Lobster bisque dish on a bowl">
-            <h3 class="porth">Lobster Bisque</h3>
-            <p class="portp">A creamy, rich soup made from lobster stock, complemented by aromatic vegetables. Often includes a splash of brandy or sherry for an added depth of flavor.</p>
-            <p class="productAllergens">N</p>
-            <p class="productPrice">6,70€</p>
+            <img src="image/tunaSaladWithEgg.jpg" class="productImage" alt="Tunasalad with egg and large salad leaves on a plate">
+            <h3 class="productName">Tuna Salad with Egg</h3>
+            <p class="productsDescription">A protein-packed delight featuring flaky tuna, boiled eggs, and a medley of crunchy vegetables, all harmonized with creamy mayonnaise dressing.</p>
+            <p class="productAllergens">G, L, M, P</p>
+            <p class="productPrice">15,90€</p>
             <button class="productAdd">&#43;</button>
           </section>
           <section class="product">
-            <img src="pics/paella.jpg" id="paeimg" alt="Seafood paella dish on a pan">
-            <h3 class="porth">Seafood Paella</h3>
-            <p class="portp">A traditional Spanish dish featuring rice cooked with saffron and a variety of seafood like shrimp, mussels, and squid. May also include chicken or rabbit for added protein.</p>
+            <img src="image/mozzarellaSalad.jpg" class="productImage" alt="Mozzarellasalad with fresh salad leaves, cutted tomatoes and peppers on a large black plate">
+            <h3 class="productName">Mozzarella Salad</h3>
+            <p class="productsDescription">Creamy mozzarella cheese paired with ripe tomatoes, basil leaves, and a drizzle of olive oil, creating a simple yet exquisite Italian-inspired salad.</p>
+            <p class="productAllergens">G, L, E, P, K</p>
+            <p class="productPrice">16,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/asianSalad.jpg" class="productImage" alt="asiansalad with carrot strips, peas, onionn, nuts and rucola in a bowl">
+            <h3 class="productName">Asian Salad</h3>
+            <p class="productsDescription">Vibrant and full of flavors, this salad combines crispy greens, colorful bell peppers, mandarin oranges, and a tangy sesame ginger dressing, offering a taste of the Far East.</p>
+            <p class="productAllergens">G, L, M, K</p>
+            <p class="productPrice">18,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/croissantSalad.jpg" class="productImage" alt="Croissant cutted in half and inside of it is salad, seasoning, pickles and peppers. Croisant is on a wooden cutting board">
+            <h3 class="productName">Croissant Salad</h3>
+            <p class="productsDescription">A delightful twist on a classic salad, featuring fresh greens, cherry tomatoes, and a warm, flaky croissant cradling your choice of protein, all dressed with a zesty vinaigrette.</p>
             <p class="productAllergens">L, S</p>
-            <p class="productPrice">6,70€</p>
+            <p class="productPrice">12,90€</p>
             <button class="productAdd">&#43;</button>
           </section>
           <section class="product">
-            <img src="pics/fish.jpg" id="fisimg" alt="Two crispy fish tacos dish on a plate">
-            <h3 class="porth">Crispy Fish Tacos</h3>
-            <p class="portp">Fish fillets are fried until crispy and placed in tortillas. They're then topped with cabbage slaw and a tangy sauce, making for a mix of textures and flavors.</p>
-            <p class="productAllergens">N, S, G</p>
-            <p class="productPrice">6,70€</p>
+            <img src="image/breakfastCroissant.jpeg" class="productImage" alt="Multiplse croissants cutted in half and inside of them is omelette, bacon and small sausages">
+            <h3 class="productName">Breakfast Croissant</h3>
+            <p class="productsDescription">A perfect morning treat, our buttery croissant is filled with fluffy scrambled eggs and your choice of crispy bacon or savory sausage.</p>
+            <p class="productAllergens">P</p>
+            <p class="productPrice">11,90€</p>
             <button class="productAdd">&#43;</button>
           </section>
           <section class="product">
-            <img src="pics/crab.jpg" id="craimg" alt="Garlic butter crab dish on a bowl">
-            <h3 class="porth">Garlic Butter Crab</h3>
-            <p class="portp">Dungeness crab cooked in a sauce made from garlic and butter, providing a rich and savory experience. Often served with a side of bread to soak up the excess sauce.</p>
-            <p class="productAllergens">L, M, G</p>
-            <p class="productPrice">6,70€</p>
+            <img src="image/hamAndCheeseCroissant.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Ham and Cheese Croissant</h3>
+            <p class="productsDescription">Indulge in the savory goodness of sliced ham and melted cheese, all enveloped in a golden croissant for a satisfying meal any time of day.</p>
+            <p class="productAllergens">L, P, E, S</p>
+            <p class="productPrice">8,90€</p>
             <button class="productAdd">&#43;</button>
           </section>
           <section class="product">
-            <img src="pics/crab.jpg" id="craimg" alt="Garlic butter crab dish on a bowl">
-            <h3 class="porth">Garlic Butter Crab</h3>
-            <p class="portp">Dungeness crab cooked in a sauce made from garlic and butter, providing a rich and savory experience. Often served with a side of bread to soak up the excess sauce.</p>
-            <p class="productAllergens">L, M, G</p>
-            <p class="productPrice">6,70€</p>
+            <img src="image/tomatoRucolaMozzarellaCroissant.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Tomato, Arugula and Mozzarella Croissant</h3>
+            <p class="productsDescription">Experience the harmony of flavors with sliced tomatoes, peppery arugula, and creamy mozzarella, hugged by a freshly baked croissant.</p>
+            <p class="productAllergens">P, E, S, K</p>
+            <p class="productPrice">10,90€</p>
             <button class="productAdd">&#43;</button>
           </section>
           <section class="product">
-            <img src="pics/crab.jpg" id="craimg" alt="Garlic butter crab dish on a bowl">
-            <h3 class="porth">Garlic Butter Crab</h3>
-            <p class="portp">Dungeness crab cooked in a sauce made from garlic and butter, providing a rich and savory experience. Often served with a side of bread to soak up the excess sauce.</p>
-            <p class="productAllergens">L, M, G</p>
-            <p class="productPrice">6,70€</p>
+            <img src="image/prociuttoTomatoCroissant.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Prociutto Tomato Croissant</h3>
+            <p class="productsDescription">A taste of Italy in every bite, this croissant is layered with delicate prosciutto, juicy tomatoes, and a hint of basil, offering a savory delight.</p>
+            <p class="productAllergens">P, E, S</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/bananaChocolateCroissant.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Banana Chocolate Croissant</h3>
+            <p class="productsDescription">Sweet and satisfying, our croissant is filled with ripe bananas and rich chocolate, creating a decadent pastry perfect for dessert or brunch.</p>
+            <p class="productAllergens">P, E, S</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/raspberryCreamCroissant.jpeg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Raspberry and Whipped Cream Croissant</h3>
+            <p class="productsDescription">A delightful blend of tart raspberries and luscious cream nestled within a flaky croissant, making it a heavenly treat for your taste buds.</p>
+            <p class="productAllergens">P, E, S</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/breakfastBagel.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Breakfast Bagel</h3>
+            <p class="productsDescription">Start your day right with our hearty breakfast bagel, loaded with scrambled eggs and your choice of bacon, sausage, or vegetables, served on a freshly baked bagel.</p>
+            <p class="productAllergens">P, E, S</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/baconAvocadoBagel.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Bacon Avocado Bagel</h3>
+            <p class="productsDescription">Bacon Avocado Bagel: A mouthwatering fusion of crispy bacon, creamy avocado slices, and fresh greens, all nestled within a warm and chewy bagel, creating a delightful blend of flavors and textures.</p>
+            <p class="productAllergens">P, E, S</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/salmonBagel.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Salmon Bagel</h3>
+            <p class="productsDescription">Indulge in the perfect blend of smoked salmon, cream cheese, and capers, nestled in a soft and chewy bagel.</p>
+            <p class="productAllergens">P, E, S</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/hamburgerBagel.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Hamburger Bagel</h3>
+            <p class="productsDescription">A unique twist on a classic favorite, our hamburger bagel features a juicy patty, fresh lettuce, tomato, and your choice of toppings, all between two bagel halves.</p>
+            <p class="productAllergens">P, E, S</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/greenloverBagel.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Green Lover Bagel</h3>
+            <p class="productsDescription">A fresh and healthy delight, this bagel is adorned with avocado, spinach, cucumber, and a drizzle of zesty herb dressing.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/chocolateChipMuffin.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Chocolate Chip Muffin</h3>
+            <p class="productsDescription">Satisfy your sweet tooth with our moist and fluffy muffin studded with rich chocolate chips.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/chocolateMuffin.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Chocolate Muffin</h3>
+            <p class="productsDescription">Dive into the decadence of our double chocolate muffin, a cocoa lover's dream come true.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/vanillaMuffin.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Vanilla Muffin</h3>
+            <p class="productsDescription">Delicate and aromatic, our vanilla muffin is a light and airy treat with a hint of vanilla bean.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/blueberryMuffin.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Blueberry Muffin</h3>
+            <p class="productsDescription">Bursting with juicy blueberries, this muffin is a fruity delight with every bite.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/lemonMuffin.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Lemon Muffin</h3>
+            <p class="productsDescription">Zesty and refreshing, our lemon muffin is a citrusy sensation that brightens your day.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/cinnamonMuffin.jpeg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Cinnamon Muffin</h3>
+            <p class="productsDescription">Warm and inviting, our cinnamon muffin is a comforting blend of sweet and spicy flavors.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/pinkDonut.png" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Pink Donut</h3>
+            <p class="productsDescription">A playful and sweet delight, our pink donut is coated in a vibrant pink glaze and sprinkled with love.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/chocolateDonut.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Chocolate Donut</h3>
+            <p class="productsDescription">Rich and indulgent, our chocolate donut is a classic favorite, drizzled with a glossy chocolate glaze.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/strawberryDonut.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Strawberry Donut</h3>
+            <p class="productsDescription">Enjoy the taste of summer with our strawberry donut, featuring a sweet strawberry glaze and rainbow sprinkles.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/blueDonut.jpeg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Blue Donut</h3>
+            <p class="productsDescription">Dive into a sea of flavor with our blueberry-infused donut, covered in a blueberry glaze.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/lemonDonut.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Lemon Donut</h3>
+            <p class="productsDescription">Brighten your day with our zesty lemon donut, topped with a tangy lemon glaze.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/vanillaDonut.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Vanilla Donut</h3>
+            <p class="productsDescription">A timeless classic, our vanilla donut is simplicity at its finest, with a sweet vanilla glaze.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/sugarDonut.jpeg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Sugar Donut</h3>
+            <p class="productsDescription">A classic delight, our sugar donut is a sweet and satisfying treat with a light, sugary coating.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/cafelatte.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Cafe Latte</h3>
+            <p class="productsDescription">Indulge in the perfect blend of smooth espresso and steamed milk, topped with a creamy foam.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/cappuccino.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Cappuccino</h3>
+            <p class="productsDescription">Experience the rich and robust flavor of espresso combined with velvety steamed milk and a frothy foam topping.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/flatwhite.png" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Flat White</h3>
+            <p class="productsDescription">A harmonious balance of espresso and silky steamed milk, offering a milder coffee experience with a velvety texture.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/americano.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Americano</h3>
+            <p class="productsDescription">For a bold and straightforward coffee, try our Americano, made with a shot of espresso and hot water.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/housecoffee.jpeg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">House Coffee</h3>
+            <p class="productsDescription">Our house blend coffee is a comforting and aromatic brew that's perfect any time of day.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/hotchocolate.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Hot Chocolate</h3>
+            <p class="productsDescription">A cozy classic, our hot chocolate is a rich and creamy cocoa indulgence, topped with whipped cream.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/espresso.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Espresso</h3>
+            <p class="productsDescription">Pure and powerful, our espresso is a shot of intense coffee flavor that's sure to awaken your senses.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/macchiato.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Cafe Macchiato</h3>
+            <p class="productsDescription">A shot of espresso "stained" with a dollop of frothy milk, creating a bittersweet delight.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/icedcoffee.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Iced Coffee</h3>
+            <p class="productsDescription">Cool down with our refreshing iced coffee, brewed to perfection and served over ice.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/frapino.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Frapino</h3>
+            <p class="productsDescription">A delightful blend of coffee and ice, our Frapino is a creamy and icy treat with various flavors to choose from.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/breakfastSmoothie.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Breakfast Smoothie</h3>
+            <p class="productsDescription">Jumpstart your day with our nutritious breakfast smoothie, packed with fruits, yogurt, and a hint of honey.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/redSmoothie.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Red Smoothie</h3>
+            <p class="productsDescription">A vibrant blend of red berries and fruits, our red smoothie is a refreshing burst of fruity goodness.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/orangeSmoothie.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Orange Smoothie</h3>
+            <p class="productsDescription">Bright and citrusy, our orange smoothie is a tangy delight that's both delicious and invigorating.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/tropicalSmoothie.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Tropical Smoothie</h3>
+            <p class="productsDescription">Escape to the tropics with our tropical smoothie, a blend of exotic fruits and coconut milk.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/greenSmoothie.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Green Lover Smoothie</h3>
+            <p class="productsDescription">A nutritious powerhouse, our green smoothie is packed with leafy greens, fruits, and a touch of honey.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/mangoSmoothie.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Mango Smoothie</h3>
+            <p class="productsDescription">Indulge in the sweet and tropical flavor of ripe mangoes in our creamy mango smoothie.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/mangoRaspberrySmoothie.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Mango Raspberry Smoothie</h3>
+            <p class="productsDescription">A delightful combination of juicy mangoes and tangy raspberries, creating a harmonious fruit fusion.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/orangeJuice.jpeg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Orange Juice</h3>
+            <p class="productsDescription">Start your day with a burst of vitamin C in our fresh and zesty orange juice.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/appleJuice.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Apple Juice</h3>
+            <p class="productsDescription">Crisp and refreshing, our apple juice is a timeless favorite for all ages.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/strawberryJuice.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Strawberry Juice</h3>
+            <p class="productsDescription">Enjoy the natural sweetness of ripe strawberries in our delicious strawberry juice.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/cranberryJuice.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Cranberry Juice</h3>
+            <p class="productsDescription">A tart and tangy delight, our cranberry juice is both refreshing and invigorating.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/greenJuice.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Green Juice</h3>
+            <p class="productsDescription">Rejuvenate with our nutrient-packed green juice, featuring a blend of leafy greens and refreshing cucumbers.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/nocco.png" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Nocco</h3>
+            <p class="productsDescription">A popular choice for fitness enthusiasts, our NOCCO offers a sugar-free and lightly carbonated energy boost with various flavors.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/pepsi.jpeg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Pepsi</h3>
+            <p class="productsDescription">The classic cola favorite, our Pepsi is a fizzy and refreshing choice.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/pepsimax.jpeg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Pepsi Max</h3>
+            <p class="productsDescription">For those seeking the same great Pepsi taste with zero sugar, try our Pepsi Max.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/jaffa.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Jaffa</h3>
+            <p class="productsDescription">Indulge in the unique combination of orange and chocolate flavors with our Jaffa soda.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/muumilimppa.png" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Moomin Soda</h3>
+            <p class="productsDescription">Quench your thirst with a whimsical twist by sipping on our Moomin-themed soda.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/smurffilimppa.png" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Smurf Soda</h3>
+            <p class="productsDescription">Dive into the nostalgia of your favorite blue characters with our delightful Smurf-themed soda.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/sparklingwater.jpg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Sparkling Water</h3>
+            <p class="productsDescription">For a crisp and refreshing sip, enjoy our sparkling water, perfect for cleansing your palate.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
+            <button class="productAdd">&#43;</button>
+          </section>
+          <section class="product">
+            <img src="image/water.jpeg" class="productImage" alt="Cutted half croissant on a plate">
+            <h3 class="productName">Water</h3>
+            <p class="productsDescription">Stay hydrated with a refreshing glass of pure water, the essential choice for quenching your thirst.</p>
+            <p class="productAllergens">V</p>
+            <p class="productPrice">13,90€</p>
             <button class="productAdd">&#43;</button>
           </section>
         </div>

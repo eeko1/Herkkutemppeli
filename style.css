@@ -1,72 +1,82 @@
 :root {
   --boxShadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   --white: rgb(255, 255, 255);
+  --pink: #FEBBCC;
+  --black: #252525;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#products {
+  width: 60%;
+  max-width: 2000px;
+  margin: auto;
 }
 
 #productsWrapper {
   display: grid;
-  grid-template-columns: repeat(4, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, minmax(300px, 400px));
   margin: auto;
 }
   
 .product {
-    box-shadow: var(--boxShadow);
-    border-radius: 3px;
-    padding: 2em;
-    margin: 1em;
-    background-color: var(--white);
-  }
+  box-shadow: var(--boxShadow);
+  border-radius: 3px;
+  margin: 1em;
+  background-color: var(--white);
+  display: grid;
+  grid-template-rows: 17em 1fr 1fr 1fr;
+}
+
+.productImage {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 17em;
+}
   
-  .porth {
-    padding: 0.5em;
-    font-size: 1.3em;
-    color: var(--seafoam);
-  }
+#productsTitle {
+  padding: 0.4em;
+  font-size: 2.5em;
+  color: var(--pink);
+}
+
+.productName {
+  color: var(--pink);
+  padding: 0.4em;
+}
   
-  .portp {
-    padding: 0 0.5em;
-    font-size: 0.9em;
-    color: var(--deepblue);
-  }
+.productsDescription, .productAllergens, .productPrice {
+  padding: 0 0.5em;
+  font-size: 0.9em;
+  color: var(--black);
+}
+
+
+
+
+  /* Product adding button  */
+.productAdd {
+  padding: 0.2em 1em;
+  border: none;
+  background-color: var(--white);
+  color: var(--pink);
+  font-size: 24px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, transform 0.2s;
+  border-radius: 5px;
+  border: 1px solid var(--pink);
+}
   
-  #salimg {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: 17em;
-  }
+.productAdd:hover {
+  background-color: var(--pink);
+  transform: scale(1.1);
+  color: var(--white);
+}
   
-  #shrimg {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: 17em;
-  }
-  
-  #lobimg {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: 17em;
-  }
-  
-  #paeimg {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: 17em;
-  }
-  
-  #fisimg {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: 17em;
-  }
-  
-  #craimg {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: 17em;
-  }
+.productAdd:active {
+  transform: scale(0.95);
+}
