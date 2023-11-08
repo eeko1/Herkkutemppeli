@@ -15,7 +15,7 @@ body {
   margin: auto;
 }
 
-#productsWrapper {
+#productsContainer {
   display: grid;
   grid-template-columns: repeat(4, minmax(300px, 400px));
   margin: auto;
