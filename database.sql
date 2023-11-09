@@ -3,6 +3,11 @@ CREATE DATABASE herkkutemppeli;
 USE herkkutemppeli;
 
 -- create tables
+CREATE TABLE User_level (
+  user_level_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  user_level_name VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE Users (
   user_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   fullname VARCHAR(255) NOT NULL,
@@ -11,33 +16,27 @@ CREATE TABLE Users (
   phonenumber VARCHAR(255) NOT NULL UNIQUE,
   profile_picture VARCHAR(255) NOT NULL,
   user_level_id INT NOT NULL,
-  created_at TIMESTAMP NOT NULL
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_level_id) REFERENCES User_level(user_level_id)
 );
 
 CREATE TABLE Products (
-    product_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    product_name VARCHAR(255) NOT NULL,
-    product_description TEXT NOT NULL,
-    product_image VARCHAR(255) NOT NULL,
-    product_category_id INT NOT NULL,
-    product_allergens VARCHAR(255),
-    product_price DECIMAL(10,2) NOT NULL,
-    created_at TIMESTAMP NOT NULL
-);
-
-CREATE TABLE User_level (
-    user_level_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    user_level_name VARCHAR(255) NOT NULL
-    user_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+  product_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  product_name VARCHAR(255) NOT NULL,
+  product_description TEXT NOT NULL,
+  product_image VARCHAR(255) NOT NULL,
+  product_category_id INT NOT NULL,
+  product_allergens VARCHAR(255),
+  product_price DECIMAL(10,2) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Coupons (
-    coupon_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,  
-    coupon_discount DECIMAL(10,2) NOT NULL,
-    coupon_expiration_date DATE NOT NULL,
-    created_at TIMESTAMP NOT NULL
-    user_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+  coupon_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  coupon_discount DECIMAL(10,2) NOT NULL,
+  coupon_expiration_date DATE NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  user_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
