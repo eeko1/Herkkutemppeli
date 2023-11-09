@@ -10,9 +10,10 @@ const products = [
     price: "13,90€",
   },
   {
-    imageName: "chickenSalad.jpg",
-    imageAlt: "Chickensalad with cucumbers, avocados and onions in bowl",
-    name: "Sliced Chicken Salad",
+    imageName: "italianSalad.jpeg",
+    imageAlt:
+      "A delightful blend of fresh lettuce, cucumbers, black olives, and feta cheese, drizzled with balsamic vinaigrette, capturing the essence of Italy.",
+    name: "Italian Salad",
     description:
       "Tender grilled chicken breast served atop a bed of crisp greens, cherry tomatoes, and zesty Italian dressing.",
     allergens: "G, L, M, P, E, S",
