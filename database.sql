@@ -40,3 +40,6 @@ CREATE TABLE Coupons (
   FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
+-- insert data
+INSERT INTO Products (product_name, product_description, product_image, product_category_id, product_allergens, product_price) 
+  VALUES ('Sliced Chicken Salad', 'Tender grilled chicken breast served atop a bed of crisp greens, cherry tomatoes, and zesty Italian dressing.', 'chickenSalad.jpg', 1, 'G, L, M, P, E, S', 13.90);
