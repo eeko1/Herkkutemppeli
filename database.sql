@@ -9,6 +9,7 @@ CREATE TABLE Users (
   password VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
   phonenumber VARCHAR(255) NOT NULL UNIQUE,
+  profile_picture VARCHAR(255) NOT NULL,
   user_level_id INT NOT NULL,
   created_at TIMESTAMP NOT NULL
 );
