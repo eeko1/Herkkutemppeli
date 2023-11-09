@@ -9,9 +9,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#products {
-  width: 60%;
-  max-width: 2000px;
+.products {
   margin: auto;
 }
 
@@ -27,7 +25,7 @@ body {
   margin: 1em;
   background-color: var(--white);
   display: grid;
-  grid-template-rows: 17em 1fr 1fr 1fr;
+  grid-template-rows: 17em 0.5fr 1fr 1fr;
 }
 
 .productImage {
@@ -47,15 +45,19 @@ body {
   color: var(--pink);
   padding: 0.4em;
 }
+
+.moreInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4em;
+}
   
 .productsDescription, .productAllergens, .productPrice {
   padding: 0 0.5em;
   font-size: 0.9em;
   color: var(--black);
 }
-
-
-
 
   /* Product adding button  */
 .productAdd {
