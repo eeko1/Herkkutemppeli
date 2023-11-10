@@ -3,16 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="nav.css" />
+    <link rel="stylesheet" href="products.css">
     <script src="productsAdd.js" defer></script>
     <title>Herkkutemppeli</title>
-</head>
-<body>
-    <h1>Herkkutemppeli</h1>
-    <p>tallennus</p>
-</body>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+         <li><img src="herkkutemppeli.png" alt="" class="logo"></li>
+        </li>
+        <li><a class="navitem" href="">Tuotteet</a></li>
+        <li><a class="navitem" href="">Tietoa meistä</a></li>
+        <li id="login"><a>login</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-image">
+      </div>
+
+
+<div class="filters">
+  <button class="button is-checked" data-filter="*">kaikki</button>
+  <button class="button" data-filter=".salaatti">Salaatit</button>
+  <button class="button" data-filter=".bagel">Bagel</button>
+  <button class="button" data-filter=".kroisantti">Kroisantit</button>
+  <button class="button" data-filter=".muffinssi">Muffinsit</button>
+  <button class="button" data-filter=".donitsi">Donitsit</button>
+  <button class="button" data-filter=".juoma">Juomat</button>
+</div>
+
+<section class="products">
+  <h2>Tuotteet</h2>
+  <div id="productsContainer"></div>
+</section>
+
+<footer class="footer">
+  <div class="footer_info">
+      <h2>Tietoa Meistä</h2>
+      <p>Herkkutemppeli sai alkunsa vuonna 2023, kun intohimoisena kahvinystävänä perustaja Reino haaveili luovasta ja inspiroivasta paikasta, jossa jaettaisiin rakkautta hyvään
+           kahviin ja herkullisiin leivonnaisiin. Visiona oli luoda paikka, jossa jokainen asiakas voisi tuntea itsensä tervetulleeksi ja nauttia korkealaatuisista tuotteista.
+      </p>
+      <p>Meille laatu on kaiken perusta. Käytämme huolella valittuja raaka-aineita ja panostamme ammattitaitoiseen valmistukseen, jotta voimme tarjota sinulle parhaat mahdolliset maut jokaisessa tuotteessamme.
+           Lisäksi olemme sitoutuneet vastuullisuuteen ja ympäristöystävällisyyteen. Pyrimme minimoimaan hiilijalanjälkemme ja tuemme reilua kauppaa.</p>
+           <p>Ota rohkeasti yhteyttä, jos sinulla on kysyttävää tai palautetta. Voit ottaa meihin yhteyttä sähköpostitse osoitteeseen 
+              asiakaspalaute@herkkutemppeli.fi tai puhelimitse numeroon 010 1122 334. Toivomme, että viihdyt Herkkutemppelin asiakkaana ja että voimme tarjota sinulle parhaita kahvila-elämyksiä!</p>
+  </div>
+  <div class="footer_location">
+      <h2>Sijainti</h2>
+      <div id="map"></div>
+      <script src="footerMap.js"></script>
+  </div>
+</footer>
+
+  </body>
 </html>
