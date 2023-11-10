@@ -1,4 +1,4 @@
-@import url('root.css');
+@import url('./root.css');
 
 nav {
     margin-top: 0px;
@@ -10,7 +10,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color:var(--primary-color-4);
+    background-color:var(--pink);
 }
 
 li {
@@ -53,7 +53,7 @@ li {
   .hero-image {
     position: relative;
     width: 100%;
-    background-image: url(heroimg.jpg);
+    background-image: url(./image/heroimg.jpg);
     background-size: cover;
     background-position: center;
     height: 95vh;
@@ -72,7 +72,7 @@ li {
     display: inline-block;
     padding: 0.5em 1em;
     border-radius: 4px;
-    background: var(--primary-color-4);
+    background: var(--pink);
     font-size: 1em;
     cursor: pointer;
     border: 1px solid #000000;

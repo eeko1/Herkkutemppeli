@@ -117,7 +117,7 @@ const products = [
 function createProductHTML(product) {
   return `
       <section class="product">
-        <img src="image/${product.imageName}" class="productImage" alt="${product.imageAlt}">
+        <img src="./style/image/${product.imageName}" class="productImage" alt="${product.imageAlt}">
         <h3 class="productName">${product.name}</h3>
         <p class="productsDescription">${product.description}</p>
         <div class="moreInfo">
