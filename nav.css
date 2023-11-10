@@ -1,25 +1,8 @@
-:root {
-  --primary-color-1: #FFEECC; /* Creamy Yellow */
-  --primary-color-2: #FFDDCC; /* Peachy Pink */
-  --primary-color-3: #FFCCCC; /* Soft Coral */
-  --primary-color-4: #FEBBCC; /* Blush Pink */
-}
-
-html {
-  /* font faimly */
-  line-height: 2;
-  box-sizing: border-box;
-}
+@import url('root.css');
 
 nav {
     margin-top: 0px;
     margin-bottom: 0px;
-
-
-}
-body {
-
-    margin: 0px;
 }
 
 ul {
