@@ -113,15 +113,6 @@ const products = [
   // ...add more product objects with different details
 ];
 
-/*   G = Gluteeniton
-  L = Laktoositon
-  M = Maidoton
-  P = Pähkinätön
-  E = Ei sisällä kananmunaa
-  S = Soijaton
-  V = Vegaani 
-  K = Kasvissyöjä */
-
 // Function to create a product section HTML
 function createProductHTML(product) {
   return `

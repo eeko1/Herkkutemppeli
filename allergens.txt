@@ -1,0 +1,8 @@
+G = Gluteeniton
+L = Laktoositon
+M = Maidoton
+P = Pähkinätön
+E = Ei sisällä kananmunaa
+S = Soijaton
+V = Vegaani 
+K = Kasvissyöjä
