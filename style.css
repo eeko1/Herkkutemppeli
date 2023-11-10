@@ -100,3 +100,98 @@ li {
     background-color: var(--primary-color-3);
   }
   
+  --boxShadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  --white: rgb(255, 255, 255);
+  --pink: #FEBBCC;
+  --brown: #6e4e36;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.products {
+  margin: auto;
+  width: 70%;
+  max-width: 1700px;
+}
+
+#productsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(300px, 1fr));
+  margin: auto;
+}
+  
+.product {
+  box-shadow: var(--boxShadow);
+  border-radius: 3px;
+  margin: 1em;
+  background-color: var(--white);
+  display: grid;
+  grid-template-rows: 17em 0.5fr 1fr 1fr;
+}
+
+.productImage {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 17em;
+}
+
+.productName {
+  color: var(--pink);
+  padding: 0.4em;
+}
+
+.moreInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4em;
+}
+  
+.productsDescription, .productAllergens, .productPrice {
+  padding: 0 0.5em;
+  font-size: 0.9em;
+  color: var(--brown);
+}
+
+  /* Product adding button  */
+.productAdd {
+  padding: 0.2em 1em;
+  border: none;
+  background-color: var(--white);
+  color: var(--pink);
+  font-size: 24px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, transform 0.2s;
+  border-radius: 5px;
+  border: 1px solid var(--pink);
+}
+  
+.productAdd:hover {
+  background-color: var(--pink);
+  transform: scale(1.1);
+  color: var(--white);
+}
+  
+.productAdd:active {
+  transform: scale(0.95);
+}
+
+@media screen and (max-width: 1900px) {
+  .products {
+    width: 80%;
+  }
+
+  #productsContainer {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .products {
+    width: 100%;
+  }
+}
