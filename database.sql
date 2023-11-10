@@ -41,5 +41,11 @@ CREATE TABLE Coupons (
 );
 
 -- insert data
+INSERT INTO User_level (user_level_name) 
+  VALUES ('User'), ('Admin'), ('Banned');
+
+INSERT INTO Users (fullname, password, email, phonenumber, profile_picture, user_level_id) 
+  VALUES ('Kamilla Karenius', 'Salasana90', 'kami@metro.fi', '234 5677890', 'profilepic.png', 1);
+
 INSERT INTO Products (product_name, product_description, product_image, product_category_id, product_allergens, product_price) 
   VALUES ('Sliced Chicken Salad', 'Tender grilled chicken breast served atop a bed of crisp greens, cherry tomatoes, and zesty Italian dressing.', 'chickenSalad.jpg', 1, 'G, L, M, P, E, S', 13.90);
