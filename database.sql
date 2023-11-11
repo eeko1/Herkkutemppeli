@@ -59,7 +59,7 @@ INSERT INTO Users (fullname, password, email, phonenumber, profile_picture, user
 VALUES
 ('Eeko', 'testisalis123', 'eemi@metris.fi', '123456789', 'kuvani.jpg', 1),
 ('KamiKa', 'salistesti123', 'KamiKa@metris.fi', '987654321', 'photo.jpg', 2),
-('JamiNa', 'lolitesti555', 'jamina@geemail.fi', '555555555', 'jane.jpg', 2);
+('JamiNa', 'lolitesti555', 'jamina@geemail.fi', '555555555', 'cvphoto.jpg', 2);
 
 -- Insert data into Products table
 INSERT INTO Products (product_name, product_description, product_image, product_category_id, product_allergens, product_price)
