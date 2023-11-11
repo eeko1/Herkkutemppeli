@@ -64,9 +64,37 @@ VALUES
 -- Insert data into Products table
 INSERT INTO Products (product_name, product_description, product_image, product_category_id, product_allergens, product_price)
 VALUES
-('Product 1', 'Description for Product 1', 'product1.jpg', 1, 'Allergen A, Allergen B', 19.99),
-('Product 2', 'Description for Product 2', 'product2.jpg', 2, 'Allergen C', 29.99),
-('Product 3', 'Description for Product 3', 'product3.jpg', 1, 'No Allergens', 9.99);
+('Sliced Chicken Salad', 'Tender grilled chicken breast served atop a bed of crisp greens, cherry tomatoes, and zesty Italian dressing.', 'chickenSalad.jpg', 1, 'G, L, M, P, E, S', 10.90),
+('Italian Salad', 'A delightful blend of fresh lettuce, cucumbers, black olives, and feta cheese, drizzled with balsamic vinaigrette, capturing the essence of Italy.', 'italianSalad.jpeg', 1, 'L, M, P, S', 11.90),
+('Tuna Salad with Egg', 'A protein-packed delight featuring flaky tuna, boiled eggs, and a medley of crunchy vegetables, all harmonized with creamy mayonnaise dressing.', 'tunaSaladWithEgg.jpg', 1, 'G, L, M, P, S', 11.20),
+('Mozzarella Salad', 'Creamy mozzarella cheese paired with ripe tomatoes, basil leaves, and a drizzle of olive oil, creating a simple yet exquisite Italian-inspired salad.', 'mozzarellaSalad.jpg', 1, 'G, L, P, S, K', 13.90),
+('Asian Salad', 'Vibrant and full of flavors, this salad combines crispy greens, colorful bell peppers, mandarin oranges, and a tangy sesame ginger dressing, offering a taste of the Far East.', 'asianSalad.jpg', 1, 'G, L, V, K', 13.40),
+('Breakfast Bagel', 'Start your day right with our hearty breakfast bagel, loaded with scrambled eggs and your choice of bacon, sausage, or vegetables, served on a freshly baked bagel.', 'breakfastBagel.jpg', 2, 'P, S', 10.20),
+('Salmon Bagel', 'Indulge in the perfect blend of smoked salmon, cream cheese, and capers, nestled in a soft and chewy bagel.', 'salmonBagel.jpg', 2, 'L, M, P, E, S', 9.80),
+('Hamburger Bagel', 'A unique twist on a classic favorite, our hamburger bagel features a juicy patty, fresh lettuce, tomato, and your choice of toppings, all between two bagel halves.', 'hamburgerBagel.jpg', 2, 'L, P, S', 9.40),
+('Bacon Avocado Bagel', 'A mouthwatering fusion of crispy bacon, creamy avocado slices, and fresh greens, all nestled within a warm and chewy bagel, creating a delightful blend of flavors and textures.', 'baconAvocadoBagel.jpg', 2, 'L, P, S', 9.50),
+('Green Lover Bagel', 'A fresh and healthy delight, this bagel is adorned with avocado, spinach, cucumber, and a drizzle of zesty herb dressing.', 'greenloverBagel.jpg', 2, 'G, L, M, P, E, S, V, K' 8.20),
+('Breakfast Croissant', 'A perfect morning treat, our buttery croissant is filled with fluffy scrambled eggs and your choice of crispy bacon or savory sausage.', 'breakfastCroissant.jpeg', 3, 'M, P, S,', 7.90),
+('Ham and Cheese Croissant', 'Indulge in the savory goodness of sliced ham and melted cheese, all enveloped in a golden croissant for a satisfying meal any time of day.', 'hamAndCheeseCroissant.jpg', 3, 'L, P, E, S,', 6.90),
+('Tomato, Arugula, and Mozzarella Croissant', 'Experience the harmony of flavors with sliced tomatoes, peppery arugula, and creamy mozzarella, hugged by a freshly baked croissant.', 'tomatoRucolaMozzarellaCroissant.jpg', 3, 'L, P, E, S, K', 8.60),
+('Prosciutto Tomato Croissant', 'A taste of Italy in every bite, this croissant is layered with delicate prosciutto, juicy tomatoes, and a hint of basil, offering a savory delight.', 'prociuttoTomatoCroissant.jpg', 3, 'L, M, P, E, S,', 9.10),
+('Banana Chocolate Croissant', 'Sweet and satisfying, our croissant is filled with ripe bananas and rich chocolate, creating a decadent pastry perfect for dessert or brunch.', 'bananaChocolateCroissant.jpg', 3, 'L, P, E, S, K', 6.20),
+('Raspberry Cream Croissant', 'A delightful blend of tart raspberries and luscious cream nestled within a flaky croissant, making it a heavenly treat for your taste buds.', 'raspberryCreamCroissant.jpeg', 3, 'L, P, E, S, K', 7.30),
+('Chocolate Chip Muffin', 'Satisfy your sweet tooth with our moist and fluffy muffin studded with rich chocolate chips.', 'chocolateChipMuffin.jpg', 4, 'L, P, E, K, V', 4.20),
+('Chocolate Muffin', "Dive into the decadence of our double chocolate muffin, a cocoa lover's dream come true.", 'chocolateMuffin.jpg', 4, 'L, P, E, K, V', 4.30),
+('Vanilla Muffin', 'Delicate and aromatic, our vanilla muffin is a light and airy treat with a hint of vanilla bean.', 'vanillaMuffin.jpg', 4, 'L, P, K', 3.70),
+('Blueberry Muffin', 'Satisfy your sweet tooth with our moist and fluffy muffin studded with rich chocolate chips.', 'blueberryMuffin.jpg', 4, 'L, P, K', 3.90),
+('Lemon Muffin', 'Zesty and refreshing, our lemon muffin is a citrusy sensation that brightens your day.', 'lemonMuffin.jpg', 4, 'L, P, K', 3.80),
+('Cinnamon Muffin', 'Warm and inviting, our cinnamon muffin is a comforting blend of sweet and spicy flavors.', 'cinnamonMuffin.jpeg', 4, 'L, P, E, K, V', 3.90),
+('Pink Donut', 'A playful and sweet delight, our pink donut is coated in a vibrant pink glaze and sprinkled with love.', 'pinkDonut.png', 5, 'L, M, P, K', 2.30),
+('Chocolate Donut', 'Rich and indulgent, our chocolate donut is a classic favorite, drizzled with a glossy chocolate glaze.', 'chocolateDonut.jpg', 5, 'L, P, K', 2.50),
+('Strawberry Donut', 'A playful and sweet delight, our pink donut is coated in a vibrant pink glaze and sprinkled with love.', 'strawberryDonut.jpg', 5, 'L, M, P, E, K, V', 2.40),
+('Blue Donut', 'Dive into a sea of flavor with our blueberry-infused donut, covered in a blueberry glaze.', 'blueDonut.jpeg', 5, 'L, M, P, K', 2.50),
+('Lemon Donut', 'Brighten your day with our zesty lemon donut, topped with a tangy lemon glaze.', 'lemonDonut.jpg', 5, 'L, M, E, P, K', 2.35),
+('Vanilla Donut', 'A timeless classic, our vanilla donut is simplicity at its finest, with a sweet vanilla glaze.', 'vanillaDonut.jpg', 5, 'L, P, K', 2.50),
+('Sugar Donut', 'A classic delight, our sugar donut is a sweet and satisfying treat with a light, sugary coating.', 'sugaraDonut.jpeg', 5, 'L, M, P, E, K, V', 2.30),
+('Cafe Latte', 'Indulge in the perfect blend of smooth espresso and steamed milk, topped with a creamy foam.', 'cafelatte.jpg', 6, 'L, M, P, E, K, V', 2.30),
+
 
 -- Insert data into Orders table
 INSERT INTO Orders (user_id, product_id, quantity, order_date)
