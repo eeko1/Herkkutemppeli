@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="products.css">
     <link rel="stylesheet" href="footer.css">
     <script src="productsAdd.js" defer></script>
+    <script src="carousel.js" defer></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
+    <script src="https://kit.fontawesome.com/faad1f5588.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
@@ -20,15 +22,42 @@
     <nav>
       <ul>
         <li>
-         <li><img src="herkkutemppeli.png" alt="" class="logo"></li>
+         <li><img src="image/herkkutemppeli.png" alt="" class="logo"></li>
         </li>
         <li><a class="navitem" href="">Tuotteet</a></li>
         <li><a class="navitem" href="">Tietoa meistä</a></li>
-        <li id="login"><a>login</a></li>
+        <li id="shoppingCart"><i class="fa-solid fa-cart-shopping fa-xl"></i></li>
+        <li id="user"><i class="fa-solid fa-user fa-2xl"></i></li>
       </ul>
     </nav>
 
     <div class="hero-image">
+      <div class="slideshow-container">
+
+        <div class="slide slide1">
+        </div>
+      
+        <div class="slide slide2">
+        </div>
+      
+        <div class="slide slide3">
+        </div>
+      
+        <div class="buttons">
+          <button class="prev" onclick="changeSlide(-1)">
+            <i class="fa-solid fa-angle-left fa-2xl"></i>
+          </button>
+          <button class="next" onclick="changeSlide(1)">
+            <i class="fa-solid fa-angle-right fa-2xl"></i>
+          </button>
+        </div>
+        
+        <div class="dots">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+      </div>
       </div>
 
 
