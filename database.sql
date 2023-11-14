@@ -103,6 +103,7 @@ VALUES
 ('Cafe Macchiato', 'A shot of espresso "stained" with a dollop of frothy milk, creating a bittersweet delight.', 'macchiato.jpg', 6, 'G, L, P, E, K', 3.00),
 ('Iced Coffee', 'Cool down with our refreshing iced coffee, brewed to perfection and served over ice.', 'icedcoffee.jpg', 6, 'G, L, P, E, K', 3.60),
 ('Frapino', 'A delightful blend of coffee and ice, our Frapino is a creamy and icy treat with various flavors to choose from.', 'frapino.jpg', 6, 'G, L, P, E, K', 4.20),
+('Tea', 'A comforting and aromatic beverage known for its versatility and soothing qualities.', 'tea.jpg', 6, 'G, L, M, P, E, K, V', 2.20),
 ('Breakfast Smoothie', 'Jumpstart your day with our nutritious breakfast smoothie, packed with fruits, yogurt, and a hint of honey.', 'breakfastSmoothie.jpg', 6, 'L, P, E, K', 5.60),
 ('Red Smoothie', 'A vibrant blend of red berries and fruits, our red smoothie is a refreshing burst of fruity goodness.', 'redSmoothie.jpg', 6, 'G, L, P, E, K', 5.40),
 ('Orange Smoothie', "Bright and citrusy, our orange smoothie is a tangy delight that's both delicious and invigorating.", 'orangeSmoothie.jpg', 6, 'L, P, E, K', 5.40),
