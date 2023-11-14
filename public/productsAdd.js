@@ -17,17 +17,40 @@ function createProductHTML(product) {
 // Function to render all products to the DOM
 function renderProducts(products) {
   const productsContainer = document.getElementById("productsContainer");
-  productsContainer.innerHTML = products.map(createProductHTML).join("");
+  const loadingMessage = document.getElementById("loadingMessage");
+
+  // Check if products are loaded and hide the loading message
+  if (products.length > 0 && loadingMessage) {
+    loadingMessage.style.display = "none";
+  }
+
+  productsContainer.innerHTML += products.map(createProductHTML).join("");
 }
 
 // Function to fetch products from the server and render them
 function fetchAndRenderProducts() {
   fetch("http://localhost:3000/api/products")
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
     .then((products) => {
       renderProducts(products);
     })
-    .catch((error) => console.error("Error fetching products:", error));
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+      const loadingMessage = document.getElementById("loadingMessage");
+      if (loadingMessage) {
+        loadingMessage.innerHTML = "Sorry, products were unable to load.";
+      }
+    });
+}
+
+function displayErrorMessage() {
+  const productsContainer = document.getElementById("productsContainer");
+  productsContainer.innerHTML = "<p>Sorry, products were unable to load.</p>";
 }
 
 // Call the fetchAndRenderProducts function when the page loads
