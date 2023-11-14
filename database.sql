@@ -100,6 +100,7 @@ VALUES
 ('House Coffee', "Our house blend coffee is a comforting and aromatic brew that's perfect any time of day.", 'housecoffee.jpeg', 6, 'G, L, M, P, E, K, V', 2.50),
 ('Hot Chocolate', 'A cozy classic, our hot chocolate is a rich and creamy cocoa indulgence, topped with whipped cream.', 'hotchocolate.jpg', 6, 'G, L, P, E, K', 3.70),
 ('Espresso', "Pure and powerful, our espresso is a shot of intense coffee flavor that's sure to awaken your senses.", 'espresso.jpg', 6, 'G, L, M, P, E, K, V', 2.90),
+('Cafe Macchiato', 'A shot of espresso "stained" with a dollop of frothy milk, creating a bittersweet delight.', 'macchiato.jpg', 6, 'G, L, P, E, K', 3.00),
 ('Iced Coffee', 'Cool down with our refreshing iced coffee, brewed to perfection and served over ice.', 'icedcoffee.jpg', 6, 'G, L, P, E, K', 3.60),
 ('Frapino', 'A delightful blend of coffee and ice, our Frapino is a creamy and icy treat with various flavors to choose from.', 'frapino.jpg', 6, 'G, L, P, E, K', 4.20),
 ('Breakfast Smoothie', 'Jumpstart your day with our nutritious breakfast smoothie, packed with fruits, yogurt, and a hint of honey.', 'breakfastSmoothie.jpg', 6, 'L, P, E, K', 5.60),
