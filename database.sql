@@ -73,7 +73,7 @@ VALUES
 ('Salmon Bagel', 'Indulge in the perfect blend of smoked salmon, cream cheese, and capers, nestled in a soft and chewy bagel.', 'salmonBagel.jpg', 2, 'L, M, P, E, S', 9.80),
 ('Hamburger Bagel', 'A unique twist on a classic favorite, our hamburger bagel features a juicy patty, fresh lettuce, tomato, and your choice of toppings, all between two bagel halves.', 'hamburgerBagel.jpg', 2, 'L, P, S', 9.40),
 ('Bacon Avocado Bagel', 'A mouthwatering fusion of crispy bacon, creamy avocado slices, and fresh greens, all nestled within a warm and chewy bagel, creating a delightful blend of flavors and textures.', 'baconAvocadoBagel.jpg', 2, 'L, P, S', 9.50),
-('Green Lover Bagel', 'A fresh and healthy delight, this bagel is adorned with avocado, spinach, cucumber, and a drizzle of zesty herb dressing.', 'greenloverBagel.jpg', 2, 'G, L, M, P, E, S, V, K' 8.20),
+('Green Lover Bagel', 'A fresh and healthy delight, this bagel is adorned with avocado, spinach, cucumber, and a drizzle of zesty herb dressing.', 'greenloverBagel.jpg', 2, 'G, L, M, P, E, S, V, K', 8.20),
 ('Breakfast Croissant', 'A perfect morning treat, our buttery croissant is filled with fluffy scrambled eggs and your choice of crispy bacon or savory sausage.', 'breakfastCroissant.jpeg', 3, 'M, P, S,', 7.90),
 ('Ham and Cheese Croissant', 'Indulge in the savory goodness of sliced ham and melted cheese, all enveloped in a golden croissant for a satisfying meal any time of day.', 'hamAndCheeseCroissant.jpg', 3, 'L, P, E, S,', 6.90),
 ('Tomato, Arugula, and Mozzarella Croissant', 'Experience the harmony of flavors with sliced tomatoes, peppery arugula, and creamy mozzarella, hugged by a freshly baked croissant.', 'tomatoRucolaMozzarellaCroissant.jpg', 3, 'L, P, E, S, K', 8.60),
