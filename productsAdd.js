@@ -129,11 +129,17 @@ function createProductHTML(product) {
     `;
 }
 
-// Function to render all products to the DOM
-function renderProducts(products) {
-  const productsContainer = document.getElementById("productsContainer");
-  productsContainer.innerHTML = products.map(createProductHTML).join("");
-}
-
 // Call renderProducts() on window load or document DOMContentLoaded event as needed
 window.onload = () => renderProducts(products);
+
+function fetchAndRenderProducts() {
+  fetch("http://localhost:3000/products")
+    .then((response) => response.json())
+    .then((products) => {
+      renderProducts(products);
+    })
+    .catch((error) => console.error("Error:", error));
+}
+
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", fetchAndRenderProducts);
