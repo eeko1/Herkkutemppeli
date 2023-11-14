@@ -4,6 +4,8 @@
   margin: auto;
   width: 70%;
   max-width: 1700px;
+  padding-bottom: 10em;
+  padding-top: 2em;
 }
 
 #productsContainer {
