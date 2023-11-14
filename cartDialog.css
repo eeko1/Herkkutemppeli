@@ -1,0 +1,172 @@
+
+
+#dialogContent {
+  padding: 20px;
+  text-align: center;
+  background-color: #FFCCCC;
+
+}
+
+.items, ul {
+  background-color: #FFCCCC;
+}
+
+#product-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.dialogClose {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+#product-list li {
+  display: flex;
+  align-items: center;
+  border: 0;
+  justify-content: space-between; 
+  margin: 10px 0px;
+}
+#product-list li div {
+  margin: 0px 30px;
+}
+
+#cart-container {
+  margin-top: 20px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Float to the right */
+  margin-top: 10px;
+  margin-left: auto;
+}
+
+.quantity-btn {
+  background-color: #FFDDCC;
+  color: black;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 8px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.quantity {
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+.dialogButtons {
+  display: flex;
+  margin-top: 20px;
+}
+
+#checkout-btn {
+  margin-left: auto;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #FFDDCC;
+  border-radius: 10px;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#login-btn {
+  margin-left: auto;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #FFDDCC;
+  border-radius: 10px;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.dialogButtons button {
+  width: 100px;
+  padding: 10px; 
+  box-sizing: border-box; 
+}
+
+button {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.cartFee {
+  display: flex;
+  margin-top: 20px;
+}
+
+label {
+  text-align: left;
+}
+
+.coupon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+#applyCoupon {
+  padding: 10px;
+  font-size: 14px;
+  background-color: #FFDDCC;
+  border-radius: 10px;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#applyCoupon:hover {
+  background-color: #45a049;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+
+
+/* Additional styling for the dialog */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog {
+  background-color: #FEBBCC;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+margin: auto;
+  width: 80%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+
+}
+
+dialog[open] {
+  display: block;
+}
