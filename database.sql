@@ -92,7 +92,7 @@ VALUES
 ('Blue Donut', 'Dive into a sea of flavor with our blueberry-infused donut, covered in a blueberry glaze.', 'blueDonut.jpeg', 5, 'L, M, P, K', 2.50),
 ('Lemon Donut', 'Brighten your day with our zesty lemon donut, topped with a tangy lemon glaze.', 'lemonDonut.jpg', 5, 'L, M, E, P, K', 2.35),
 ('Vanilla Donut', 'A timeless classic, our vanilla donut is simplicity at its finest, with a sweet vanilla glaze.', 'vanillaDonut.jpg', 5, 'L, P, K', 2.50),
-('Sugar Donut', 'A classic delight, our sugar donut is a sweet and satisfying treat with a light, sugary coating.', 'sugaraDonut.jpeg', 5, 'L, M, P, E, K, V', 2.30),
+('Sugar Donut', 'A classic delight, our sugar donut is a sweet and satisfying treat with a light, sugary coating.', 'sugarDonut.jpeg', 5, 'L, M, P, E, K, V', 2.30),
 ('Cafe Latte', 'Indulge in the perfect blend of smooth espresso and steamed milk, topped with a creamy foam.', 'cafelatte.jpg', 6, 'G, L, P, E, K', 3.70),
 ('Cappuccino', 'Experience the rich and robust flavor of espresso combined with velvety steamed milk and a frothy foam topping.', 'cappuccino.jpg', 6, 'G, L, P, E, K', 3.70),
 ('Flat White', 'A harmonious balance of espresso and silky steamed milk, offering a milder coffee experience with a velvety texture.', 'flatwhite.png', 6, 'G, L, P, E, K', 3.70),
@@ -101,8 +101,8 @@ VALUES
 ('Hot Chocolate', 'A cozy classic, our hot chocolate is a rich and creamy cocoa indulgence, topped with whipped cream.', 'hotchocolate.jpg', 6, 'G, L, P, E, K', 3.70),
 ('Espresso', "Pure and powerful, our espresso is a shot of intense coffee flavor that's sure to awaken your senses.", 'espresso.jpg', 6, 'G, L, M, P, E, K, V', 2.90),
 ('Iced Coffee', 'Cool down with our refreshing iced coffee, brewed to perfection and served over ice.', 'icedcoffee.jpg', 6, 'G, L, P, E, K', 3.60),
-('Frapino', 'A delightful blend of coffee and ice, our Frapino is a creamy and icy treat with various flavors to choose from.', 'frapino.png', 6, 'G, L, P, E, K', 4.20),
-('Breakfast Smoothie', 'Jumpstart your day with our nutritious breakfast smoothie, packed with fruits, yogurt, and a hint of honey.', 'machiato.jpg', 6, 'L, P, E, K', 5.60),
+('Frapino', 'A delightful blend of coffee and ice, our Frapino is a creamy and icy treat with various flavors to choose from.', 'frapino.jpg', 6, 'G, L, P, E, K', 4.20),
+('Breakfast Smoothie', 'Jumpstart your day with our nutritious breakfast smoothie, packed with fruits, yogurt, and a hint of honey.', 'breakfastSmoothie.jpg', 6, 'L, P, E, K', 5.60),
 ('Red Smoothie', 'A vibrant blend of red berries and fruits, our red smoothie is a refreshing burst of fruity goodness.', 'redSmoothie.jpg', 6, 'G, L, P, E, K', 5.40),
 ('Orange Smoothie', "Bright and citrusy, our orange smoothie is a tangy delight that's both delicious and invigorating.", 'orangeSmoothie.jpg', 6, 'L, P, E, K', 5.40),
 ('Tropical Smoothie', 'Escape to the tropics with our tropical smoothie, a blend of exotic fruits and coconut milk.', 'tropicalSmoothie.jpg', 6, 'L, P, E, K', 5.40),
@@ -112,7 +112,7 @@ VALUES
 ('Orange Juice', 'Start your day with a burst of vitamin C in our fresh and zesty orange juice.', 'orangeJuice.jpeg', 6, 'G, L, M, P, E, K, V', 1.80),
 ('Apple Juice', 'Crisp and refreshing, our apple juice is a timeless favorite for all ages.', 'appleJuice.jpg', 6, 'G, L, M, P, E, K, V', 1.80),
 ('Strawberry Juice', 'Enjoy the natural sweetness of ripe strawberries in our delicious strawberry juice.', 'strawberryJuice.jpg', 6, 'G, L, M, P, E, K, V', 1.80),
-('Cranberry Juice', 'A tart and tangy delight, our cranberry juice is both refreshing and invigorating.', 'cranberryJuice.jpeg', 6, 'G, L, M, P, E, K, V', 2.00),
+('Cranberry Juice', 'A tart and tangy delight, our cranberry juice is both refreshing and invigorating.', 'cranberryJuice.jpg', 6, 'G, L, M, P, E, K, V', 2.00),
 ('Green Juice', 'Rejuvenate with our nutrient-packed green juice, featuring a blend of leafy greens and refreshing cucumbers.', 'greenJuice.jpg', 6, 'G, L, M, P, E, K, V', 1.80),
 ('NOCCO', 'A popular choice for fitness enthusiasts, our NOCCO offers a sugar-free and lightly carbonated energy boost with various flavors.', 'nocco.png', 6, 'G, L, M, P, E, K, V', 4.20),
 ('Pepsi', 'The classic cola favorite, our Pepsi is a fizzy and refreshing choice.', 'pepsi.jpeg', 6, 'G, L, M, P, E, K, V', 3.90),
@@ -120,7 +120,7 @@ VALUES
 ('Jaffa', 'Indulge in the unique combination of orange and chocolate flavors with our Jaffa soda.', 'jaffa.jpg', 6, 'G, L, M, P, E, K, V', 3.90),
 ('Moomin Soda', 'Quench your thirst with a whimsical twist by sipping on our Moomin-themed soda', 'muumilimppa.png', 6, 'G, L, M, P, E, K, V', 3.70),
 ('Smurf Soda', 'Dive into the nostalgia of your favorite blue characters with our delightful Smurf-themed soda.', 'smurffilimppa.png', 6, 'G, L, M, P, E, K, V', 3.70),
-('Sparkling Water', 'For a crisp and refreshing sip, enjoy our sparkling water, perfect for cleansing your palate.', 'sparklingwater.jpeg', 6, 'G, L, M, P, E, K, V', 1.60),
+('Sparkling Water', 'For a crisp and refreshing sip, enjoy our sparkling water, perfect for cleansing your palate.', 'sparklingwater.jpg', 6, 'G, L, M, P, E, K, V', 1.60),
 ('Water', 'Stay hydrated with a refreshing glass of pure water, the essential choice for quenching your thirst.', 'water.jpeg', 6, 'G, L, M, P, E, K, V', 0.00);
 
 
