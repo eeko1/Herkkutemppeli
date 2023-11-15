@@ -23,6 +23,10 @@
   grid-template-rows: 15em 0.5fr 1fr 0.5fr;
 }
 
+.products h2, .products p {
+  color: var(--text);
+}
+
 .productImage {
   background-color: var(--pink);
   object-fit: cover;
@@ -46,7 +50,7 @@
 .productsDescription, .productAllergens, .productPrice {
   padding: 0 0.5em;
   font-size: 0.9em;
-  color: var(--brown);
+  color: var(--text);
 }
 
   /* Product adding button  */

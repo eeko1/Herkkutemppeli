@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // API endpoint to get products from the database
 app.get("/api/products", (req, res) => {
   db.query(
-    "SELECT * FROM Products ORDER BY product_category_id ASC;",
+    "SELECT * FROM Products ORDER BY product_category_id ASC",
     (err, results) => {
       if (err) {
         return res.status(500).send("Error fetching products from database");
