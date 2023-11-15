@@ -89,3 +89,9 @@ li {
   .button:active {
     transform: scale(0.95);
   }
+
+  @media (max-width: 800px) {
+    .button {
+      font-size: 1.2em;
+    }
+  }

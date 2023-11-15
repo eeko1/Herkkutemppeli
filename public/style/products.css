@@ -87,6 +87,12 @@
   }
 }
 
+@media (max-width: 800px) {
+  .products {
+    width: 90%;
+  }
+}
+
 @media screen and (max-width: 420px) {
   .products {
     width: 100%;
