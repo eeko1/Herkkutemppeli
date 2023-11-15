@@ -17,9 +17,7 @@ li {
     float: left;
     display: inline;
     height: 50px;
-
     border-right: 2px solid black;
- 
   }
 
   li a {

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./style/nav.css" />
     <link rel="stylesheet" href="./style/products.css">
     <link rel="stylesheet" href="./style/footer.css">
-    <script src="/productsAdd.js" defer></script>
+    <script src="sorting.js" defer></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
@@ -29,13 +29,13 @@
     </nav>
     <div class="hero-image"></div>
     <div class="filters">
-    <button class="button is-checked" data-filter="*">Kaikki</button>
-    <button class="button" data-filter=".salaatti">Salaatit</button>
-    <button class="button" data-filter=".bagel">Bagel</button>
-    <button class="button" data-filter=".kroisantti">Kroisantit</button>
-    <button class="button" data-filter=".muffinssi">Muffinsit</button>
-    <button class="button" data-filter=".donitsi">Donitsit</button>
-    <button class="button" data-filter=".juoma">Juomat</button>
+      <button onclick="filterProducts('all')" class="button is-checked" data-filter="*">Kaikki</button>
+      <button onclick="filterProducts(1)" class="button" data-filter=".salaatti">Salaatit</button>
+      <button onclick="filterProducts(2)" class="button" data-filter=".bagel">Bagel</button>
+      <button onclick="filterProducts(3)" class="button" data-filter=".kroisantti">Kroisantit</button>
+      <button onclick="filterProducts(4)" class="button" data-filter=".muffinssi">Muffinsit</button>
+      <button onclick="filterProducts(5)" class="button" data-filter=".donitsi">Donitsit</button>
+      <button onclick="filterProducts(6)" class="button" data-filter=".juoma">Juomat</button>
     </div>
     <section class="products">
       <h2>Tuotteet</h2>
