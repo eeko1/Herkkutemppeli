@@ -94,4 +94,247 @@ li {
     .button {
       font-size: 1.2em;
     }
+  }:root {
+  --primary-color-1: #FFEECC; /* Creamy Yellow */
+  --primary-color-2: #FFDDCC; /* Peachy Pink */
+  --primary-color-3: #FFCCCC; /* Soft Coral */
+  --primary-color-4: #FEBBCC; /* Blush Pink */
+}
+
+
+html {
+  /* font faimly */
+  line-height: 2;
+  box-sizing: border-box;
+}
+
+nav {
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+
+}
+body {
+
+    margin: 0px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:var(--primary-color-4);
+}
+
+li {
+    float: left;
+    display: inline;
+    height: 50px;
+
+    border-right: 2px solid black;
+ 
   }
+
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 0px 40px;
+    text-decoration: none;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo {
+    width: 50px;
+  }
+
+
+  #open_dialog {
+    cursor: pointer;
+    float: right;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #user {
+    cursor: pointer;
+    float: right;
+    border-left: 2px solid black;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  li a:hover {
+    background-color: var(--primary-color-3);
+  }
+
+/*   .hero-image {
+    position: relative;
+    width: 100%;
+    background-image: url(heroimg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
+    top: 0;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    display: flex;
+  } */
+
+  .filters {
+    margin: 20px 0 50px;
+    text-align: center;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    background: var(--primary-color-4);
+    font-size: 1em;
+    cursor: pointer;
+    border: 1px solid #000000;
+    margin: 10px;
+  }
+  
+  .button:hover {
+    background-color: var(--primary-color-3);
+  }
+
+/* TESTING */
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 95vh;
+  overflow: hidden;
+  top: 0;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  display: flex;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  background-image: url(image/heroimg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 95vh;
+  top: 0;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  display: flex;
+}
+
+.slide1 {
+  background-image: url(image/heroimg.jpg);
+}
+.slide2 {
+  background-image: url(image/heroimg.jpg);
+}
+.slide3 {
+  background-image: url(image/heroimg.jpg);
+}
+
+@media screen and (max-width: 530px) {
+  li a {
+    padding: 0px 10px;
+  }
+#user,
+#shoppingCart {
+  padding: 0px 10px;
+}
+}
+
+
+@keyframes slideDown {
+  0% {
+    top: -1000%;
+  }
+
+  100% {
+    top: 54%;
+  }
+}
+
+ .slideshow-container .slide img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+} 
+
+.slideshow-container .dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15px;
+  margin: 0;
+  cursor: pointer;
+  background-color: rgba(51, 51, 51, 0.4);
+  border-radius: 10px;
+}
+
+.slideshow-container .dots .dot {
+  cursor: pointer;
+  height: 0.5rem;
+  width: 0.5rem;
+  margin: 0 2px;
+  background-color: rgba(34, 34, 34, 0.6);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.slideshow-container .dots .dot.active,
+.slideshow-container .dots .dot:hover {
+  background-color: whitesmoke;
+}
+
+.slideshow-container .dots .dot.active {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.slideshow-container .buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin: 10px 20px;
+  padding: 0;
+  z-index: 10;
+}
+
+.slideshow-container .buttons > button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(51, 51, 51, 0.4);
+  border: none;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.slideshow-container .buttons > button:hover {
+  background-color: rgba(34, 34, 34, 0.7);
+}
