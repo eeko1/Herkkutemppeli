@@ -43,3 +43,27 @@ app.get("/api/products", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+// Handle form submission for signup
+app.post("/signup", (req, res) => {
+  const { username, email, phoneNumber, password } = req.body;
+
+  // Insert the user data into the Users table
+  const newUser = {
+    fullname: username,
+    email: email,
+    phonenumber: phoneNumber,
+    password: password,
+    profile_picture: 'default_profile_picture.jpg', // Set a default profile picture
+    user_level_id: 1, // Set a default user level ID
+  };
+
+  db.query("INSERT INTO Users SET ?", newUser, (err, result) => {
+    if (err) {
+      return res.status(500).send("Error inserting user into database");
+    }
+    res.status(200).send("User successfully registered!");
+  });
+});
+
+app.use(express.urlencoded({ extended: true }));

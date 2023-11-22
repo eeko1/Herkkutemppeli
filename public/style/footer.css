@@ -35,22 +35,25 @@ h2#locationHeading {
 @media (max-width: 800px) {
     .footer {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
-    .footer_info, .footer_location {
+    .footer_info,
+    .footer_location {
         width: 100%;
         padding: 20px;
-        text-align: center;
+        text-align: left;
     }
 
     h2#aboutHeading,
     h2#locationHeading {
-        text-align: center;
+        text-align: left;
+        font-size: 1.5rem; 
     }
 
-    p#aboutParagraph {
-        text-align: left;
+    .footer_info p,
+    .footer_location p {
+        font-size: 12px;
     }
 
     #map {
