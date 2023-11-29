@@ -1,81 +1,80 @@
-const dialog = document.querySelector("dialog");
+const registerSignupDialog = document.querySelector("#registerSignup");
 const openRegisterBtn = document.getElementById("open_register");
 const closeRegisterBtn = document.getElementById("close_register");
 const modifyUserBtn = document.getElementById("modifyUserButton");
 const modifyUserModal = document.getElementById("modifyUserModal");
+const closeModifyUserBtn = document.getElementById("closeModifyUser");
 
-const elements = dialog.querySelectorAll(
+if (!registerSignupDialog.showModal) {
+  dialogPolyfill.registerDialog(registerSignupDialog);
+}
+
+const registerElements = registerSignupDialog.querySelectorAll(
   'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
 );
-const firstElement = elements[0];
-const lastElement = elements[elements.length - 1];
+const firstRegisterElement = registerElements[0];
+const lastRegisterElement = registerElements[registerElements.length - 1];
 
-const trapFocus = (e) => {
+const trapRegisterFocus = (e) => {
   if (e.key === "Tab") {
-    const tabForwards = !e.shiftKey && document.activeElement === lastElement;
-    const tabBackwards = e.shiftKey && document.activeElement === firstElement;
+    const tabForwards = !e.shiftKey && document.activeElement === lastRegisterElement;
+    const tabBackwards = e.shiftKey && document.activeElement === firstRegisterElement;
     if (tabForwards) {
       e.preventDefault();
-      firstElement.focus();
+      firstRegisterElement.focus();
     } else if (tabBackwards) {
       e.preventDefault();
-      lastElement.focus();
+      lastRegisterElement.focus();
     }
   }
 };
 
-const openDialog = () => {
-  dialog.showModal();
-  dialog.addEventListener("keydown", trapFocus);
+const openRegisterDialog = () => {
+  registerSignupDialog.showModal();
+  registerSignupDialog.addEventListener("keydown", trapRegisterFocus);
+  document.getElementById("loginInput").style.display = "block";
 };
 
-const closeDialog = (e) => {
+const closeRegisterDialog = (e) => {
   e.preventDefault();
-  dialog.close();
-  dialog.removeEventListener("keydown", trapFocus);
+  registerSignupDialog.close();
+  registerSignupDialog.removeEventListener("keydown", trapRegisterFocus);
   openRegisterBtn.focus();
 };
 
-openRegisterBtn.addEventListener("click", openDialog);
-closeRegisterBtn.addEventListener("click", closeDialog);
-
-const openSignupModal = () => {
-  dialog.showModal();
-  dialog.addEventListener("keydown", trapFocus);
-};
-
-const closeModifyUserModal = () => {
-  modifyUserModal.close();
-  openSignupModal();
+const closeSignupModal = () => {
+  registerSignupDialog.close();
 };
 
 const openModifyUserModal = () => {
-  dialog.close();
+  closeSignupModal();
   modifyUserModal.showModal();
 };
 
 modifyUserBtn.addEventListener("click", openModifyUserModal);
-
-document.getElementById("closeModifyUser").addEventListener("click", closeModifyUserModal);
+closeModifyUserBtn.addEventListener("click", () => {
+  modifyUserModal.close();
+  openRegisterDialog();
+});
 
 function modifyUsername() {
   const newUsernameInput = document.getElementById("newUsername");
-  newUsernameInput.placeholder = newUsernameInput.value;
+  // Your logic to modify the username...
 }
 
 function modifyEmail() {
   const newEmailInput = document.getElementById("newEmail");
-  newEmailInput.placeholder = newEmailInput.value;
+  // Your logic to modify the email...
 }
 
 function modifyPhoneNumber() {
   const newPhoneNumberInput = document.getElementById("newPhoneNumber");
-  newPhoneNumberInput.placeholder = newPhoneNumberInput.value;
+  // Your logic to modify the phone number...
 }
 
 function modifyPassword() {
   const newPasswordInput = document.getElementById("newPassword");
-  newPasswordInput.placeholder = newPasswordInput.value;
+  // Your logic to modify the password...
 }
 
 function saveChanges() {
@@ -83,12 +82,12 @@ function saveChanges() {
 }
 
 function switchTab(event, tabName) {
-  var i, tabContent;
-  tabContent = document.getElementsByClassName("tab-content");
-  for (i = 0; i < tabContent.length; i++) {
+  const tabContent = document.getElementsByClassName("tab-content");
+  for (let i = 0; i < tabContent.length; i++) {
     tabContent[i].style.display = "none";
   }
   document.getElementById(tabName).style.display = "block";
 }
 
-document.getElementById("loginInput").style.display = "block";
+openRegisterBtn.addEventListener("click", openRegisterDialog);
+closeRegisterBtn.addEventListener("click", closeRegisterDialog);

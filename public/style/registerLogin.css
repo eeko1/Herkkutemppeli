@@ -1,10 +1,10 @@
 @import url(root.css);
 
-dialog::backdrop {
+#registerSignup::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-dialog {
+#registerSignup {
   background-color: var(--pink);
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -17,7 +17,7 @@ dialog {
   text-align: center;
 }
 
-dialog[open] {
+#registerSignup[open] {
   display: block;
 }
 
@@ -106,7 +106,7 @@ button[type="submit"]:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  dialog {
+  #registerSignup {
     width: 90%;
     max-width: 100%;
   }

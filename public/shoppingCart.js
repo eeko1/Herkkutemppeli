@@ -1,8 +1,8 @@
-const dialog = document.querySelector("dialog");
+const shoppingCartDialog = document.getElementById("shoppingCartDialog");
 const openDialogBtn = document.getElementById("open_dialog");
-const closeDialogBtn = document.getElementById("close_dialog");
+const closeDialogBtn = shoppingCartDialog.querySelector(".dialogClose");
 
-const elements = dialog.querySelectorAll(
+const elements = shoppingCartDialog.querySelectorAll(
   'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
 );
 const firstElement = elements[0];
@@ -13,32 +13,29 @@ const trapFocus = (e) => {
     const tabForwards = !e.shiftKey && document.activeElement === lastElement;
     const tabBackwards = e.shiftKey && document.activeElement === firstElement;
     if (tabForwards) {
-      // only TAB is pressed, not SHIFT simultaneously
-      // Prevent default behavior of keydown on TAB (i.e. focus next element)
       e.preventDefault();
       firstElement.focus();
     } else if (tabBackwards) {
-      // TAB and SHIFT are pressed simultaneously
       e.preventDefault();
       lastElement.focus();
     }
   }
 };
 
-const openDialog = () => {
-  dialog.showModal();
-  dialog.addEventListener("keydown", trapFocus);
+const openShoppingCartDialog = () => {
+  shoppingCartDialog.showModal();
+  shoppingCartDialog.addEventListener("keydown", trapFocus);
 };
 
-const closeDialog = (e) => {
+const closeShoppingCartDialog = (e) => {
   e.preventDefault();
-  dialog.close();
-  dialog.removeEventListener("keydown", trapFocus);
+  shoppingCartDialog.close();
+  shoppingCartDialog.removeEventListener("keydown", trapFocus);
   openDialogBtn.focus();
 };
 
-openDialogBtn.addEventListener("click", openDialog);
-closeDialogBtn.addEventListener("click", closeDialog);
+openDialogBtn.addEventListener("click", openShoppingCartDialog);
+closeDialogBtn.addEventListener("click", closeShoppingCartDialog);
 
 /* if (typeof dialog.showModal !== "function") {
 

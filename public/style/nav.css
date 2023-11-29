@@ -42,17 +42,15 @@ nav {
   }
 
   
-
-
-  #user {
+  #open_register {
     cursor: pointer;
     float: right;
     padding: 0px 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;  
   }
-  #user:hover {
+  #open_register:hover {
     background-color: var(--primary-color-3);
     transform: scale(1.1);
   }
