@@ -14,6 +14,7 @@
       <script src="carousel.js" defer></script>
       <script src="shoppingCart.js" defer></script>
       <script src="sorting.js" defer></script>
+      <script src="nav.js" defer></script>
       <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""></script>
@@ -25,18 +26,18 @@
     </head>
   <body>
     <nav>
-      <ul>
-        <li>
-         <li><img src="style/image/herkkutemppeli.png" alt="" class="logo"></li>
+      <ul class="navul">
+        <li class="navli">
+         <li class="navli"><img src="style/image/herkkutemppeli.png" alt="" class="logo"></li>
         </li>
-        <li><a class="navitem" href="">Tuotteet</a></li>
-        <li><a class="navitem" href="">Tietoa meistä</a></li>
-        <li id="open_dialog"><i class="fa-solid fa-cart-shopping fa-xl"></i></li>
-        <li id="user"><i class="fa-solid fa-user fa-2xl"></i></li>
+        <li class="navli"><a class="navitem" id="productsbtn">Tuotteet</a></li>
+        <li class="navli"><a class="navitem" id="aboutus">Tietoa meistä</a></li>
+        <li id="open_dialog" class="navli"><i class="fa-solid fa-cart-shopping fa-xl"></i></li>
+        <li id="user" class="navli"><i class="fa-solid fa-user fa-2xl"></i></li>
       </ul>
     </nav>
 
-    <dialog>
+    <dialog class="cartdialog">
       <div id="dialogContent">
         <h3>Your purchases</h3>
     
@@ -132,13 +133,13 @@
 
 
     <div class="filters">
-      <button onclick="filterProducts('all')" class="button is-checked" data-filter="*">Kaikki</button>
-      <button onclick="filterProducts(1)" class="button" data-filter=".salaatti">Salaatit</button>
-      <button onclick="filterProducts(2)" class="button" data-filter=".bagel">Bagel</button>
-      <button onclick="filterProducts(3)" class="button" data-filter=".kroisantti">Kroisantit</button>
-      <button onclick="filterProducts(4)" class="button" data-filter=".muffinssi">Muffinsit</button>
-      <button onclick="filterProducts(5)" class="button" data-filter=".donitsi">Donitsit</button>
-      <button onclick="filterProducts(6)" class="button" data-filter=".juoma">Juomat</button>
+      <button onclick="filterProducts('all')" class="navbutton is-checked" data-filter="*">Kaikki</button>
+      <button onclick="filterProducts(1)" class="navbutton" data-filter=".salaatti">Salaatit</button>
+      <button onclick="filterProducts(2)" class="navbutton" data-filter=".bagel">Bagel</button>
+      <button onclick="filterProducts(3)" class="navbutton" data-filter=".kroisantti">Kroisantit</button>
+      <button onclick="filterProducts(4)" class="navbutton" data-filter=".muffinssi">Muffinsit</button>
+      <button onclick="filterProducts(5)" class="navbutton" data-filter=".donitsi">Donitsit</button>
+      <button onclick="filterProducts(6)" class="navbutton" data-filter=".juoma">Juomat</button>
     </div>
     <section class="products">
       <h2>Tuotteet</h2>
