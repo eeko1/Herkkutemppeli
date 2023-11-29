@@ -25,14 +25,20 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(map);
 
+const restaurantIcon = L.icon({
+    iconUrl: 'restaurant-icon.png',
+    iconSize: [32, 32],
+    iconAnchor: [16, 32], 
+    popupAnchor: [0, -32],
+});
+
 restaurants.forEach(restaurant => {
     const restaurantMarker = L.marker([
-      restaurant.location.coordinates[1],
-      restaurant.location.coordinates[0],
-    ]).addTo(map);
+        restaurant.location.coordinates[1],
+        restaurant.location.coordinates[0],
+    ], { icon: restaurantIcon }).addTo(map);
+    
     restaurantMarker
-      .bindPopup(
-        '<h3>' + restaurant.name + '</h3>' + '<p>' + restaurant.address + '</p>'
-      )
-      .openPopup();
-  });
+        .bindPopup('<h3>' + restaurant.name + '</h3>' + '<p>' + restaurant.address + '</p>')
+        .openPopup();
+});

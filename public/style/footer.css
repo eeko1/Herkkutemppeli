@@ -1,10 +1,11 @@
 @import url('./root.css');
 
+/* Footer styles */
 .footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    background-color: #ffc0cb;
+    background-color: var(--pink);
     padding: 20px;
     box-sizing: border-box;
 }
@@ -17,7 +18,8 @@
     padding: 20px;
 }
 
-h2 {
+h2#aboutHeading,
+h2#locationHeading {
     margin-bottom: 5px;
 }
 
@@ -28,25 +30,33 @@ h2 {
     border: 1px solid #ddd;
 }
 
-/* Responsivity part */
+/* responsivity starts here */
 
- @media (max-width: 800px) {
+@media (max-width: 800px) {
     .footer {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
-    .footer_info, .footer_location {
+    .footer_info,
+    .footer_location {
         width: 100%;
         padding: 20px;
-        text-align: center;
+        text-align: left;
     }
 
-    h2 {
-        text-align: center;
+    h2#aboutHeading,
+    h2#locationHeading {
+        text-align: left;
+        font-size: 1.5rem; 
+    }
+
+    .footer_info p,
+    .footer_location p {
+        font-size: 12px;
     }
 
     #map {
         height: 200px;
     }
-} 
+}

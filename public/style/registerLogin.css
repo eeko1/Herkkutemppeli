@@ -1,0 +1,122 @@
+@import url(root.css);
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog {
+  background-color: var(--pink);
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: auto;
+  width: 80%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+dialog[open] {
+  display: block;
+}
+
+.container {
+  width: 400px;
+}
+
+.glass-frame {
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+}
+
+.glass-frame-content {
+  background: #FFCCCC;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+h1#welcomeHeading {
+  text-align: center;
+  color: var(--text);
+}
+
+.tabs {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: var(--text);
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  outline: none;
+  transition: 0.3s;
+  border: 1px solid black;
+}
+
+.tab:hover {
+  background: var(--pink);
+}
+
+.tab-content {
+  display: none;
+  margin-top: 20px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="password"],
+form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background: var(--white);
+  color: var(--text);
+}
+
+button[type="submit"] {
+  background: #323232;
+  color: var(--pink);
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #444;
+}
+
+#close_register {
+  background-color: var(--primary-color-3);
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  dialog {
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .container {
+    width: 90%;
+  }
+  
+  .glass-frame {
+    padding: 10px;
+  }
+  
+}
