@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
+    <link rel="icon" href="./style/image/herkkutemppeli.png" type="image/x-icon">
     <title>Herkkutemppeli</title>
   </head>
   <body>
@@ -55,8 +56,48 @@
             </form>
           </div>
           <button id="close_register">X</button>
+          <button id="modifyUserButton" onclick="openModifyUserModal()">Modify User</button>
         </div>
       </dialog>
+
+      <dialog id="modifyUserModal">
+        <div class="glass-frame">
+          <h1>Modify User</h1>
+          <form>
+            <div class="input-container">
+              <label for="newUsername">New Username:</label>
+              <div class="modify-control">
+                <input type="text" id="newUsername" placeholder="Example Username" readonly>
+                <button type="button" onclick="enableUsernameInput()">Modify Username</button>
+              </div>
+            </div>
+            <div class="input-container">
+              <label for="newEmail">New Email:</label>
+              <div class="modify-control">
+                <input type="email" id="newEmail" placeholder="example@example.com" readonly>
+                <button type="button" onclick="enableEmailInput()">Modify Email</button>
+              </div>
+            </div>
+            <div class="input-container">
+              <label for="newPhoneNumber">New Phone Number:</label>
+              <div class="modify-control">
+                <input type="tel" id="newPhoneNumber" placeholder="123-456-7890" readonly>
+                <button type="button" onclick="enablePhoneNumberInput()">Modify Phone Number</button>
+              </div>
+            </div>
+            <div class="input-container">
+              <label for="newPassword">New Password:</label>
+              <div class="modify-control">
+                <input type="password" id="newPassword" placeholder="New Password" readonly>
+                <button type="button" onclick="enablePasswordInput()">Modify Password</button>
+              </div>
+            </div>
+            <button type="button" onclick="saveChanges()">Save Changes</button>
+          </form>
+          <button id="closeModifyUser" onclick="closeModifyUserModal()">Close</button>
+        </div>
+      </dialog>
+
     <div class="hero-image"></div>
     <div class="filters">
       <button onclick="filterProducts('all')" class="button is-checked" data-filter="*">Kaikki</button>
