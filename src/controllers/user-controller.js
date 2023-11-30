@@ -1,5 +1,5 @@
 // src/controllers/user.controller.js
-import { createUser } from "../models/user.model.js";
+import { createUser } from "../models/user-model.js";
 
 const registerUser = (req, res) => {
   const { username, email, phoneNumber, password } = req.body;

@@ -1,5 +1,5 @@
-// src/controllers/product.controller.js
-import { getAllProducts } from "../models/product.model.js";
+// src/controllers/product-controller.js
+import { getAllProducts } from "../models/product-model.js";
 
 const fetchProducts = (req, res) => {
   getAllProducts((err, results) => {

@@ -3,8 +3,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import userRoutes from "./routes/user.routes.js";
-import productRoutes from "./routes/product.routes.js";
+import userRoutes from "./routes/user-routes.js";
+import productRoutes from "./routes/product-routes.js";
 
 const app = express();
 const port = 3000;
