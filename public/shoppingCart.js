@@ -45,8 +45,13 @@ checkoutBtn.addEventListener("click", async (e) => {
   }
 
   const mockOrderData = {
-    order_id: 1, // Replace with the actual orderId
-    product_id: 1, // Replace with the actual productId
+    order_id: 1,
+    products: [
+      { product_id: 1 },
+      { product_id: 2 },
+      { product_id: 3 },
+      // ... additional products
+    ],
   };
 
   try {

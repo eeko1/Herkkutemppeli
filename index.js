@@ -32,22 +32,24 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
 app.post("/api/checkout", (req, res) => {
-  const { order_id, product_id } = req.body;
+  const { order_id, products } = req.body;
 
   // Log the received request body for debugging
   console.log("Received request body:", req.body);
 
   // Assuming the Ticket table structure has columns order_id, product_id, and quantity
+  const values = products.map((product) => [order_id, product.product_id]);
+
   db.query(
-    "INSERT INTO Ticket (order_id, product_id) VALUES (?, ?)",
-    [order_id, product_id],
+    "INSERT INTO Ticket (order_id, product_id) VALUES ?",
+    [values],
     (err, results) => {
       if (err) {
-        console.error("Error inserting mock ticket data: ", err);
+        console.error("Error inserting ticket data: ", err);
         return res.status(500).send("Error during checkout: " + err.message);
       }
 
-      console.log("Mock ticket data inserted successfully!");
+      console.log("Ticket data inserted successfully!");
       res.sendStatus(200); // Send a success status
     }
   );
