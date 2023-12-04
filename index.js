@@ -1,7 +1,7 @@
 import express from "express";
 import mysql from "mysql";
 import path from "path";
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 
 // Create Express app
 const app = express();
@@ -11,7 +11,7 @@ const port = 3000;
 const db = mysql.createConnection({
   host: "localhost", // Replace with your host, often 'localhost'
   user: "root", // Replace with your database username, often 'root'
-  password: "RootWord1Salasana1", // Replace with your database password
+  password: "Rommikola77", // Replace with your database password
   database: "herkkutemppeli", // Replace with your database name
 });
 

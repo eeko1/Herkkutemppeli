@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "NODE_ENV=production node index.js",
-    "dev": "NODE_ENV=development nodemon index.js",
+    "dev": "set NODE_ENV=development && nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "reino",

@@ -8,12 +8,12 @@
       <link rel="stylesheet" href="./style/footer.css">
       <link rel="stylesheet" href="./style/cartDialog.css">
       <link rel="stylesheet" href="./style/registerLogin.css">
-      <script src="productsAdd.js" defer></script>
+      
       <script src="carousel.js" defer></script>
-      <script src="shoppingCart.js" defer></script>
       <script src="sorting.js" defer></script>
       <script src="nav.js" defer></script>
       <script src="loginRegister.js" defer></script>
+      <script src="shoppingCart.js" defer></script>
       <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""></script>
@@ -111,38 +111,10 @@
     
     
         <ul id="product-list">
-          <li class="items">
-            <div>kuva</div>
-            <div>Product 1 - $10</div>
-                    <div class="quantity-controls">
-              <button class="quantity-btn">-</button>
-              <span class="quantity">1</span>
-              <button class="quantity-btn">+</button>
-            </div>
-          </li>
-          <li class="items">
-            <div>kuva2</div>
-            <div>Product 2 - $20</div>
-            <div class="quantity-controls">
-              <button class="quantity-btn">-</button>
-              <span class="quantity">1</span>
-              <button class="quantity-btn">+</button>
-            </div>
-          </li>
-          <li class="items">
-            <div>kuva3</div>
-            <div>Product 3 - $30</div>
-            <div class="quantity-controls">
-              <button class="quantity-btn">-</button>
-              <span class="quantity">1</span>
-              <button class="quantity-btn">+</button>
-            </div>
-          </li>
+
         </ul>
     
-    <div class="cartFee">
-      Transport fee: 5€
-    </div>
+
     <label for="couponCode">Coupon Code:</label>
     <div class="coupon">
       <div>
@@ -158,11 +130,18 @@
     </div>
   </div>
 
-
+  <div class="cartFee">
+    Transport fee: 5€
+  </div>
+  <div id="total-cost">Total Cost: 0.00€</div>
 
 </div>
+
+
 <div class="dialogButtons">
   <div class="dialogClose" onclick="document.querySelector('dialog').close()">X</div>
+  
+  
   <button id="checkout-btn">Checkout</button>
 </div>
 </dialog>
