@@ -1,18 +1,17 @@
-// src/models/user.model.js
-import db from "../config/database.js";
-import bcrypt from "bcryptjs";
+import pool from "../config/database.js";
 
-const createUser = (user, callback) => {
-  bcrypt.hash(user.password, 10, (err, hashedPassword) => {
-    if (err) return callback(err);
+async function findByEmail(email) {
+  const [rows] = await pool.query("SELECT * FROM Users WHERE email = ?", [
+    email,
+  ]);
+  return rows[0];
+}
 
-    const query = `INSERT INTO Users (fullname, password, email, phonenumber, profile_picture, user_level_id) VALUES (?, ?, ?, ?, 'default.jpg', 1)`;
-    db.query(
-      query,
-      [user.username, hashedPassword, user.email, user.phoneNumber],
-      callback
-    );
-  });
-};
+async function create(username, email, phoneNumber, hashedPassword) {
+  await pool.query(
+    'INSERT INTO Users (fullname, password, email, phonenumber, profile_picture, user_level_id) VALUES (?, ?, ?, ?, "default.png", 1)',
+    [username, hashedPassword, email, phoneNumber]
+  );
+}
 
-export { createUser };
+export default { findByEmail, create };

@@ -14,6 +14,8 @@
       <script src="./js/nav.js" defer></script>
       <script src="./js/footerMap.js" defer></script>
       <script src="./js/loginRegister.js" defer></script>
+      <script src="/js/register.js" defer></script>
+      <script src="/js/login.js" defer></script>
       <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""></script>
@@ -45,7 +47,7 @@
             <button id="signupTab" class="tab" onclick="switchTab(event, 'signup')">Signup</button>
           </div>
           <div id="loginInput" class="tab-content glass-frame-content">
-            <form>
+            <form id="loginForm">
               <input type="email" placeholder="Email" required>
               <input type="password" placeholder="Password" pattern=".{6,}" title="Password must be at least 6 characters" required>
               <button type="submit">Login</button>
