@@ -38,14 +38,38 @@ const closeShoppingCartDialog = (e) => {
 
 openDialogBtn.addEventListener("click", openShoppingCartDialog);
 closeDialogBtn.addEventListener("click", closeShoppingCartDialog);
-checkoutBtn.addEventListener("click", (e) => {
+checkoutBtn.addEventListener("click", async (e) => {
   if (totalCost === 0) {
     alert("You need to add products to the shopping cart first!");
     return;
-  } else {
-    console.log("Checkout button clicked!");
-    closeShoppingCartDialog(e);
-    clearShoppingCart();
+  }
+
+  const mockOrderData = {
+    order_id: 1, // Replace with the actual orderId
+    product_id: 1, // Replace with the actual productId
+  };
+
+  try {
+    // Send a POST request to your server with mock order data
+    const response = await fetch("/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(mockOrderData),
+    });
+
+    if (response.ok) {
+      console.log("Checkout successful!");
+      closeShoppingCartDialog(e);
+      clearShoppingCart();
+    } else {
+      console.error("Checkout failed");
+      // Handle the error
+    }
+  } catch (error) {
+    console.error("Error during checkout:", error);
+    // Handle the error
   }
 });
 

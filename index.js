@@ -29,7 +29,29 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
 
+app.post("/api/checkout", (req, res) => {
+  const { order_id, product_id } = req.body;
+
+  // Log the received request body for debugging
+  console.log("Received request body:", req.body);
+
+  // Assuming the Ticket table structure has columns order_id, product_id, and quantity
+  db.query(
+    "INSERT INTO Ticket (order_id, product_id) VALUES (?, ?)",
+    [order_id, product_id],
+    (err, results) => {
+      if (err) {
+        console.error("Error inserting mock ticket data: ", err);
+        return res.status(500).send("Error during checkout: " + err.message);
+      }
+
+      console.log("Mock ticket data inserted successfully!");
+      res.sendStatus(200); // Send a success status
+    }
+  );
+});
 // API endpoint to get products from the database
 app.get("/api/products", (req, res) => {
   db.query(
