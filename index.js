@@ -46,6 +46,7 @@ app.post("/api/orders", async (req, res) => {
       }
 
       console.log("Order data inserted successfully!");
+      res.status(200).send("Order created successfully!"); // Add this line
     }
   );
 });

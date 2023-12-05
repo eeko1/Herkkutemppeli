@@ -54,51 +54,48 @@ checkoutBtn.addEventListener("click", async (e) => {
   };
 
   try {
-    // Send a POST request to your server with mock order data
-    const response = await fetch("/api/checkout", {
+    // Send a POST request to create an order in the database
+    const orderResponse = await fetch("/api/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(mockOrderData),
+      body: JSON.stringify({
+        order_id: mockOrderData.order_id,
+      }),
     });
 
-    if (response.ok) {
-      console.log("Checkout successful!");
+    if (orderResponse.ok) {
+      console.log("Order created successfully!");
 
-      closeShoppingCartDialog(e);
-      clearShoppingCart();
-      cartIds = [];
+      // Now that the order is created, proceed with checkout
+      const checkoutResponse = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(mockOrderData),
+      });
+
+      if (checkoutResponse.ok) {
+        console.log("Checkout and ticket creation successful!");
+        closeShoppingCartDialog(e);
+        clearShoppingCart();
+        cartIds = [];
+        alert("We have succesfully received your order!");
+      } else {
+        console.error("Checkout failed");
+        // Handle the checkout error
+      }
     } else {
-      console.error("Checkout failed");
-      // Handle the error
+      console.error("Order creation failed");
+      // Handle the order creation error
     }
   } catch (error) {
     console.error("Error during checkout:", error);
     // Handle the error
   }
 });
-
-async function createOrderInDatabase(orderId) {
-  try {
-    const response = await fetch("/api/orders", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        order_id: orderId,
-      }),
-    });
-    if (response.ok) {
-      console.log("Order created successfully!");
-    } else {
-      console.error("Order creation failed");
-    }
-  } catch (error) {
-    console.error("Error creating order:", error);
-  }
-}
 
 function searchItemId() {
   console.log(allProducts);

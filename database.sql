@@ -140,8 +140,8 @@ VALUES
 
 
 -- Insert data into Orders table
-INSERT INTO Orders (user_id, order_id, order_date)
+/* INSERT INTO Orders (user_id, order_id, order_date)
 VALUES
 (2, 1, '2023-11-10 12:34:56'),
 (3, 2, '2023-11-11 09:45:23'),
-(2, 3, '2023-11-12 15:22:11');
+(2, 3, '2023-11-12 15:22:11'); */
