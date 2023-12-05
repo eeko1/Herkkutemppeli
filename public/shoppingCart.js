@@ -3,12 +3,15 @@ const openDialogBtn = document.getElementById("open_dialog");
 const closeDialogBtn = shoppingCartDialog.querySelector(".dialogClose");
 const checkoutBtn = shoppingCartDialog.querySelector("#checkout-btn");
 let totalCost = 0;
+let cartIds = [];
+let currentOrderId = 1;
 
 const elements = shoppingCartDialog.querySelectorAll(
   'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
 );
 const firstElement = elements[0];
 const lastElement = elements[elements.length - 1];
+document.addEventListener("DOMContentLoaded", fetchAllProducts);
 
 const trapFocus = (e) => {
   if (e.key === "Tab") {
@@ -39,19 +42,15 @@ const closeShoppingCartDialog = (e) => {
 openDialogBtn.addEventListener("click", openShoppingCartDialog);
 closeDialogBtn.addEventListener("click", closeShoppingCartDialog);
 checkoutBtn.addEventListener("click", async (e) => {
+  searchItemId();
   if (totalCost === 0) {
     alert("You need to add products to the shopping cart first!");
     return;
   }
 
   const mockOrderData = {
-    order_id: 1,
-    products: [
-      { product_id: 1 },
-      { product_id: 2 },
-      { product_id: 3 },
-      // ... additional products
-    ],
+    order_id: currentOrderId++,
+    products: cartIds,
   };
 
   try {
@@ -66,8 +65,10 @@ checkoutBtn.addEventListener("click", async (e) => {
 
     if (response.ok) {
       console.log("Checkout successful!");
+
       closeShoppingCartDialog(e);
       clearShoppingCart();
+      cartIds = [];
     } else {
       console.error("Checkout failed");
       // Handle the error
@@ -77,6 +78,70 @@ checkoutBtn.addEventListener("click", async (e) => {
     // Handle the error
   }
 });
+
+async function createOrderInDatabase(orderId) {
+  try {
+    const response = await fetch("/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        order_id: orderId,
+      }),
+    });
+    if (response.ok) {
+      console.log("Order created successfully!");
+    } else {
+      console.error("Order creation failed");
+    }
+  } catch (error) {
+    console.error("Error creating order:", error);
+  }
+}
+
+function searchItemId() {
+  console.log(allProducts);
+  let productList = document.getElementById("product-list");
+  let items = productList.querySelectorAll(".items");
+
+  items.forEach((item) => {
+    let cartDetailsDiv = item.querySelector(".cartDetailsDiv");
+    let itemName = cartDetailsDiv.textContent.trim().split(" - ")[0];
+
+    let matchingItems = allProducts.filter(
+      (product) => product.product_name === itemName
+    );
+
+    matchingItems.forEach((matchingItem) => {
+      for (
+        let i = 0;
+        i < parseInt(item.querySelector(".quantity").textContent);
+        i++
+      ) {
+        cartIds.push({ product_id: matchingItem.product_id });
+      }
+    });
+  });
+  console.log(cartIds);
+}
+
+function fetchAllProducts() {
+  fetch("http://localhost:3000/api/products")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((products) => {
+      allProducts = products;
+    })
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+      displayErrorMessage();
+    });
+}
 
 function createProductHTML(product) {
   return `

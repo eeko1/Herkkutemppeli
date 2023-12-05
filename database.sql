@@ -44,7 +44,7 @@ CREATE TABLE Coupons (
 
 CREATE TABLE Orders (
   order_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  user_id INT NOT NULL,
+  user_id INT,
   status VARCHAR(255) NOT NULL DEFAULT 'pending',
   order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES Users(user_id)

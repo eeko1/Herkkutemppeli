@@ -31,6 +31,25 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
+app.post("/api/orders", async (req, res) => {
+  const { order_id } = req.body;
+
+  const values = [order_id];
+
+  db.query(
+    "INSERT INTO Orders (order_id) VALUES (?)",
+    [values],
+    (err, results) => {
+      if (err) {
+        console.error("Error inserting order data: ", err);
+        return res.status(500).send("Error during checkout: " + err.message);
+      }
+
+      console.log("Order data inserted successfully!");
+    }
+  );
+});
+
 app.post("/api/checkout", (req, res) => {
   const { order_id, products } = req.body;
 
