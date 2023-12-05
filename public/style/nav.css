@@ -91,7 +91,7 @@ nav {
 .slide {
   position: relative;
   width: 100%;
-  background-image: url(image/heroimg.jpg);
+  background-image: url(../image/heroimg.jpg);
   background-size: cover;
   background-position: center;
   height: 95vh;
@@ -103,13 +103,13 @@ nav {
 
 
 .slide1 {
-  background-image: url(image/heroimg.jpg);
+  background-image: url(../image/heroimg.jpg);
 }
 .slide2 {
-  background-image: url(image/heroimg2.jpg);
+  background-image: url(../image/heroimg2.jpg);
 }
 .slide3 {
-  background-image: url(image/heroimg3.jpg);
+  background-image: url(../image/heroimg3.jpg);
 }
 
 @media screen and (max-width: 530px) {
