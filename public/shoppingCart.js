@@ -48,13 +48,17 @@ checkoutBtn.addEventListener("click", async (e) => {
     return;
   }
 
+  const latestOrderResponse = await fetch("/api/latest-order-id");
+  const latestOrderData = await latestOrderResponse.json();
+  const latestOrderId = latestOrderData.latestOrderId + 1;
   const mockOrderData = {
-    order_id: currentOrderId++,
+    order_id: latestOrderId,
     products: cartIds,
   };
 
   try {
     // Send a POST request to create an order in the database
+
     const orderResponse = await fetch("/api/orders", {
       method: "POST",
       headers: {

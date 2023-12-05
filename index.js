@@ -31,6 +31,21 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
+app.get("/api/latest-order-id", (req, res) => {
+  db.query(
+    "SELECT MAX(order_id) AS latest_order_id FROM Orders",
+    (err, results) => {
+      if (err) {
+        return res
+          .status(500)
+          .send("Error fetching latest order ID from database");
+      }
+      const latestOrderId = results[0].latest_order_id || 0;
+      res.json({ latestOrderId });
+    }
+  );
+});
+
 app.post("/api/orders", async (req, res) => {
   const { order_id } = req.body;
 
