@@ -30,6 +30,7 @@ document
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.token);
+        localStorage.setItem("username", data.username); // Store the username
         alert("Logged in successfully");
       } else {
         alert("Invalid credentials");
@@ -40,15 +41,9 @@ document
     }
   });
 
-function updateNavbarWithUser() {
+document.addEventListener("DOMContentLoaded", () => {
   const username = localStorage.getItem("username");
   if (username) {
-    const userItem = document.createElement("li");
-    userItem.className = "navli";
-    userItem.textContent = username; // Display the username
-    document.querySelector(".navul").appendChild(userItem);
+    document.getElementById("navbarUsername").textContent = username;
   }
-}
-
-// Call this function on page load to check if the user is already logged in
-document.addEventListener("DOMContentLoaded", updateNavbarWithUser);
+});
