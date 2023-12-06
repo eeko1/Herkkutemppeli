@@ -9,7 +9,6 @@ import productRoutes from "./routes/product-routes.js";
 const app = express();
 const port = 3000;
 
-// Derive __dirname in ES6 modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const publicDirectoryPath = path.join(__dirname, "..", "public");

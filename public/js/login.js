@@ -31,7 +31,6 @@ document
         const data = await response.json();
         localStorage.setItem("token", data.token);
         alert("Logged in successfully");
-        // Additional actions upon successful login (e.g., redirect)
       } else {
         alert("Invalid credentials");
       }
@@ -40,3 +39,16 @@ document
       alert("An error occurred while logging in");
     }
   });
+
+function updateNavbarWithUser() {
+  const username = localStorage.getItem("username");
+  if (username) {
+    const userItem = document.createElement("li");
+    userItem.className = "navli";
+    userItem.textContent = username; // Display the username
+    document.querySelector(".navul").appendChild(userItem);
+  }
+}
+
+// Call this function on page load to check if the user is already logged in
+document.addEventListener("DOMContentLoaded", updateNavbarWithUser);
