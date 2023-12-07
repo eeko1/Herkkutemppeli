@@ -29,5 +29,13 @@ const closeRegisterDialog = (e) => {
   openRegisterBtn.focus();
 };
 
+function switchTab(event, tabName) {
+  const tabContent = document.getElementsByClassName("tab-content");
+  for (let i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = "none";
+  }
+  document.getElementById(tabName).style.display = "block";
+}
+
 openRegisterBtn.addEventListener("click", openRegisterDialog);
 closeRegisterBtn.addEventListener("click", closeRegisterDialog);
