@@ -31,13 +31,7 @@ CREATE TABLE Products (
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Ticket (
-  ticket_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  order_id INT NOT NULL,
-  product_id INT NOT NULL,
-  FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-  FOREIGN KEY (product_id) REFERENCES Products(product_id)
-);
+
 
 CREATE TABLE Coupons (
   coupon_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -50,10 +44,19 @@ CREATE TABLE Coupons (
 
 CREATE TABLE Orders (
   order_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  user_id INT NOT NULL,
-  status VARCHAR(255) NOT NULL,
+  user_id INT,
+  status VARCHAR(255) NOT NULL DEFAULT 'pending',
   order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES Users(user_id),
+  FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+
+CREATE TABLE Ticket (
+  ticket_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  order_id INT NOT NULL,
+  product_id INT NOT NULL,
+  FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+  FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
 -- insert data
@@ -137,8 +140,8 @@ VALUES
 
 
 -- Insert data into Orders table
-INSERT INTO Orders (user_id, product_id, quantity, order_date)
+/* INSERT INTO Orders (user_id, order_id, order_date)
 VALUES
-(2, 1, 2, '2023-11-10 12:34:56'),
-(3, 2, 1, '2023-11-11 09:45:23'),
-(2, 3, 3, '2023-11-12 15:22:11');
+(2, 1, '2023-11-10 12:34:56'),
+(3, 2, '2023-11-11 09:45:23'),
+(2, 3, '2023-11-12 15:22:11'); */
