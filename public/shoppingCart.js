@@ -50,10 +50,12 @@ checkoutBtn.addEventListener("click", async (e) => {
 
   const latestOrderResponse = await fetch("/api/latest-order-id");
   const latestOrderData = await latestOrderResponse.json();
+  const orderUserId = getOrderUserId();
   const latestOrderId = latestOrderData.latestOrderId + 1;
-  const mockOrderData = {
+  const orderData = {
     order_id: latestOrderId,
     products: cartIds,
+    user_id: orderUserId,
   };
 
   try {
@@ -65,7 +67,8 @@ checkoutBtn.addEventListener("click", async (e) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        order_id: mockOrderData.order_id,
+        order_id: orderData.order_id,
+        user_id: orderData.user_id,
       }),
     });
 
@@ -78,7 +81,7 @@ checkoutBtn.addEventListener("click", async (e) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(mockOrderData),
+        body: JSON.stringify(orderData),
       });
 
       if (checkoutResponse.ok) {
@@ -100,6 +103,12 @@ checkoutBtn.addEventListener("click", async (e) => {
     // Handle the error
   }
 });
+
+function getOrderUserId() {
+  let userId = localStorage.getItem("userId");
+  console.log(userId);
+  return userId;
+}
 
 function searchItemId() {
   console.log(allProducts);

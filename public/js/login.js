@@ -31,6 +31,8 @@ document
         const data = await response.json();
         localStorage.setItem("token", data.token);
         localStorage.setItem("username", data.username); // Store the username
+        localStorage.setItem("userId", data.userId); // Store the user ID
+
         alert("Logged in successfully");
       } else {
         alert("Invalid credentials");
