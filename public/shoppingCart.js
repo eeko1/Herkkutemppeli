@@ -4,7 +4,6 @@ const closeDialogBtn = shoppingCartDialog.querySelector(".dialogClose");
 const checkoutBtn = shoppingCartDialog.querySelector("#checkout-btn");
 let totalCost = 0;
 let cartIds = [];
-let currentOrderId = 1;
 
 const elements = shoppingCartDialog.querySelectorAll(
   'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
