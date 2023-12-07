@@ -1,13 +1,12 @@
-// src/controllers/product-controller.js
 import { getAllProducts } from "../models/product-model.js";
 
-const fetchProducts = (req, res) => {
-  getAllProducts((err, results) => {
-    if (err) {
-      return res.status(500).send("Error fetching products from database");
-    }
+const fetchProducts = async (req, res) => {
+  try {
+    const results = await getAllProducts();
     res.json(results);
-  });
+  } catch (err) {
+    res.status(500).send("Error fetching products from database");
+  }
 };
 
 export { fetchProducts };

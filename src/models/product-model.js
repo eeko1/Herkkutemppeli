@@ -1,8 +1,10 @@
-// src/models/product.model.js
 import db from "../config/database.js";
 
-const getAllProducts = (callback) => {
-  db.query("SELECT * FROM Products ORDER BY product_category_id ASC", callback);
+const getAllProducts = async () => {
+  const [rows] = await db.query(
+    "SELECT * FROM Products ORDER BY product_category_id ASC"
+  );
+  return rows;
 };
 
 export { getAllProducts };
