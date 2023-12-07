@@ -144,7 +144,7 @@ function fetchAllProducts() {
     });
 }
 
-function createProductHTML(product) {
+/* function createProductHTML(product) {
   return `
     <section class="product">
       <img src="./style/image/${
@@ -161,7 +161,7 @@ function createProductHTML(product) {
       </div>
     </section>
   `;
-}
+} */
 
 function clearShoppingCart() {
   const productList = document.getElementById("product-list");
