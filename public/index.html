@@ -8,14 +8,14 @@
       <link rel="stylesheet" href="./style/footer.css">
       <link rel="stylesheet" href="./style/cartDialog.css">
       <link rel="stylesheet" href="./style/registerLogin.css">
-      <link rel="stylesheet" href="./style/userModification.css">
-      <script src="productsAdd.js" defer></script>
-      <script src="carousel.js" defer></script>
+      <script src="./js/products.js" defer></script>
+      <script src="./js/carousel.js" defer></script>
       <script src="shoppingCart.js" defer></script>
-      <script src="sorting.js" defer></script>
-      <script src="nav.js" defer></script>
-      <script src="loginRegister.js" defer></script>
-      <script src="userModification.js" defer></script>
+      <script src="./js/nav.js" defer></script>
+      <script src="./js/footerMap.js" defer></script>
+      <script src="./js/loginRegister.js" defer></script>
+      <script src="/js/register.js" defer></script>
+      <script src="/js/login.js" defer></script>
       <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""></script>
@@ -29,10 +29,11 @@
     <nav>
       <ul class="navul">
         <li class="navli">
-         <li class="navli"><img src="style/image/herkkutemppeli.png" alt="" class="logo"></li>
+         <li class="navli"><img src="./image/herkkutemppeli.png" alt="" class="logo"></li>
         </li>
-        <li class="navli"><a class="navitem" id="productsbtn">Products</a></li>
-        <li class="navli"><a class="navitem" id="aboutus">About Us</a></li>
+        <li class="navli"><a class="navitem" id="productsbtn">Tuotteet</a></li>
+        <li class="navli"><a class="navitem" id="aboutus">Tietoa meistä</a></li>
+        <span id="navbarUsername" class="navli"></span>
         <li id="open_dialog" class="navli"><i class="fa-solid fa-cart-shopping fa-xl"></i></li>
         <li id="open_register" class="navli"><i class="fa-solid fa-user fa-2xl"></i></li>
       </ul>
@@ -41,13 +42,13 @@
     <dialog id="registerSignup">
       <div class="container">
         <div class="glass-frame">
-          <h1 id="welcomeHeading">Welcome!</h1>
+          <h1 id="welcomeHeading">Tervetuloa!</h1>
           <div class="tabs">
             <button id="loginTab" class="tab" onclick="switchTab(event, 'loginInput')">Login</button>
             <button id="signupTab" class="tab" onclick="switchTab(event, 'signup')">Signup</button>
           </div>
           <div id="loginInput" class="tab-content glass-frame-content">
-            <form>
+            <form id="loginForm">
               <input type="email" placeholder="Email" required>
               <input type="password" placeholder="Password" pattern=".{6,}" title="Password must be at least 6 characters" required>
               <button type="submit">Login</button>
@@ -70,29 +71,41 @@
 
     <dialog id="modifyUserModal">
       <div class="glass-frame">
-          <h1>Modify User</h1>
-          <form>
-              <div class="input-container">
-                  <label for="newUsername">Username:</label>
-                  <input type="text" id="newUsername" placeholder="Example Username">
-              </div>
-              <div class="input-container">
-                  <label for="newEmail">New Email:</label>
-                  <input type="email" id="newEmail" placeholder="example@example.com">
-              </div>
-              <div class="input-container">
-                  <label for="newPhoneNumber">New Phone Number:</label>
-                  <input type="tel" id="newPhoneNumber" placeholder="123-456-7890">
-              </div>
-              <div class="input-container">
-                  <label for="newPassword">New Password:</label>
-                  <input type="password" id="newPassword" placeholder="New Password">
-              </div>
-              <button type="button" onclick="modifyAllFields()">Modify All</button>
-              <button id="closeModifyUser" onclick="closeModifyUserModal()">X</button>
-          </form>
+        <h1>Modify User</h1>
+        <form>
+          <div class="input-container">
+            <label for="newUsername">New Username:</label>
+            <div class="modify-control">
+              <input type="text" id="newUsername" placeholder="Example Username" readonly>
+              <button type="button" onclick="enableUsernameInput()">Modify Username</button>
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="newEmail">New Email:</label>
+            <div class="modify-control">
+              <input type="email" id="newEmail" placeholder="example@example.com" readonly>
+              <button type="button" onclick="enableEmailInput()">Modify Email</button>
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="newPhoneNumber">New Phone Number:</label>
+            <div class="modify-control">
+              <input type="tel" id="newPhoneNumber" placeholder="123-456-7890" readonly>
+              <button type="button" onclick="enablePhoneNumberInput()">Modify Phone Number</button>
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="newPassword">New Password:</label>
+            <div class="modify-control">
+              <input type="password" id="newPassword" placeholder="New Password" readonly>
+              <button type="button" onclick="enablePasswordInput()">Modify Password</button>
+            </div>
+          </div>
+          <button type="button" onclick="saveChanges()">Save Changes</button>
+        </form>
+        <button id="closeModifyUser" onclick="closeModifyUserModal()">Close</button>
       </div>
-  </dialog>
+    </dialog>
 
     <dialog id="shoppingCartDialog" class="cartdialog">
       <div id="dialogContent">
@@ -101,38 +114,10 @@
     
     
         <ul id="product-list">
-          <li class="items">
-            <div>kuva</div>
-            <div>Product 1 - $10</div>
-                    <div class="quantity-controls">
-              <button class="quantity-btn">-</button>
-              <span class="quantity">1</span>
-              <button class="quantity-btn">+</button>
-            </div>
-          </li>
-          <li class="items">
-            <div>kuva2</div>
-            <div>Product 2 - $20</div>
-            <div class="quantity-controls">
-              <button class="quantity-btn">-</button>
-              <span class="quantity">1</span>
-              <button class="quantity-btn">+</button>
-            </div>
-          </li>
-          <li class="items">
-            <div>kuva3</div>
-            <div>Product 3 - $30</div>
-            <div class="quantity-controls">
-              <button class="quantity-btn">-</button>
-              <span class="quantity">1</span>
-              <button class="quantity-btn">+</button>
-            </div>
-          </li>
+
         </ul>
     
-    <div class="cartFee">
-      Transport fee: 5€
-    </div>
+
     <label for="couponCode">Coupon Code:</label>
     <div class="coupon">
       <div>
@@ -148,11 +133,18 @@
     </div>
   </div>
 
-
+  <div class="cartFee">
+    Transport fee: 5€
+  </div>
+  <div id="total-cost">Total Cost: 0.00€</div>
 
 </div>
+
+
 <div class="dialogButtons">
   <div class="dialogClose" onclick="document.querySelector('dialog').close()">X</div>
+  
+  
   <button id="checkout-btn">Checkout</button>
 </div>
 </dialog>
@@ -190,29 +182,33 @@
 
 
     <div class="filters">
-      <button onclick="filterProducts('all')" class="navbutton is-checked" data-filter="*">All</button>
-      <button onclick="filterProducts(1)" class="navbutton" data-filter=".salad">Salads</button>
-      <button onclick="filterProducts(2)" class="navbutton" data-filter=".bagel">Bagels</button>
-      <button onclick="filterProducts(3)" class="navbutton" data-filter=".croissant">Croissants</button>
-      <button onclick="filterProducts(4)" class="navbutton" data-filter=".muffin">Muffins</button>
-      <button onclick="filterProducts(5)" class="navbutton" data-filter=".donut">Donuts</button>
-      <button onclick="filterProducts(6)" class="navbutton" data-filter=".drink">Drinks</button>
+      <button onclick="filterProducts('all')" class="navbutton is-checked" data-filter="*">Kaikki</button>
+      <button onclick="filterProducts(1)" class="navbutton" data-filter=".salaatti">Salaatit</button>
+      <button onclick="filterProducts(2)" class="navbutton" data-filter=".bagel">Bagel</button>
+      <button onclick="filterProducts(3)" class="navbutton" data-filter=".kroisantti">Kroisantit</button>
+      <button onclick="filterProducts(4)" class="navbutton" data-filter=".muffinssi">Muffinsit</button>
+      <button onclick="filterProducts(5)" class="navbutton" data-filter=".donitsi">Donitsit</button>
+      <button onclick="filterProducts(6)" class="navbutton" data-filter=".juoma">Juomat</button>
     </div>
     <section class="products">
-      <h2>Products</h2>
+      <h2>Tuotteet</h2>
       <div id="productsContainer">
         <p id="loadingMessage">Loading products...</p>
       </div>
     </section>
     <footer class="footer">
         <div class="footer_info">
-          <h2>About Us</h2>
-            <p>Herkkutemppeli started in 2023 when Reino, a passionate coffee enthusiast, envisioned a creative and inspiring place to share love for great coffee and delicious pastries. The vision was to create a welcoming space where every customer could enjoy high-quality products.</p>
-            <p>Quality is at the core of everything for us. We carefully select our ingredients and focus on skilled craftsmanship to offer you the best flavors in every product. Additionally, we are committed to responsibility and environmental friendliness, aiming to minimize our carbon footprint and support fair trade.</p>
-            <p>Feel free to reach out if you have any questions or feedback. You can contact us via email at feedback@herkkutemppeli.fi or by phone at 010 1122 334. We hope you enjoy being a Herkkutemppeli customer and that we can provide you with the best café experiences!</p>
+            <h2>Tietoa Meistä</h2>
+            <p>Herkkutemppeli sai alkunsa vuonna 2023, kun intohimoisena kahvinystävänä perustaja Reino haaveili luovasta ja inspiroivasta paikasta, jossa jaettaisiin rakkautta hyvään
+                kahviin ja herkullisiin leivonnaisiin. Visiona oli luoda paikka, jossa jokainen asiakas voisi tuntea itsensä tervetulleeksi ja nauttia korkealaatuisista tuotteista.
+            </p>
+            <p>Meille laatu on kaiken perusta. Käytämme huolella valittuja raaka-aineita ja panostamme ammattitaitoiseen valmistukseen, jotta voimme tarjota sinulle parhaat mahdolliset maut jokaisessa tuotteessamme.
+                Lisäksi olemme sitoutuneet vastuullisuuteen ja ympäristöystävällisyyteen. Pyrimme minimoimaan hiilijalanjälkemme ja tuemme reilua kauppaa.</p>
+                <p>Ota rohkeasti yhteyttä, jos sinulla on kysyttävää tai palautetta. Voit ottaa meihin yhteyttä sähköpostitse osoitteeseen 
+                    asiakaspalaute@herkkutemppeli.fi tai puhelimitse numeroon 010 1122 334. Toivomme, että viihdyt Herkkutemppelin asiakkaana ja että voimme tarjota sinulle parhaita kahvila-elämyksiä!</p>
         </div>
         <div class="footer_location">
-            <h2>Locations</h2>
+            <h2>Sijainti</h2>
             <div id="map"></div>
             <script src="footerMap.js"></script>
         </div>
