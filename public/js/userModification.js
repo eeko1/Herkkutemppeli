@@ -33,39 +33,40 @@ function modifyPassword() {
   const newPasswordInput = document.getElementById("newPassword");
 }
 
-function modifyAllFields() {
+async function modifyAllFields() {
   const newUsername = document.getElementById('newUsername').value;
   const newEmail = document.getElementById('newEmail').value;
   const newPhoneNumber = document.getElementById('newPhoneNumber').value;
   const newPassword = document.getElementById('newPassword').value;
 
-  const userData = {
+  const formData = {
     newUsername,
     newEmail,
     newPhoneNumber,
     newPassword
   };
 
-  fetch('/updateUser', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(userData)
-  })
-  .then(response => {
+  try {
+    const response = await fetch('/user/update', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
     if (response.ok) {
-      console.log('User information updated successfully');
-      // Optionally, perform any UI updates or actions upon successful update
+      alert('User information updated successfully');
+      // Additional actions upon successful update
     } else {
-      console.error('Failed to update user information');
+      alert('Error updating user information');
     }
-  })
-  .catch(error => {
-    console.error('Error updating user:', error);
-  });
+  } catch (error) {
+    console.error('Error during fetch operation:', error);
+    alert('An error occurred while updating user information');
+  }
 }
 
 function saveChanges() {
-  modifyAllFields(); // You can call modifyAllFields function here if needed
+  modifyAllFields();
 }

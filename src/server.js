@@ -91,6 +91,22 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
+app.post("/user/update", async (req, res) => {
+  try {
+    const { newUsername, newEmail, newPhoneNumber, newPassword } = req.body;
+
+    const updateUserQuery =
+      "UPDATE Users SET email = ?, phonenumber = ?, password = ? WHERE fullname = ?";
+    
+    await pool.query(updateUserQuery, [newEmail, newPhoneNumber, newPassword, newUsername]);
+
+    res.status(200).send("User information updated successfully");
+  } catch (err) {
+    console.error("Error updating user information:", err);
+    res.status(500).send("Error updating user information");
+  }
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
