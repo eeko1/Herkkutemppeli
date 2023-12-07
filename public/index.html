@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="./style/nav.css" />
-      <link rel="stylesheet" href="./style/products.css">
-      <link rel="stylesheet" href="./style/footer.css">
-      <link rel="stylesheet" href="./style/cartDialog.css">
-      <link rel="stylesheet" href="./style/registerLogin.css">
-      <link rel="stylesheet" href="./style/userModification.css">
-      <script src="./js/products.js" defer></script>
-      <script src="./js/carousel.js" defer></script>
-      <script src="shoppingCart.js" defer></script>
-      <script src="./js/nav.js" defer></script>
-      <script src="./js/footerMap.js" defer></script>
-      <script src="./js/loginRegister.js" defer></script>
-      <script src="/js/register.js" defer></script>
-      <script src="/js/login.js" defer></script>
-      <script src="./js/userModification.js" defer></script>
-      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/nav.css" />
+    <link rel="stylesheet" href="./style/products.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/cartDialog.css">
+    <link rel="stylesheet" href="./style/registerLogin.css">
+    <link rel="stylesheet" href="./style/userModification.css">
+    <script src="./js/products.js" defer></script>
+    <script src="./js/carousel.js" defer></script>
+    <script src="shoppingCart.js" defer></script>
+    <script src="./js/nav.js" defer></script>
+    <script src="./js/footerMap.js" defer></script>
+    <script src="./js/loginRegister.js" defer></script>
+    <script src="/js/register.js" defer></script>
+    <script src="/js/login.js" defer></script>
+    <script src="./js/userModification.js" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""></script>
-      <script src="https://kit.fontawesome.com/faad1f5588.js" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin="">
+    </script>
+    <script src="https://kit.fontawesome.com/faad1f5588.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""/>
-      <title>Herkkutemppeli</title>
-    </head>
+    <title>Herkkutemppeli</title>
+  </head>
   <body>
+    <!-- Navigation -->
     <nav>
       <ul class="navul">
         <li class="navli">
-         <li class="navli"><img src="./image/herkkutemppeli.png" alt="Herkkutemppeli-logo" class="logo"></li>
+          <li class="navli"><img src="./image/herkkutemppeli.png" alt="Herkkutemppeli-logo" class="logo"></li>
         </li>
         <li class="navli"><a class="navitem" id="productsbtn">Products</a></li>
         <li class="navli"><a class="navitem" id="aboutus">About Us</a></li>
@@ -40,7 +42,64 @@
         <li id="open_register" class="navli"><i class="fa-solid fa-user fa-2xl"></i></li>
       </ul>
     </nav>
-
+    <!-- Hero -->
+    <div class="hero-image">
+      <div class="slideshow-container">
+        <div class="slide slide1"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+        <div class="buttons">
+          <button class="prev" onclick="changeSlide(-1)">
+            <i class="fa-solid fa-angle-left fa-2xl"></i>
+          </button>
+          <button class="next" onclick="changeSlide(1)">
+            <i class="fa-solid fa-angle-right fa-2xl"></i>
+          </button>
+        </div>
+        <div class="dots">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+      </div>
+    </div>
+    <!-- Products sorting -->
+    <div class="filters">
+      <button onclick="filterProducts('all')" class="navbutton is-checked" data-filter="*">All</button>
+      <button onclick="filterProducts(1)" class="navbutton" data-filter=".salad">Salads</button>
+      <button onclick="filterProducts(2)" class="navbutton" data-filter=".bagel">Bagels</button>
+      <button onclick="filterProducts(3)" class="navbutton" data-filter=".croissant">Croissants</button>
+      <button onclick="filterProducts(4)" class="navbutton" data-filter=".muffin">Muffins</button>
+      <button onclick="filterProducts(5)" class="navbutton" data-filter=".donut">Donuts</button>
+      <button onclick="filterProducts(6)" class="navbutton" data-filter=".drink">Drinks</button>      
+    </div>
+    <!-- Products -->
+    <section class="products">
+      <h2>Products</h2>
+      <div id="productsContainer">
+        <p id="loadingMessage">Loading products...</p>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer_info">
+        <h2>About Us</h2>
+        <p>Herkkutemppeli started in 2023 when the founder, Reino, a passionate coffee lover, dreamed of creating a creative and inspiring place to share love for good coffee and delicious pastries.
+            The vision was to establish a space where every customer could feel welcome and enjoy high-quality products.
+        </p>
+        <p>Quality is the foundation for us. We use carefully selected ingredients and focus on skilled craftsmanship to offer you the best flavors in each of our products.
+            Additionally, we are committed to responsibility and environmental friendliness. We aim to minimize our carbon footprint and support fair trade.
+        </p>
+        <p>Feel free to contact us if you have any questions or feedback. You can reach us via email at
+            customerfeedback@herkkutemppeli.com or by phone at 010 1122 334. We hope you enjoy being a customer at Herkkutemppeli and that we can provide you with the best café experiences!
+        </p>
+      </div>
+      <div class="footer_location">
+        <h2>Location</h2>
+        <div id="map"></div>
+      </div>
+    </footer>
+    <!-- Dialogs -->
     <dialog id="registerSignup">
       <div class="container">
         <div class="glass-frame">
@@ -49,6 +108,7 @@
             <button id="loginTab" class="tab" onclick="switchTab(event, 'loginInput')">Login</button>
             <button id="signupTab" class="tab" onclick="switchTab(event, 'signup')">Signup</button>
           </div>
+          <!-- Login  -->
           <div id="loginInput" class="tab-content glass-frame-content">
             <form id="loginForm">
               <input type="email" placeholder="Email" required>
@@ -57,6 +117,7 @@
             </form>
           </div>
         </div>
+        <!-- Register  -->
         <div id="signup" class="tab-content glass-frame-content">
           <form id="signupForm" action="/signup" method="post">
             <input type="text" name="username" placeholder="Name" required>
@@ -70,137 +131,59 @@
         <button id="modifyUserButton" onclick="openModifyUserModal()">Modify User</button>
       </div>
     </dialog>
-
+    <!-- User modification -->
     <dialog id="modifyUserModal">
       <div class="glass-frame">
-          <h1>Modify User</h1>
-          <form>
-              <div class="input-container">
-                  <label for="newUsername">Name:</label>
-                  <input type="text" id="newUsername" placeholder="Your Username">
-              </div>
-              <div class="input-container">
-                  <label for="newEmail">New Email:</label>
-                  <input type="email" id="newEmail" placeholder="Yournew@email.com">
-              </div>
-              <div class="input-container">
-                  <label for="newPhoneNumber">New Phone Number:</label>
-                  <input type="tel" id="newPhoneNumber" placeholder="123-456-7890">
-              </div>
-              <div class="input-container">
-                  <label for="newPassword">New Password:</label>
-                  <input type="password" id="newPassword" placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase and lowercase letter, and be at least 8 characters long" required>
-              </div>
-              <button type="button" onclick="modifyAllFields()">Modify All</button>
-              <button id="closeModifyUser" onclick="closeModifyUserModal()">X</button>
-          </form>
+        <h1>Modify User</h1>
+        <form>
+          <div class="input-container">
+            <label for="newUsername">Name:</label>
+            <input type="text" id="newUsername" placeholder="Your Username">
+          </div>
+          <div class="input-container">
+            <label for="newEmail">New Email:</label>
+            <input type="email" id="newEmail" placeholder="Yournew@email.com">
+          </div>
+          <div class="input-container">
+            <label for="newPhoneNumber">New Phone Number:</label>
+            <input type="tel" id="newPhoneNumber" placeholder="123-456-7890">
+          </div>
+          <div class="input-container">
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase and lowercase letter, and be at least 8 characters long" required>
+          </div>
+            <button type="button" onclick="modifyAllFields()">Modify All</button>
+            <button id="closeModifyUser" onclick="closeModifyUserModal()">X</button>
+        </form>
       </div>
   </dialog>
-
-    <dialog id="shoppingCartDialog" class="cartdialog">
-      <div id="dialogContent">
-        <h3>Your purchases</h3>
-    
-    
-    
-        <ul id="product-list">
-
-        </ul>
-    
-
-    <label for="couponCode">Coupon Code:</label>
-    <div class="coupon">
-      <div>
-        <input type="text" id="couponCode" name="couponCode" placeholder="Enter your coupon">
-        <button type="button" id="applyCoupon">Apply</button>
-      </div>
-    </div>
-    <div class="reminder">
-      <div class="reminderText">You have to login to use coupons</div>
-      <div class="reminderButtons">
-        <button id="login-btn">Login</button>
-        
-    </div>
-  </div>
-
-  <div class="cartFee">
-    Transport fee: 5€
-  </div>
-  <div id="total-cost">Total Cost: 0.00€</div>
-
-</div>
-
-
-<div class="dialogButtons">
-  <div class="dialogClose" onclick="document.querySelector('dialog').close()">X</div>
-  
-  
-  <button id="checkout-btn">Checkout</button>
-</div>
-</dialog>
-
-
-<div class="hero-image">
-  <div class="slideshow-container">
-
-    <div class="slide slide1">
-    </div>
-  
-    <div class="slide slide2">
-    </div>
-  
-    <div class="slide slide3">
-    </div>
-  
-    <div class="buttons">
-      <button class="prev" onclick="changeSlide(-1)">
-        <i class="fa-solid fa-angle-left fa-2xl"></i>
-      </button>
-      <button class="next" onclick="changeSlide(1)">
-        <i class="fa-solid fa-angle-right fa-2xl"></i>
-      </button>
-    </div>
-    
-    <div class="dots">
-      <span class="dot" onclick="currentSlide(1)"></span> 
-      <span class="dot" onclick="currentSlide(2)"></span> 
-      <span class="dot" onclick="currentSlide(3)"></span> 
-    </div>
-  </div>
-  </div>
-    <div class="filters">
-      <button onclick="filterProducts('all')" class="navbutton is-checked" data-filter="*">All</button>
-      <button onclick="filterProducts(1)" class="navbutton" data-filter=".salad">Salads</button>
-      <button onclick="filterProducts(2)" class="navbutton" data-filter=".bagel">Bagels</button>
-      <button onclick="filterProducts(3)" class="navbutton" data-filter=".croissant">Croissants</button>
-      <button onclick="filterProducts(4)" class="navbutton" data-filter=".muffin">Muffins</button>
-      <button onclick="filterProducts(5)" class="navbutton" data-filter=".donut">Donuts</button>
-      <button onclick="filterProducts(6)" class="navbutton" data-filter=".drink">Drinks</button>      
-    </div>
-    <section class="products">
-      <h2>Products</h2>
-      <div id="productsContainer">
-        <p id="loadingMessage">Loading products...</p>
-      </div>
-    </section>
-    <footer class="footer">
-        <div class="footer_info">
-          <h2>About Us</h2>
-          <p>Herkkutemppeli started in 2023 when the founder, Reino, a passionate coffee lover, dreamed of creating a creative and inspiring place to share love for good coffee and delicious pastries.
-              The vision was to establish a space where every customer could feel welcome and enjoy high-quality products.
-          </p>
-          <p>Quality is the foundation for us. We use carefully selected ingredients and focus on skilled craftsmanship to offer you the best flavors in each of our products.
-              Additionally, we are committed to responsibility and environmental friendliness. We aim to minimize our carbon footprint and support fair trade.
-          </p>
-          <p>Feel free to contact us if you have any questions or feedback. You can reach us via email at
-              customerfeedback@herkkutemppeli.com or by phone at 010 1122 334. We hope you enjoy being a customer at Herkkutemppeli and that we can provide you with the best café experiences!
-          </p>
+  <!-- Shopping cart -->
+  <dialog id="shoppingCartDialog" class="cartdialog">
+    <div id="dialogContent">
+      <h3>Your purchases</h3>
+      <ul id="product-list"></ul>
+      <label for="couponCode">Coupon Code:</label>
+      <div class="coupon">
+        <div>
+          <input type="text" id="couponCode" name="couponCode" placeholder="Enter your coupon">
+          <button type="button" id="applyCoupon">Apply</button>
         </div>
-        <div class="footer_location">
-            <h2>Location</h2>
-            <div id="map"></div>
-            <script src="footerMap.js"></script>
+      </div>
+      <div class="reminder">
+        <div class="reminderText">You have to login to use coupons</div>
+        <div class="reminderButtons">
+          <button id="login-btn">Login</button>
         </div>
-    </footer>
+      </div>
+      <div class="cartFee">
+        Transport fee: 5€
+      </div>
+      <div id="total-cost">Total Cost: 0.00€</div>
+    </div>
+    <div class="dialogButtons">
+      <div class="dialogClose" onclick="document.querySelector('dialog').close()">X</div>
+      <button id="checkout-btn">Checkout</button>
+    </div>
+  </dialog>
   </body>
 </html>
