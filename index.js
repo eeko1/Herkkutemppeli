@@ -43,6 +43,21 @@ app.get("/api/products", (req, res) => {
   );
 });
 
+app.post('/updateUser', (req, res) => {
+  const { newUsername, newEmail, newPhoneNumber, newPassword } = req.body;
+
+  const updateUserQuery = `UPDATE Users SET email = ?, phonenumber = ?, password = ? WHERE fullname = ?`;
+
+  db.query(updateUserQuery, [newEmail, newPhoneNumber, newPassword, newUsername], (error, results, fields) => {
+      if (error) {
+          console.error('Error updating user: ' + error.stack);
+          res.status(500).send('Error updating user');
+          return;
+      }
+      res.status(200).send('User information updated successfully');
+  });
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
