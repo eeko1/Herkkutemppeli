@@ -16,14 +16,13 @@ nav {
 .navli {
     float: left;
     display: inline;
-    height: 50px;
+    height: 75px;
     cursor: pointer;
-    
   }
 
   .navli a {
     display: block;
-    color: black;
+    color: var(--text);
     text-align: center;
     padding: 0px 40px;
     text-decoration: none;
@@ -32,15 +31,14 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-
-
-  }
-
+    font-size: 1.2em;
+}
 
   .logo {
-    width: 50px;
+    width: 75px;
   }
 
+ 
   
   #open_register {
     cursor: pointer;
@@ -50,12 +48,11 @@ nav {
     align-items: center;
     justify-content: center;  
   }
+
   #open_register:hover {
     background-color: var(--primary-color-3);
     transform: scale(1.1);
   }
-
-
 
   .navli a:hover {
     background-color: var(--primary-color-3);
@@ -70,7 +67,22 @@ nav {
     align-items: center;
     justify-content: center;
   }
+
   #open_dialog:hover {
+    background-color: var(--primary-color-3);
+    transform: scale(1.1);
+  }
+
+  #orderView {
+    cursor: pointer;
+    float: right;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+  }
+
+  #orderView:hover {
     background-color: var(--primary-color-3);
     transform: scale(1.1);
   }

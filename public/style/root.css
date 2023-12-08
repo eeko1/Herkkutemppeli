@@ -19,6 +19,7 @@
     /* font faimly */
     line-height: 2;
     box-sizing: border-box;
+    scroll-behavior: smooth;  
   }
 
   body {

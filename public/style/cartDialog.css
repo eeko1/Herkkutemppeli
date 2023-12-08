@@ -33,7 +33,7 @@
   margin: 10px 0px;
 }
 #product-list li div {
-  margin: 0px 30px;
+  margin: 0px 5px;
 }
 
 #cart-container {
@@ -109,6 +109,12 @@
 .cartFee {
   display: flex;
   margin-top: 20px;
+  justify-content: end;
+}
+
+#total-cost {
+  display: flex;
+  justify-content: end;
 }
 
 label {
@@ -120,6 +126,22 @@ label {
   flex-direction: column;
   align-items: flex-start;
   margin-top: 10px;
+}
+
+.cartImage {
+  width: 100px;
+  object-fit: cover;
+}
+.cartImageDiv {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+  border: 2px solid black;
+  border-radius: 20px;
 }
 
 input[type="text"] {
@@ -165,7 +187,7 @@ label {
   position: relative;
   margin: auto;
   width: 80%;
-  max-width: 500px;
+  max-width: 800px;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
