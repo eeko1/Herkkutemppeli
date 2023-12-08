@@ -73,16 +73,18 @@ nav {
     transform: scale(1.1);
   }
 
-  #orderView {
+  #open_orders {
+
     cursor: pointer;
     float: right;
     padding: 0px 20px;
     display: flex;
+    display: none;
     align-items: center;
     justify-content: center;  
   }
 
-  #orderView:hover {
+  #open_orders:hover {
     background-color: var(--primary-color-3);
     transform: scale(1.1);
   }
