@@ -18,6 +18,7 @@ nav {
     display: inline;
     height: 75px;
     cursor: pointer;
+    color: var(--text);
   }
 
   .navli a {
