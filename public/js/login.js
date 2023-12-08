@@ -32,6 +32,8 @@ document
         localStorage.setItem("token", data.token);
         localStorage.setItem("username", data.username); // Store the username
         localStorage.setItem("userId", data.userId); // Store the user ID
+        localStorage.setItem("userLvlId", data.userLvlId); // Store the user level ID
+        console.log(data.userLvlId);
 
         alert("Logged in successfully");
       } else {

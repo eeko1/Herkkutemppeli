@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style/nav.css" />
-    <link rel="stylesheet" href="./style/products.css">
-    <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet" href="./style/cartDialog.css">
-    <link rel="stylesheet" href="./style/registerLogin.css">
-    <link rel="stylesheet" href="./style/userModification.css">
-    <script src="./js/products.js" defer></script>
-    <script src="./js/carousel.js" defer></script>
-    <script src="shoppingCart.js" defer></script>
-    <script src="./js/nav.js" defer></script>
-    <script src="./js/footerMap.js" defer></script>
-    <script src="./js/loginRegister.js" defer></script>
-    <script src="/js/register.js" defer></script>
-    <script src="/js/login.js" defer></script>
-    <script src="./js/userModification.js" defer></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="./style/nav.css" />
+      <link rel="stylesheet" href="./style/products.css">
+      <link rel="stylesheet" href="./style/footer.css">
+      <link rel="stylesheet" href="./style/cartDialog.css">
+      <link rel="stylesheet" href="./style/registerLogin.css">
+      <link rel="stylesheet" href="./style/orderView.css">
+      <script src="./js/orderView.js"></script>
+      <script src="./js/products.js" defer></script>
+      <script src="./js/carousel.js" defer></script>
+      <script src="shoppingCart.js" defer></script>
+      <script src="./js/nav.js" defer></script>
+      <script src="./js/footerMap.js" defer></script>
+      <script src="./js/loginRegister.js" defer></script>
+      <script src="/js/register.js" defer></script>
+      <script src="/js/login.js" defer></script>
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin="">
     </script>
@@ -38,8 +38,10 @@
         <li class="navli"><a class="navitem" id="productsbtn">Products</a></li>
         <li class="navli"><a class="navitem" id="aboutus">About Us</a></li>
         <span id="navbarUsername" class="navli"></span>
+        
         <li id="open_dialog" class="navli"><i class="fa-solid fa-cart-shopping fa-xl"></i></li>
         <li id="open_register" class="navli"><i class="fa-solid fa-user fa-2xl"></i></li>
+        <li id="orderView" class="navli">Orders</li>
       </ul>
     </nav>
     <!-- Hero -->
