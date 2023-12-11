@@ -11,17 +11,14 @@ function openModifyProductModal(productId, productName) {
   const newProductAllergens = document.getElementById("newProductAllergens");
   const newProductPrice = document.getElementById("newProductPrice");
 
-  // Fetch the product data from the server (assuming the endpoint exists)
   fetch(`http://localhost:3000/api/products/${productId}`)
     .then((response) => response.json())
     .then((product) => {
       productNameField.value = product.product_name;
       newProductNameField.value = product.product_name;
       newProductDescription.value = product.product_description;
-      // Handle product image, category, allergens, price similarly
-      // ...
 
-      modal.showModal(); // Open the modal
+      modal.showModal();
     })
     .catch((error) => console.error("Error fetching product data:", error));
 }
@@ -29,19 +26,30 @@ function openModifyProductModal(productId, productName) {
 // Function to modify product information
 function modifyProductInfo() {
   // Get the product ID and new data from the modal fields
+
+  const newProductName = document.getElementById("productNameField");
+  const newProductDescription = document.getElementById(
+    "productDescriptionField"
+  );
+  const newProductImage = document.getElementById("productImageField");
+  const newProductCategory = document.getElementById("productCategoryField");
+  const newProductAllergens = document.getElementById("productAllergensField");
+  const newProductPrice = document.getElementById("productPriceField");
   // ...
 
-  // Send the updated data to the server (PUT or PATCH request)
+  // Send the updated data to the server
   fetch(`http://localhost:3000/api/products/${productId}`, {
-    method: "PUT", // or 'PATCH'
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       productName: newProductName,
       productDescription: newProductDescription,
-      // Include other fields as necessary
-      // ...
+      productImage: newProductImage,
+      productCategory: newProductCategory,
+      productAllergens: newProductAllergens,
+      productPrice: newProductPrice,
     }),
   })
     .then((response) => {
