@@ -51,9 +51,33 @@ document
     }
   });
 
+document.getElementById("signout").addEventListener("click", function () {
+  // Clear localStorage
+  localStorage.removeItem("token");
+  localStorage.removeItem("username");
+  localStorage.removeItem("userId");
+  localStorage.removeItem("userLvlId");
+
+  // Redirect to home page or reload
+  window.location.href = "/";
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const username = localStorage.getItem("username");
+  const logoutButton = document.getElementById("signout");
+
   if (username) {
+    // Display the username
     document.getElementById("navbarUsername").textContent = username;
+
+    // Show logout button
+    if (signout) {
+      signout.style.display = "block";
+    }
+  } else {
+    // Hide logout button
+    if (signout) {
+      signout.style.display = "none";
+    }
   }
 });
