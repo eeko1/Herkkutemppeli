@@ -190,16 +190,12 @@
   <!-- Product update --> 
   <dialog id="modifyProductModal">
     <div class="glass-frame">
-      <h1>Modify Product</h1>
-      <form>
-        <div class="input-container">
-          <label for="productName">Product Name:</label>
-          <input type="text" id="productName" placeholder="Product Name" readonly>
-        </div>
-        <div class="input-container">
-          <label for="newProductName">New Product Name:</label>
-          <input type="text" id="newProductName" placeholder="New Product Name">
-        </div>
+        <h1>Modify Product</h1>
+        <form>
+            <div class="input-container">
+                <label for="newProductName">New Product Name:</label>
+                <input type="text" id="newProductName" placeholder="New Product Name">
+            </div>
             <div class="input-container">
                 <label for="newProductDescription">New Product Description:</label>
                 <textarea id="newProductDescription" placeholder="New Product Description"></textarea>
@@ -220,10 +216,10 @@
                 <label for="newProductPrice">New Product Price:</label>
                 <input type="number" id="newProductPrice" step="0.01" placeholder="New Product Price">
             </div>
-            <button type="button" id="modifyProductBtn" onclick="modifyProductInfo()">Modify Product</button>
+            <button type="button" onclick="modifyProductInfo()">Modify Product</button>
             <button id="closeModifyProduct" onclick="closeModifyProductModal()">X</button>
         </form>
     </div>
-</dialog>
+  </dialog>
   </body>
 </html>
