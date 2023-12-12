@@ -108,6 +108,48 @@ app.post("/user/update", async (req, res) => {
   }
 });
 
+app.post("/api/products/update", async (req, res) => {
+  try {
+    const {
+      product_id,
+      newProductName,
+      newProductDescription,
+      newProductCategory,
+      newProductAllergens,
+      newProductPrice
+    } = req.body;
+
+    const updateProductQuery = `
+      UPDATE Products 
+      SET 
+          product_name = ?,
+          product_description = ?,
+          product_category_id = ?,
+          product_allergens = ?,
+          product_price = ?
+      WHERE 
+          product_id = ?`;
+
+    const [result] = await pool.query(updateProductQuery, [
+      newProductName,
+      newProductDescription,
+      newProductCategory,
+      newProductAllergens,
+      newProductPrice,
+      product_id
+    ]);
+
+    if (result.affectedRows > 0) {
+      res.status(200).send("Product information updated successfully");
+    } else {
+      res.status(404).send("Product not found or no changes applied");
+    }
+  } catch (err) {
+    console.error("Error updating product information:", err);
+    res.status(500).send("Error updating product information: " + err.message);
+  }
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
