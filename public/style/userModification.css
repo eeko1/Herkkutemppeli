@@ -1,13 +1,13 @@
-@import url(root.css);
+@import url('root.css');
 
-#registerSignup::backdrop {
+#modifyUserModal::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-#registerSignup {
+#modifyUserModal {
   background-color: var(--pink);
   border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--boxShadow);
   position: relative;
   margin: auto;
   width: 80%;
@@ -17,64 +17,28 @@
   text-align: center;
 }
 
-#registerSignup[open] {
+#modifyUserModal[open] {
   display: block;
-}
-
-.container {
-  width: 400px;
 }
 
 .glass-frame {
   border-radius: 10px;
   padding: 20px;
   position: relative;
+  background: var(--primary-color-3);
+  box-shadow: var(--boxShadow);
 }
 
-.glass-frame-content {
-  background: #FFCCCC;
-  border-radius: 10px;
-  margin-top: 20px;
-  padding: 20px;
-}
-
-h1#welcomeHeading {
+h1 {
   text-align: center;
   color: var(--text);
-}
-
-.tabs {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.tab {
-  background: none;
-  border: none;
-  color: var(--text);
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 18px;
-  outline: none;
-  transition: 0.3s;
-  border: 1px solid black;
-}
-
-.tab:hover {
-  background: var(--pink);
-}
-
-.tab-content {
-  display: none;
-  margin-top: 20px;
 }
 
 form input[type="text"],
 form input[type="email"],
 form input[type="tel"],
 form input[type="password"],
-form button[type="submit"] {
+form button[type="button"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -85,40 +49,27 @@ form button[type="submit"] {
   color: var(--text);
 }
 
+button[type="button"],
 button[type="submit"] {
   background: #323232;
   color: var(--pink);
   font-size: 16px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
+button[type="button"]:hover,
 button[type="submit"]:hover {
   background-color: var(--pink);
   transform: scale(1.1);
   color: var(--white);
 }
 
-#close_register {
+#closeModifyUser {
   background-color: var(--primary-color-3);
   position: absolute;
   top: 20px;
   right: 30px;
   font-size: 28px;
   cursor: pointer;
-}
-
-@media only screen and (max-width: 600px) {
-  #registerSignup {
-    width: 90%;
-    max-width: 100%;
-  }
-
-  .container {
-    width: 90%;
-  }
-  
-  .glass-frame {
-    padding: 10px;
-  }
-  
 }

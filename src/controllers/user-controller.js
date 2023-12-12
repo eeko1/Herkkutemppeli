@@ -24,7 +24,13 @@ export const login = async (req, res) => {
       const token = jwt.sign({ userId: user.user_id }, "your-secret-key", {
         expiresIn: "1h",
       });
-      res.status(200).json({ message: "Logged in successfully", token });
+      res.status(200).json({
+        message: "Logged in successfully",
+        token,
+        username: user.fullname,
+        userId: user.user_id,
+        userLvlId: user.user_level_id,
+      });
     } else {
       res.status(400).send("Invalid credentials");
     }

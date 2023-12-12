@@ -27,6 +27,35 @@ const renderProducts = (products) => {
 
 let allProducts = [];
 
+function checkButtons() {
+  const addButtons = document.querySelectorAll(".productAdd");
+  console.log("Number of buttons:", addButtons.length);
+
+  if (addButtons.length > 0) {
+    // Add a click event listener to each button
+    addButtons.forEach((button) => {
+      const productPrice = button
+        .closest(".product")
+        .querySelector(".productPrice").innerText;
+      const productName = button
+        .closest(".product")
+        .querySelector(".productName").innerText;
+      const productImage = button
+        .closest(".product")
+        .querySelector(".productImage").src;
+
+      button.addEventListener("click", () => {
+        console.log("Button clicked!");
+        addToCart(productName, productPrice, productImage);
+      });
+    });
+  } else {
+    // Retry after a short delay if buttons are not found
+    console.log("did not find buttons yet, retrying...");
+    setTimeout(checkButtons, 100);
+  }
+}
+
 // Function to fetch products from the server and render them
 const fetchAndRenderProducts = async () => {
   try {
@@ -52,6 +81,7 @@ const filterProducts = (categoryId) => {
         );
 
   renderProducts(filteredProducts);
+  checkButtons();
 };
 
 const displayErrorMessage = () => {
@@ -59,4 +89,8 @@ const displayErrorMessage = () => {
   productsContainer.innerHTML = "<p>Sorry, products were unable to load.</p>";
 };
 
-document.addEventListener("DOMContentLoaded", fetchAndRenderProducts);
+document.addEventListener(
+  "DOMContentLoaded",
+  fetchAndRenderProducts,
+  checkButtons()
+);
