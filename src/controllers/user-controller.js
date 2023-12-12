@@ -29,6 +29,7 @@ export const login = async (req, res) => {
         token,
         username: user.fullname,
         userId: user.user_id,
+        userLvlId: user.user_level_id,
       });
     } else {
       res.status(400).send("Invalid credentials");

@@ -1,0 +1,69 @@
+@import "root.css";
+
+#orderViewDialog {
+    background-color: var(--pink);
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: auto;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  
+  }
+
+#closeOrders {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--primary-color-2);
+    border-radius: 999px;
+  }
+
+#closeOrders:hover {
+    background-color: var(--primary-color-1);
+  }
+
+
+#orderViewDialog div {
+    margin: 10px;
+    padding: 10px;
+    border: 2px  solid black;
+    border-radius: 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: var(--primary-color-3);
+  }
+#orderViewDialog div button {
+    padding: 10px;
+    font-size: 14px;
+    background-color: var(--primary-color-2);
+    border-radius: 999px;
+    height: 60px;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    
+  }
+
+  #orderViewDialog div ul {
+    width: 90px;
+    word-wrap:break-word
+  }
+
+#orderViewDialog div button:hover {
+    background-color: var(--primary-color-1);
+
+  }
+
+#orderViewDialog div p {
+    padding: 10px;
+
+}
+
+

@@ -49,6 +49,7 @@ checkoutBtn.addEventListener("click", async (e) => {
 
   const latestOrderResponse = await fetch("/api/latest-order-id");
   const latestOrderData = await latestOrderResponse.json();
+  console.log(latestOrderData, "latestOrderData");
   const orderUserId = getOrderUserId();
   const latestOrderId = latestOrderData.latestOrderId + 1;
   const orderData = {

@@ -66,9 +66,7 @@ INSERT INTO User_level (user_level_name)
 -- Insert data into Users table
 INSERT INTO Users (fullname, password, email, phonenumber, profile_picture, user_level_id)
 VALUES
-('Admin User', 'adminpassword', 'admin@example.com', '123456789', 'admin.jpg', 1),
-('John Doe', 'userpassword', 'john@example.com', '987654321', 'john.jpg', 2),
-('Test', 'userpassword', 'test@example.com', '555555555', 'jane.jpg', 1);
+('Admin', '$2a$04$7thAGsE7yyuqIRxDasU4Be8.02TSKUGSp/AKTRQz5/NRPxmxCIUbK', 'admin@example.com', '123456789', 'admin.jpg', 2);
 
 -- Insert data into Products table
 INSERT INTO Products (product_name, product_description, product_image, product_category_id, product_allergens, product_price)

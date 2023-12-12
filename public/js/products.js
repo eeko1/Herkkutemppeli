@@ -1,7 +1,7 @@
 // Function to create HTML for each product
 const createProductHTML = (product) => `
     <section class="product" style="position: relative;">
-        <i class="fa-solid fa-gear productIcon" onclick="openModifyProductModal()" style="position: absolute; top: 5px; left: 5px; z-index: 1; color: white; padding: 8px; border-radius: 5px; font-size: 1.2em; cursor: pointer;"></i>
+    <i class="fa-solid fa-gear productIcon" id="modifyProduct" onclick="openModifyProductModal(${product.product_id}, '${product.product_name}')" style="position: absolute; top: 5px; left: 5px; z-index: 1; color: white; padding: 8px; border-radius: 5px; font-size: 1.2em; cursor: pointer;"></i>
         <img src="./image/${product.product_image}" class="productImage" alt="${product.imageAlt}" style="position: relative; z-index: 0;">
         <h3 class="productName">${product.product_name}</h3>
         <p class="productsDescription">${product.product_description}</p>
@@ -31,6 +31,18 @@ let allProducts = [];
 function checkButtons() {
   const addButtons = document.querySelectorAll(".productAdd");
   console.log("Number of buttons:", addButtons.length);
+  const modifyProductBtns = document.querySelectorAll(".productIcon");
+  if (localStorage.getItem("userLvlId") === "2") {
+    console.log("Displaying the buttons");
+    modifyProductBtns.forEach((button) => {
+      button.style.display = "flex";
+    });
+  } else {
+    console.log("Hiding the buttons");
+    modifyProductBtns.forEach((button) => {
+      button.style.display = "none";
+    });
+  }
 
   if (addButtons.length > 0) {
     // Add a click event listener to each button

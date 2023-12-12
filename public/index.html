@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./style/cartDialog.css">
     <link rel="stylesheet" href="./style/registerLogin.css">
     <link rel="stylesheet" href="./style/userModification.css">
+    <link rel="stylesheet" href="./style/productModification.css">
+    <link rel="stylesheet" href="./style/orderView.css">
     <script src="./js/products.js" defer></script>
     <script src="./js/carousel.js" defer></script>
     <script src="shoppingCart.js" defer></script>
@@ -18,6 +20,8 @@
     <script src="/js/register.js" defer></script>
     <script src="/js/login.js" defer></script>
     <script src="./js/userModification.js" defer></script>
+    <script src="./js/orderView.js" defer></script>
+    <script src="./js/productModification.js" defer></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin="">
@@ -37,17 +41,33 @@
         </li>
         <li class="navli"><a class="navitem" id="productsbtn">Products</a></li>
         <li class="navli"><a class="navitem" id="aboutus">About Us</a></li>
-        <span id="navbarUsername" class="navli"></span>
+        <li id="signout" class="navli">Sign out</li>
+
+        
         <li id="open_dialog" class="navli"><i class="fa-solid fa-cart-shopping fa-xl"></i></li>
         <li id="open_register" class="navli"><i class="fa-solid fa-user fa-2xl"></i></li>
+        <li id="open_orders" class="navli">Orders</li>
+        <span id="navbarUsername" class="navli"></span>
       </ul>
     </nav>
     <!-- Hero -->
     <div class="hero-image">
+      <div class="hero-box">
+
+        <p class="hero-text">
+          Sign up now and get amazing deals on our products!
+        </p>
+      </div>
+
       <div class="slideshow-container">
         <div class="slide slide1"></div>
         <div class="slide slide2"></div>
         <div class="slide slide3"></div>
+        <div class="scrolldown">
+          <p>Scroll down to order</p>
+        <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
         <div class="buttons">
           <button class="prev" onclick="changeSlide(-1)">
             <i class="fa-solid fa-angle-left fa-2xl"></i>
@@ -120,7 +140,7 @@
         <!-- Register  -->
         <div id="signup" class="tab-content glass-frame-content">
           <form id="signupForm" action="/signup" method="post">
-            <input type="text" name="username" placeholder="Name" required>
+            <input type="text" name="username" placeholder="Name" maxlength="8" required>
             <input type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Enter a valid email address" required>
             <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
             <input type="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase and lowercase letter, and be at least 8 characters long" required>
@@ -169,11 +189,11 @@
           <button type="button" id="applyCoupon">Apply</button>
         </div>
       </div>
-      <div class="reminder">
+     <!--  <div class="reminder">
         <div class="reminderText">You have to login to use coupons</div>
         <div class="reminderButtons">
           <button id="login-btn">Login</button>
-        </div>
+        </div> -->
       </div>
       <div class="cartFee">
         Transport fee: 5€
@@ -185,5 +205,61 @@
       <button id="checkout-btn">Checkout</button>
     </div>
   </dialog>
+  <!-- Product update --> 
+  <dialog id="modifyProductModal">
+    <div class="glass-frame">
+      <h1>Modify Product</h1>
+      <form>
+        <div class="input-container">
+          <label for="productName">Product Name:</label>
+          <input type="text" id="productName" placeholder="Product Name" readonly>
+        </div>
+        <div class="input-container">
+          <label for="newProductName">New Product Name:</label>
+          <input type="text" id="newProductName" placeholder="New Product Name">
+        </div>
+            <div class="input-container">
+                <label for="newProductDescription">New Product Description:</label>
+                <textarea id="newProductDescription" placeholder="New Product Description"></textarea>
+            </div>
+            <div class="input-container">
+                <label for="newProductImage">New Product Image:</label>
+                <input type="file" id="newProductImage" accept="image/*">
+            </div>
+            <div class="input-container">
+                <label for="newProductCategory">New Product Category ID:</label>
+                <input type="text" id="newProductCategory" placeholder="New Product Category ID">
+            </div>
+            <div class="input-container">
+                <label for="newProductAllergens">New Product Allergens:</label>
+                <input type="text" id="newProductAllergens" placeholder="New Product Allergens">
+            </div>
+            <div class="input-container">
+                <label for="newProductPrice">New Product Price:</label>
+                <input type="number" id="newProductPrice" step="0.01" placeholder="New Product Price">
+            </div>
+            <button type="button" id="modifyProductBtn" onclick="modifyProductInfo()">Modify Product</button>
+            <button id="closeModifyProduct" onclick="closeModifyProductModal()">X</button>
+        </form>
+    </div>
+</dialog>
+  <!-- Order view -->
+  <dialog id="orderViewDialog">
+    <div class="glass-frame">
+      <h1>Orders</h1>
+      <div id="orderViewContent">
+        <div id="orderViewList">
+          <div class="orderViewHeader">
+            <div class="orderViewHeaderItem">Order ID</div>
+            <div class="orderViewHeaderItem">Date</div>
+            <div class="orderViewHeaderItem">Total Cost</div>
+            <div class="orderViewHeaderItem">Status</div>
+          </div>
+        </div>
+      </div>
+      <button id="closeOrders">X</button>
+  </div>
+
+  </dialog> 
   </body>
 </html>

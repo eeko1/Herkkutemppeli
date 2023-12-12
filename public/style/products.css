@@ -37,18 +37,18 @@
 
 .productName {
   color: var(--pink);
-  padding: 0.4em;
+  padding: 0.5em 10px;
 }
 
 .moreInfo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.4em;
+  padding: 0.5em;
 }
   
 .productsDescription, .productAllergens, .productPrice {
-  padding: 0 0.5em;
+  padding: 0 10px;
   font-size: 0.9em;
   color: var(--text);
 }
