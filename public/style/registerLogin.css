@@ -7,7 +7,7 @@
 #registerSignup {
   background-color: var(--pink);
   border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--boxShadow);
   position: relative;
   margin: auto;
   width: 80%;
@@ -22,20 +22,26 @@
 }
 
 .container {
-  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .glass-frame {
   border-radius: 10px;
   padding: 20px;
   position: relative;
+  width: 80%;
+  max-width: 400px;
+  margin: 20px;
 }
 
 .glass-frame-content {
-  background: #FFCCCC;
+  background: var(--primary-color-3);
   border-radius: 10px;
   margin-top: 20px;
   padding: 20px;
+  display: none;
 }
 
 h1#welcomeHeading {
@@ -61,41 +67,76 @@ h1#welcomeHeading {
   border: 1px solid black;
 }
 
-.tab:hover {
+.tab:hover,
+.tab.active {
   background: var(--pink);
+  color: var(--text);
 }
 
 .tab-content {
-  display: none;
   margin-top: 20px;
+  display: none;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"],
-form input[type="password"],
-form button[type="submit"] {
+/* Adjust form input and button styles for signup and login */
+#signupForm-registerLogin input[type="text"],
+#signupForm-registerLogin input[type="email"],
+#signupForm-registerLogin input[type="tel"],
+#signupForm-registerLogin input[type="password"],
+#signupForm-registerLogin button[type="submit"],
+#loginForm-registerLogin input[type="text"],
+#loginForm-registerLogin input[type="password"],
+#loginForm-registerLogin button[type="submit"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: none;
   border-radius: 5px;
   outline: none;
-  background: var(--white);
+  background: var(--pink);
   color: var(--text);
 }
 
-button[type="submit"] {
-  background: #323232;
+#signupForm-registerLogin button[type="submit"],
+#loginForm-registerLogin button[type="submit"] {
+  background: var(--background);
   color: var(--pink);
   font-size: 16px;
   transition: 0.3s;
 }
 
-button[type="submit"]:hover {
-  background-color: var(--pink);
-  transform: scale(1.1);
-  color: var(--white);
+/* Click effect for form inputs */
+#signupForm-registerLogin input[type="text"]:focus,
+#signupForm-registerLogin input[type="email"]:focus,
+#signupForm-registerLogin input[type="tel"]:focus,
+#signupForm-registerLogin input[type="password"]:focus,
+#signupForm-registerLogin button[type="submit"]:focus,
+#loginForm-registerLogin input[type="text"]:focus,
+#loginForm-registerLogin input[type="password"]:focus,
+#loginForm-registerLogin button[type="submit"]:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 5px var(--pink);
+}
+
+/* Remove the default browser outline for focused elements */
+#signupForm-registerLogin input:focus,
+#signupForm-registerLogin button:focus,
+#loginForm-registerLogin input:focus,
+#loginForm-registerLogin button:focus {
+  outline: none;
+}
+
+/* Remove hover effect for both signup and login form buttons */
+#signupForm-registerLogin button[type="submit"]:hover,
+#loginForm-registerLogin button[type="submit"]:hover {
+  background-color: var(--background);
+  color: var(--pink);
+  transform: none;
+}
+
+/* Add glass frame styles to signup form */
+#glass-frame-signup-registerLogin.glass-frame-content {
+  display: block;
 }
 
 #close_register {
@@ -120,5 +161,4 @@ button[type="submit"]:hover {
   .glass-frame {
     padding: 10px;
   }
-  
 }

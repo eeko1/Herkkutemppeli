@@ -51,7 +51,6 @@ form button[type="button"] {
 
 button[type="button"],
 button[type="submit"] {
-  background: #323232;
   color: var(--blue); /* Change color as needed */
   font-size: 16px;
   transition: 0.3s;

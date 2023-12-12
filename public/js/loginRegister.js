@@ -1,6 +1,7 @@
 const registerSignupDialog = document.querySelector("#registerSignup");
 const openRegisterBtn = document.getElementById("open_register");
 const closeRegisterBtn = document.getElementById("close_register");
+const tabContents = document.querySelectorAll(".tab-content");
 
 if (!registerSignupDialog.showModal) {
   dialogPolyfill.registerDialog(registerSignupDialog);
@@ -18,6 +19,11 @@ const trapRegisterFocus = (e) => {
 
 const openRegisterDialog = () => {
   registerSignupDialog.showModal();
+  tabContents.forEach(content => {
+    content.style.display = "none"; // Hide all tab contents
+  });
+  document.getElementById("signupContent").style.display = "block"; // Show only signup content
+  document.getElementById("signupTab").classList.add("active"); // Set signup tab as active
   registerSignupDialog.addEventListener("keydown", trapRegisterFocus);
   document.getElementById("loginInput").style.display = "block";
 };
