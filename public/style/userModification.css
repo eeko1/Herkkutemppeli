@@ -27,6 +27,9 @@
   position: relative;
   background: var(--primary-color-3);
   box-shadow: var(--boxShadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
@@ -50,19 +53,27 @@ form button[type="button"] {
 }
 
 button[type="button"],
-button[type="submit"] {
-  background: #323232;
-  color: var(--pink);
+button[type="submit"],
+#signout {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background: var(--pink);
+  color: var(--white);
   font-size: 16px;
   transition: 0.3s;
   cursor: pointer;
 }
 
 button[type="button"]:hover,
-button[type="submit"]:hover {
-  background-color: var(--pink);
+button[type="submit"]:hover,
+#signout:hover {
+  background-color: var(--white);
+  color: var(--pink);
   transform: scale(1.1);
-  color: var(--white);
 }
 
 #closeModifyUser {

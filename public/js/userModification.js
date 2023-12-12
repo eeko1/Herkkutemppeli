@@ -1,5 +1,5 @@
-const modifyUserBtn = document.getElementById("modifyUserButton");
 const modifyUserModal = document.getElementById("modifyUserModal");
+const navbarUsername = document.getElementById("navbarUsername");
 const closeModifyUserBtn = document.getElementById("closeModifyUser");
 
 const closeSignupModal = () => {
@@ -11,7 +11,8 @@ const openModifyUserModal = () => {
   modifyUserModal.showModal();
 };
 
-modifyUserBtn.addEventListener("click", openModifyUserModal);
+navbarUsername.addEventListener("click", openModifyUserModal);
+
 closeModifyUserBtn.addEventListener("click", () => {
   modifyUserModal.close();
   openRegisterDialog();
