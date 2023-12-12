@@ -63,7 +63,7 @@ button[type="submit"],
   border-radius: 5px;
   outline: none;
   background: var(--pink);
-  color: var(--white);
+  color: var(--text);
   font-size: 16px;
   transition: 0.3s;
   cursor: pointer;
