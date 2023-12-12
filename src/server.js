@@ -48,6 +48,37 @@ app.get("/api/latest-order-id", async (req, res) => {
   }
 });
 
+app.post("/api/confirm-order", async (req, res) => {
+  try {
+    const { order_id } = req.body;
+    const [results] = await pool.query(
+      "UPDATE Orders SET status = 'confirmed' WHERE order_id = ?",
+      [order_id]
+    );
+    console.log("Order confirmed successfully!");
+    res.sendStatus(200);
+  } catch (err) {
+    console.error("Error confirming order:", err);
+    res.status(500).send("Error confirming order");
+  }
+});
+
+app.get("/api/orderslist", async (req, res) => {
+  try {
+    const [results] = await pool.query(
+      "SELECT Orders.*, GROUP_CONCAT(Ticket.product_id) AS ordered_items " +
+        "FROM Orders " +
+        "LEFT JOIN Ticket ON Orders.order_id = Ticket.order_id " +
+        "WHERE Orders.status = 'pending' " +
+        "GROUP BY Orders.order_id"
+    );
+    res.json(results);
+  } catch (err) {
+    console.error("Error fetching orders from database:", err);
+    res.status(500).send("Error fetching orders from database");
+  }
+});
+
 app.post("/api/orders", async (req, res) => {
   try {
     console.log("reqbody", req.body);
@@ -98,8 +129,13 @@ app.post("/user/update", async (req, res) => {
 
     const updateUserQuery =
       "UPDATE Users SET email = ?, phonenumber = ?, password = ? WHERE fullname = ?";
-    
-    await pool.query(updateUserQuery, [newEmail, newPhoneNumber, newPassword, newUsername]);
+
+    await pool.query(updateUserQuery, [
+      newEmail,
+      newPhoneNumber,
+      newPassword,
+      newUsername,
+    ]);
 
     res.status(200).send("User information updated successfully");
   } catch (err) {

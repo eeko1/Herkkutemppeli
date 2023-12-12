@@ -22,4 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("productsbtn").addEventListener("click", function () {
     scrollToProducts();
   });
+  document.querySelector(".scrolldown").addEventListener("click", function () {
+    scrollToProducts();
+  });
 });
