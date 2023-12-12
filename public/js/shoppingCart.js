@@ -1,4 +1,3 @@
-// view.js
 export function updateTotalCost(totalCost) {
     const totalCostElement = document.getElementById("total-cost");
     const transportCost = 5;  // Assuming a constant transport cost

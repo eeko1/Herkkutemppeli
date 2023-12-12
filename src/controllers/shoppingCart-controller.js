@@ -1,6 +1,6 @@
 
 import { fetchAllProducts, getOrderUserId, searchItemId } from './shoppingCart-model.js';
-import { updateTotalCost, clearShoppingCart } from './shoppingCart.js';
+import { updateTotalCost, clearShoppingCart, addToCart } from './shoppingCart.js';
 
 let totalCost = 0;
 let cartIds = [];
