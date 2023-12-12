@@ -37,19 +37,32 @@
         </li>
         <li class="navli"><a class="navitem" id="productsbtn">Products</a></li>
         <li class="navli"><a class="navitem" id="aboutus">About Us</a></li>
-        <span id="navbarUsername" class="navli"></span>
+
         
         <li id="open_dialog" class="navli"><i class="fa-solid fa-cart-shopping fa-xl"></i></li>
         <li id="open_register" class="navli"><i class="fa-solid fa-user fa-2xl"></i></li>
         <li id="open_orders" class="navli">Orders</li>
+        <span id="navbarUsername" class="navli"></span>
       </ul>
     </nav>
     <!-- Hero -->
     <div class="hero-image">
+      <div class="hero-box">
+
+        <p class="hero-text">
+          Sign up now and get amazing deals on our products!
+        </p>
+      </div>
+
       <div class="slideshow-container">
         <div class="slide slide1"></div>
         <div class="slide slide2"></div>
         <div class="slide slide3"></div>
+        <div class="scrolldown">
+          <p>Scroll down to order</p>
+        <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
         <div class="buttons">
           <button class="prev" onclick="changeSlide(-1)">
             <i class="fa-solid fa-angle-left fa-2xl"></i>
@@ -122,7 +135,7 @@
         <!-- Register  -->
         <div id="signup" class="tab-content glass-frame-content">
           <form id="signupForm" action="/signup" method="post">
-            <input type="text" name="username" placeholder="Name" required>
+            <input type="text" name="username" placeholder="Name" maxlength="8" required>
             <input type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Enter a valid email address" required>
             <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
             <input type="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase and lowercase letter, and be at least 8 characters long" required>
@@ -171,11 +184,11 @@
           <button type="button" id="applyCoupon">Apply</button>
         </div>
       </div>
-      <div class="reminder">
+     <!--  <div class="reminder">
         <div class="reminderText">You have to login to use coupons</div>
         <div class="reminderButtons">
           <button id="login-btn">Login</button>
-        </div>
+        </div> -->
       </div>
       <div class="cartFee">
         Transport fee: 5€
