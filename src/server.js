@@ -48,6 +48,37 @@ app.get("/api/latest-order-id", async (req, res) => {
   }
 });
 
+app.post("/api/confirm-order", async (req, res) => {
+  try {
+    const { order_id } = req.body;
+    const [results] = await pool.query(
+      "UPDATE Orders SET status = 'confirmed' WHERE order_id = ?",
+      [order_id]
+    );
+    console.log("Order confirmed successfully!");
+    res.sendStatus(200);
+  } catch (err) {
+    console.error("Error confirming order:", err);
+    res.status(500).send("Error confirming order");
+  }
+});
+
+app.get("/api/orderslist", async (req, res) => {
+  try {
+    const [results] = await pool.query(
+      "SELECT Orders.*, GROUP_CONCAT(Ticket.product_id) AS ordered_items " +
+        "FROM Orders " +
+        "LEFT JOIN Ticket ON Orders.order_id = Ticket.order_id " +
+        "WHERE Orders.status = 'pending' " +
+        "GROUP BY Orders.order_id"
+    );
+    res.json(results);
+  } catch (err) {
+    console.error("Error fetching orders from database:", err);
+    res.status(500).send("Error fetching orders from database");
+  }
+});
+
 app.post("/api/orders", async (req, res) => {
   try {
     console.log("reqbody", req.body);
@@ -98,13 +129,60 @@ app.post("/user/update", async (req, res) => {
 
     const updateUserQuery =
       "UPDATE Users SET email = ?, phonenumber = ?, password = ? WHERE fullname = ?";
-    
-    await pool.query(updateUserQuery, [newEmail, newPhoneNumber, newPassword, newUsername]);
+
+    await pool.query(updateUserQuery, [
+      newEmail,
+      newPhoneNumber,
+      newPassword,
+      newUsername,
+    ]);
 
     res.status(200).send("User information updated successfully");
   } catch (err) {
     console.error("Error updating user information:", err);
     res.status(500).send("Error updating user information");
+  }
+});
+
+app.post("/api/products/update", async (req, res) => {
+  try {
+    const {
+      product_id,
+      newProductName,
+      newProductDescription,
+      newProductCategory,
+      newProductAllergens,
+      newProductPrice
+    } = req.body;
+
+    const updateProductQuery = `
+      UPDATE Products 
+      SET 
+          product_name = ?,
+          product_description = ?,
+          product_category_id = ?,
+          product_allergens = ?,
+          product_price = ?
+      WHERE 
+          product_id = ?`;
+
+    const [result] = await pool.query(updateProductQuery, [
+      newProductName,
+      newProductDescription,
+      newProductCategory,
+      newProductAllergens,
+      newProductPrice,
+      product_id
+    ]);
+
+    if (result.affectedRows > 0) {
+      res.status(200).send("Product information updated successfully");
+    } else {
+      res.status(404).send("Product not found or no changes applied");
+    }
+  } catch (err) {
+    console.error("Error updating product information:", err);
+    res.status(500).send("Error updating product information: " + err.message);
   }
 });
 

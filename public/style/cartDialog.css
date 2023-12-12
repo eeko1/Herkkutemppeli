@@ -197,3 +197,26 @@ label {
 #shoppingCartDialog[open] {
   display: block;
 }
+
+
+ @media screen and (max-width: 630px) {
+
+
+    #shoppingCartDialog {
+    margin: 0px;
+    width: 100%;
+    top: 20%;
+  }
+}
+ @media screen and (max-width: 540px) {
+
+  .cartImage {
+    display: none;
+  }
+
+  .items .cartImageDiv {
+    display: none;
+  } 
+  
+
+} 

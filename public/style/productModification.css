@@ -1,0 +1,75 @@
+@import url('root.css');
+
+#modifyProductModal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modifyProductModal {
+  background-color: var(--pink);
+  border: 1px solid #ccc;
+  box-shadow: var(--boxShadow);
+  position: relative;
+  margin: auto;
+  width: 80%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#modifyProductModal[open] {
+  display: block;
+}
+
+.glass-frame {
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  background: var(--primary-color-3);
+  box-shadow: var(--boxShadow);
+}
+
+h1 {
+  text-align: center;
+  color: var(--text);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="password"],
+form button[type="button"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background: var(--white);
+  color: var(--text);
+}
+
+button[type="button"],
+button[type="submit"] {
+  background: #323232;
+  color: var(--blue); /* Change color as needed */
+  font-size: 16px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button[type="button"]:hover,
+button[type="submit"]:hover {
+  background-color: var(--blue); /* Change color as needed */
+  transform: scale(1.1);
+  color: var(--white);
+}
+
+#closeModifyProduct {
+  background-color: var(--primary-color-3);
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 28px;
+  cursor: pointer;
+}
