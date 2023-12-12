@@ -26,10 +26,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const restaurantIcon = L.icon({
-    iconUrl: 'restaurant-icon.png',
-    iconSize: [32, 32],
-    iconAnchor: [16, 32], 
-    popupAnchor: [0, -32],
+  iconUrl: '/image/restaurant-icon.png',
+  iconSize: [32, 32],
+  iconAnchor: [16, 32], 
+  popupAnchor: [0, -32],
 });
 
 restaurants.forEach(restaurant => {

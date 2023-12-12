@@ -50,10 +50,11 @@ app.get("/api/latest-order-id", async (req, res) => {
 
 app.post("/api/orders", async (req, res) => {
   try {
-    const { order_id } = req.body;
+    console.log("reqbody", req.body);
+    const { order_id, user_id } = req.body;
     const [results] = await pool.query(
-      "INSERT INTO Orders (order_id) VALUES (?)",
-      [order_id]
+      "INSERT INTO Orders (order_id, user_id) VALUES (?, ?)",
+      [order_id, user_id]
     );
     console.log("Order data inserted successfully!");
     res.status(200).send("Order created successfully!");

@@ -4,7 +4,6 @@ const closeDialogBtn = shoppingCartDialog.querySelector(".dialogClose");
 const checkoutBtn = shoppingCartDialog.querySelector("#checkout-btn");
 let totalCost = 0;
 let cartIds = [];
-let currentOrderId = 1;
 
 const elements = shoppingCartDialog.querySelectorAll(
   'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
@@ -50,10 +49,12 @@ checkoutBtn.addEventListener("click", async (e) => {
 
   const latestOrderResponse = await fetch("/api/latest-order-id");
   const latestOrderData = await latestOrderResponse.json();
+  const orderUserId = getOrderUserId();
   const latestOrderId = latestOrderData.latestOrderId + 1;
-  const mockOrderData = {
+  const orderData = {
     order_id: latestOrderId,
     products: cartIds,
+    user_id: orderUserId,
   };
 
   try {
@@ -65,7 +66,8 @@ checkoutBtn.addEventListener("click", async (e) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        order_id: mockOrderData.order_id,
+        order_id: orderData.order_id,
+        user_id: orderData.user_id,
       }),
     });
 
@@ -78,7 +80,7 @@ checkoutBtn.addEventListener("click", async (e) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(mockOrderData),
+        body: JSON.stringify(orderData),
       });
 
       if (checkoutResponse.ok) {
@@ -100,6 +102,12 @@ checkoutBtn.addEventListener("click", async (e) => {
     // Handle the error
   }
 });
+
+function getOrderUserId() {
+  let userId = localStorage.getItem("userId");
+  console.log(userId);
+  return userId;
+}
 
 function searchItemId() {
   console.log(allProducts);
