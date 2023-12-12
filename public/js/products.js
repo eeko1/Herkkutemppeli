@@ -1,3 +1,5 @@
+import { ShoppingCartModel } from "../../src/models/shoppingCart-model.js";
+
 // Function to create HTML for each product
 const createProductHTML = (product) => `
     <section class="product" style="position: relative;">
@@ -59,7 +61,7 @@ function checkButtons() {
 
       button.addEventListener("click", () => {
         console.log("Button clicked!");
-        addToCart(productName, productPrice, productImage);
+        ShoppingCartModel, addToCart(productName, productPrice, productImage);
       });
     });
   } else {

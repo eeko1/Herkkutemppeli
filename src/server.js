@@ -23,6 +23,7 @@ app.use(cors());
 
 // Serve static files from 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/src", express.static(path.join(__dirname, "src")));
 
 app.use("/user", userRoutes);
 app.use("/api/products", productRoutes);
@@ -152,7 +153,7 @@ app.post("/api/products/update", async (req, res) => {
       newProductDescription,
       newProductCategory,
       newProductAllergens,
-      newProductPrice
+      newProductPrice,
     } = req.body;
 
     const updateProductQuery = `
@@ -172,7 +173,7 @@ app.post("/api/products/update", async (req, res) => {
       newProductCategory,
       newProductAllergens,
       newProductPrice,
-      product_id
+      product_id,
     ]);
 
     if (result.affectedRows > 0) {
