@@ -1,6 +1,5 @@
-const { check } = require("express-validator");
-
 // Function to open the modify product modal and populate it with product data
+
 function openModifyProductModal(productId, productName) {
   console.log("current product:", productId, productName);
   const modal = document.getElementById("modifyProductModal");
