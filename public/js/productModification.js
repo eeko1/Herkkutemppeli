@@ -1,5 +1,8 @@
+const { check } = require("express-validator");
+
 // Function to open the modify product modal and populate it with product data
 function openModifyProductModal(productId, productName) {
+  console.log("current product:", productId, productName);
   const modal = document.getElementById("modifyProductModal");
   const productNameField = document.getElementById("productName");
   const newProductNameField = document.getElementById("newProductName");
@@ -18,6 +21,8 @@ function openModifyProductModal(productId, productName) {
       newProductNameField.value = product.product_name;
       newProductDescription.value = product.product_description;
 
+      modal.setAttribute("data-product-id", productId);
+
       modal.showModal();
     })
     .catch((error) => console.error("Error fetching product data:", error));
@@ -27,14 +32,30 @@ function openModifyProductModal(productId, productName) {
 function modifyProductInfo() {
   // Get the product ID and new data from the modal fields
 
-  const newProductName = document.getElementById("productNameField");
+  const modal = document.getElementById("modifyProductModal");
+  const productId = modal.getAttribute("data-product-id");
+
+  const newProductName = document.getElementById("newProductName").value;
   const newProductDescription = document.getElementById(
-    "productDescriptionField"
-  );
+    "newProductDescription"
+  ).value;
   const newProductImage = document.getElementById("productImageField");
-  const newProductCategory = document.getElementById("productCategoryField");
-  const newProductAllergens = document.getElementById("productAllergensField");
-  const newProductPrice = document.getElementById("productPriceField");
+  const newProductCategory =
+    document.getElementById("newProductCategory").value;
+  const newProductAllergens = document.getElementById(
+    "newProductAllergens"
+  ).value;
+  const newProductPrice = document.getElementById("newProductPrice").value;
+
+  console.log(
+    "new product data:",
+    newProductName,
+    newProductDescription,
+    newProductImage,
+    newProductCategory,
+    newProductAllergens,
+    newProductPrice
+  );
   // ...
 
   // Send the updated data to the server
@@ -56,12 +77,20 @@ function modifyProductInfo() {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      return response.json();
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        return response.json();
+      } else {
+        return response.text();
+      }
     })
     .then((updatedProduct) => {
       console.log("Product updated:", updatedProduct);
       // Optionally, refresh the products list or update the UI
       // ...
+      modal.close();
+      //refresh website
+      location.reload();
     })
     .catch((error) => console.error("Error updating product:", error));
 }
