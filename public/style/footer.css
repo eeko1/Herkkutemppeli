@@ -18,6 +18,13 @@
     padding: 20px;
 }
 
+.leaflet-popup-close-button {
+    color: var(--text) !important;
+}
+.leaflet-control-attribution  {
+    display: none !important;
+}
+
 h2#aboutHeading,
 h2#locationHeading {
     margin-bottom: 5px;

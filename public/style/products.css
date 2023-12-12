@@ -27,6 +27,7 @@
   color: var(--text);
 }
 
+
 .productImage {
   background-color: var(--pink);
   object-fit: cover;
@@ -36,7 +37,7 @@
 }
 
 .productName {
-  color: var(--pink);
+  color: var(--productName);
   padding: 0.5em 10px;
 }
 
@@ -58,7 +59,7 @@
   padding: 0.2em 1em;
   border: none;
   background-color: var(--white);
-  color: var(--pink);
+  color: var(--text);
   font-size: 24px;
   cursor: pointer;
   outline: none;

@@ -4,8 +4,10 @@
     --primary-color-3: #FFCCCC; /* Soft Coral */
     --boxShadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     --white: rgb(255, 255, 255);
-    --pink: #FEBBCC; /* Blush Pink */
-    --text: #532c1f; /* For all texts */
+    --pink: #FEBBCC; /* Blush Pink */ 
+    --productName: #be7a8b; /* Blush Pink */
+    --brown : #49281e; /* Brown */
+    --text: #22120d; /* For all texts */
     --background: #f5f5f5; /* For all backgrounds */
   }
 
