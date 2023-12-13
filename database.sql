@@ -22,7 +22,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Products (
   product_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  product_name VARCHAR(255) NOT NULL,
+  product_name VARCHAR(255) NOT NULL UNIQUE,
   product_description TEXT NOT NULL,
   product_image VARCHAR(255) NOT NULL,
   product_category_id INT NOT NULL,

@@ -29,12 +29,12 @@ const updateProduct = async (productId, productData) => {
 
     const sql = `
       UPDATE Products
-      SET product_name = ?, 
-          product_description = ?, 
-          product_image = IFNULL(?, product_image),  -- Use existing value if new value is null
-          product_category_id = ?, 
-          product_allergens = ?, 
-          product_price = ?
+      SET product_name = IFNULL(?, product_name), -- Use existing value if new value is null
+          product_description = IFNULL(?, product_description), 
+          product_image = IFNULL(?, product_image), 
+          product_category_id = IFNULL(?, product_category_id),
+          product_allergens = IFNULL(?, product_allergens),
+          product_price = IFNULL(?, product_price)
       WHERE product_id = ?
     `;
 

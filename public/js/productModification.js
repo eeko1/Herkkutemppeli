@@ -8,8 +8,9 @@ function openModifyProductModal(productId, productName) {
   const newProductDescription = document.getElementById(
     "newProductDescription"
   );
-  const newProductImage = document.getElementById("newProductImage");
-  const newProductCategory = document.getElementById("newProductCategory");
+
+  const newProductCategory =
+    document.getElementById("newProductCategory").value;
   const newProductAllergens = document.getElementById("newProductAllergens");
   const newProductPrice = document.getElementById("newProductPrice");
 
@@ -50,12 +51,34 @@ function modifyProductInfo() {
     "new product data:",
     newProductName,
     newProductDescription,
-    newProductImage,
     newProductCategory,
     newProductAllergens,
     newProductPrice
   );
-  // ...
+
+  const updatedData = {};
+
+  if (newProductName.trim() !== "") {
+    updatedData.productName = newProductName;
+  }
+
+  if (newProductDescription.trim() !== "") {
+    updatedData.productDescription = newProductDescription;
+  }
+
+  if (newProductCategory !== null && newProductCategory.trim() !== "") {
+    updatedData.productCategory = newProductCategory;
+  }
+
+  if (newProductAllergens.trim() !== "" && newProductAllergens !== null) {
+    updatedData.productAllergens = newProductAllergens;
+  }
+
+  if (newProductPrice.trim() !== "" && newProductPrice !== null) {
+    updatedData.productPrice = newProductPrice;
+  }
+
+  console.log("updated data:", updatedData);
 
   // Send the updated data to the server
   fetch(`http://localhost:3000/api/products/${productId}`, {
@@ -63,14 +86,7 @@ function modifyProductInfo() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      productName: newProductName,
-      productDescription: newProductDescription,
-      productImage: newProductImage,
-      productCategory: newProductCategory,
-      productAllergens: newProductAllergens,
-      productPrice: newProductPrice,
-    }),
+    body: JSON.stringify(updatedData),
   })
     .then((response) => {
       if (!response.ok) {
@@ -91,7 +107,10 @@ function modifyProductInfo() {
       //refresh website
       location.reload();
     })
-    .catch((error) => console.error("Error updating product:", error));
+    .catch((error) => {
+      console.error("Error updating product:", error);
+      alert("Product name must be unique!");
+    });
 }
 
 // Function to close the modify product modal
