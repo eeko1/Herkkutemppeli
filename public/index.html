@@ -124,31 +124,32 @@
         <div class="glass-frame">
           <h1 id="welcomeHeading">Welcome!</h1>
           <div class="tabs">
-            <button id="loginTab" class="tab" onclick="switchTab(event, 'loginInput')">Login</button>
-            <button id="signupTab" class="tab" onclick="switchTab(event, 'signup')">Signup</button>
+            <button id="loginTabButton" class="tab active" onclick="switchTab(event, 'loginInput')">Login</button>
+            <button id="signupTabButton" class="tab" onclick="switchTab(event, 'signup');">Signup</button>
           </div>
           <!-- Login  -->
           <div id="loginInput" class="tab-content glass-frame-content">
             <form id="loginForm">
-              <input type="email" placeholder="Email" required>
-              <input type="password" placeholder="Password" pattern=".{6,}" title="Password must be at least 6 characters" required>
-              <button type="submit">Login</button>
+              <input type="email" id="loginEmailInput" placeholder="Email" required>
+              <input type="password" id="loginPasswordInput" placeholder="Password" pattern=".{6,}" title="Password must be at least 6 characters" required>
+              <button type="submit" id="loginSubmitButton">Login</button>
             </form>
           </div>
+          <!-- Register  -->
+          <div id="signup" class="tab-content glass-frame-content">
+            <form id="signupForm" action="/signup" method="post">
+              <input type="text" id="signupNameInput" name="username" placeholder="Name" maxlength="8" required>
+              <input type="email" id="signupEmailInput" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Enter a valid email address" required>
+              <input type="tel" id="signupPhoneInput" name="phoneNumber" placeholder="Phone Number" required>
+              <input type="password" id="signupPasswordInput" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase and lowercase letter, and be at least 8 characters long" required>
+              <button type="submit" id="signupSubmitButton">Signup</button>
+            </form>
+          </div>
+          <button id="close_register">X</button>
         </div>
-        <!-- Register  -->
-        <div id="signup" class="tab-content glass-frame-content">
-          <form id="signupForm" action="/signup" method="post">
-            <input type="text" name="username" placeholder="Name" maxlength="8" required>
-            <input type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Enter a valid email address" required>
-            <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
-            <input type="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase and lowercase letter, and be at least 8 characters long" required>
-            <button type="submit">Signup</button>
-          </form>
-        </div>
-        <button id="close_register">X</button>
       </div>
     </dialog>
+    
     <!-- User modification -->
     <dialog id="modifyUserModal">
       <div class="glass-frame">

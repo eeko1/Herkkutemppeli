@@ -54,8 +54,7 @@ form button[type="button"] {
 
 button[type="button"],
 button[type="submit"],
-#signout,
-#signup {
+#signout {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -71,8 +70,7 @@ button[type="submit"],
 
 button[type="button"]:hover,
 button[type="submit"]:hover,
-#signout:hover,
-#signup:hover {
+#signout:hover {
   background-color: var(--white);
   color: var(--pink);
   transform: scale(1.1);
