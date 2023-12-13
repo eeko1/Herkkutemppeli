@@ -11,17 +11,19 @@
     <link rel="stylesheet" href="./style/userModification.css">
     <link rel="stylesheet" href="./style/productModification.css">
     <link rel="stylesheet" href="./style/orderView.css">
-    <script src="./js/products.js" defer></script>
-    <script src="./js/carousel.js" defer></script>
-    <script src="./js/shoppingCart.js" defer></script>
-    <script src="./js/nav.js" defer></script>
-    <script src="./js/footerMap.js" defer></script>
-    <script src="./js/loginRegister.js" defer></script>
-    <script src="/js/register.js" defer></script>
-    <script src="/js/login.js" defer></script>
-    <script src="./js/userModification.js" defer></script>
-    <script src="./js/orderView.js" defer></script>
-    <script src="./js/productModification.js" defer></script>
+
+    <script src="./build/products.js" defer></script>
+    <script src="./build/carousel.js" defer></script>
+    <script src="./build/shoppingCart.js" defer></script>
+    <script src="./build/nav.js" defer></script>
+    <script src="./build/footerMap.js" defer></script>
+    <script src="./build/loginRegister.js" type="module"></script>
+    <script src="./build/register.js" defer></script>
+    <script src="./build/login.js" defer></script>
+    <script src="./build/userModification.js" defer></script>
+    <script src="./build/orderView.js" defer></script>
+    <script src="./build/productModification.js" defer></script>
+    
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin="">
@@ -171,7 +173,7 @@
             <label for="newPassword">New Password:</label>
             <input type="password" id="newPassword" placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase and lowercase letter, and be at least 8 characters long" required>
           </div>
-          <button type="button" onclick="modifyAllFields()">Modify All</button>
+          <button type="button" onclick="modifyAllFields()">Modify</button>
           <button id="signout" class="navli">Sign out</button>
           <button id="closeModifyUser">X</button>
         </form>

@@ -1,18 +1,13 @@
 // Function to open the modify product modal and populate it with product data
-
-function openModifyProductModal(productId, productName) {
+function openModifyProductModal(productId: string, productName: string): void {
   console.log("current product:", productId, productName);
-  const modal = document.getElementById("modifyProductModal");
-  const productNameField = document.getElementById("productName");
-  const newProductNameField = document.getElementById("newProductName");
-  const newProductDescription = document.getElementById(
-    "newProductDescription"
-  );
-
-  const newProductCategory =
-    document.getElementById("newProductCategory").value;
-  const newProductAllergens = document.getElementById("newProductAllergens");
-  const newProductPrice = document.getElementById("newProductPrice");
+  const modal = document.getElementById("modifyProductModal") as HTMLDialogElement;
+  const productNameField = document.getElementById("productName") as HTMLInputElement;
+  const newProductNameField = document.getElementById("newProductName") as HTMLInputElement;
+  const newProductDescription = document.getElementById("newProductDescription") as HTMLInputElement;
+  const newProductCategory = (document.getElementById("newProductCategory") as HTMLInputElement).value;
+  const newProductAllergens = document.getElementById("newProductAllergens") as HTMLInputElement;
+  const newProductPrice = document.getElementById("newProductPrice") as HTMLInputElement;
 
   fetch(`http://localhost:3000/api/products/${productId}`)
     .then((response) => response.json())
@@ -29,23 +24,18 @@ function openModifyProductModal(productId, productName) {
 }
 
 // Function to modify product information
-function modifyProductInfo() {
+function modifyProductInfo(): void {
   // Get the product ID and new data from the modal fields
 
-  const modal = document.getElementById("modifyProductModal");
+  const modal = document.getElementById("modifyProductModal") as HTMLDialogElement;
   const productId = modal.getAttribute("data-product-id");
 
-  const newProductName = document.getElementById("newProductName").value;
-  const newProductDescription = document.getElementById(
-    "newProductDescription"
-  ).value;
-  const newProductImage = document.getElementById("productImageField");
-  const newProductCategory =
-    document.getElementById("newProductCategory").value;
-  const newProductAllergens = document.getElementById(
-    "newProductAllergens"
-  ).value;
-  const newProductPrice = document.getElementById("newProductPrice").value;
+  const newProductName = (document.getElementById("newProductName") as HTMLInputElement).value;
+  const newProductDescription = (document.getElementById("newProductDescription") as HTMLInputElement).value;
+  const newProductImage = document.getElementById("productImageField") as HTMLInputElement;
+  const newProductCategory = (document.getElementById("newProductCategory") as HTMLInputElement).value;
+  const newProductAllergens = (document.getElementById("newProductAllergens") as HTMLInputElement).value;
+  const newProductPrice = (document.getElementById("newProductPrice") as HTMLInputElement).value;
 
   console.log(
     "new product data:",
@@ -56,7 +46,7 @@ function modifyProductInfo() {
     newProductPrice
   );
 
-  const updatedData = {};
+  const updatedData: any = {};
 
   if (newProductName.trim() !== "") {
     updatedData.productName = newProductName;
@@ -104,7 +94,7 @@ function modifyProductInfo() {
       // Optionally, refresh the products list or update the UI
       // ...
       modal.close();
-      //refresh website
+      // refresh website
       location.reload();
     })
     .catch((error) => {
@@ -114,7 +104,7 @@ function modifyProductInfo() {
 }
 
 // Function to close the modify product modal
-function closeModifyProductModal() {
-  const modal = document.getElementById("modifyProductModal");
+function closeModifyProductModal(): void {
+  const modal = document.getElementById("modifyProductModal") as HTMLDialogElement;
   modal.close();
 }

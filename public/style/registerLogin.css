@@ -84,7 +84,7 @@ h1#welcomeHeading {
 #signupSubmitButton,
 #loginSubmitButton {
   background: var(--background);
-  color: var(--pink);
+  color: var(--text);
   font-size: 16px;
   transition: 0.3s;
 }

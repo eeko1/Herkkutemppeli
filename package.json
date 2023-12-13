@@ -7,11 +7,16 @@
   "scripts": {
     "start": "NODE_ENV=production node src/server.js",
     "dev": "NODE_ENV=development nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "apidoc -i src/ -o docs/"
   },
   "author": "reino",
   "license": "ISC",
   "devDependencies": {
+    "@types/dialog-polyfill": "^0.5.2",
+    "@types/leaflet": "^1.9.8",
+    "@types/node": "^20.10.4",
+    "apidoc": "^1.2.0",
     "eslint": "^8.52.0",
     "eslint-config-google": "^0.14.0",
     "nodemon": "^3.0.1"
@@ -20,6 +25,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "dialog-polyfill": "^0.5.6",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
@@ -28,5 +34,13 @@
     "mysql": "^2.18.1",
     "mysql2": "^3.6.5",
     "pug": "^3.0.2"
+  },
+  "apidoc": {
+    "title": "Media sharing API docs",
+    "url": "https://example.com/api",
+    "order": [
+      "Authentication",
+      "User"
+    ]
   }
 }

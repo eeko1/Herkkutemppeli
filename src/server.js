@@ -125,18 +125,28 @@ app.get("/api/products", async (req, res) => {
 
 app.post("/user/update", async (req, res) => {
   try {
-    const { newUsername, newEmail, newPhoneNumber, newPassword } = req.body;
+    const {
+      currentUsername,
+      newUsername,
+      newEmail,
+      newPhoneNumber,
+      newPassword,
+    } = req.body;
+
+    console.log("Received request with data:", req.body);
 
     const updateUserQuery =
-      "UPDATE Users SET email = ?, phonenumber = ?, password = ? WHERE fullname = ?";
+      "UPDATE Users SET email = ?, phonenumber = ?, password = ?, fullname = ? WHERE fullname = ?";
 
     await pool.query(updateUserQuery, [
       newEmail,
       newPhoneNumber,
       newPassword,
       newUsername,
+      currentUsername, // Use currentUsername to identify the user
     ]);
 
+    console.log("User information updated successfully");
     res.status(200).send("User information updated successfully");
   } catch (err) {
     console.error("Error updating user information:", err);
@@ -146,17 +156,29 @@ app.post("/user/update", async (req, res) => {
 
 app.post("/api/products/update", async (req, res) => {
   try {
-      const { product_id, newProductName, newProductDescription, newProductAllergens, newProductPrice } = req.body;
+    const {
+      product_id,
+      newProductName,
+      newProductDescription,
+      newProductAllergens,
+      newProductPrice,
+    } = req.body;
 
-      const updateProductQuery =
-          "UPDATE Products SET product_name = ?, product_description = ?, product_allergens = ?, product_price = ? WHERE product_id = ?";
-      
-      await pool.query(updateProductQuery, [newProductName, newProductDescription, newProductAllergens, newProductPrice, product_id]);
+    const updateProductQuery =
+      "UPDATE Products SET product_name = ?, product_description = ?, product_allergens = ?, product_price = ? WHERE product_id = ?";
 
-      res.status(200).send("Product information updated successfully");
+    await pool.query(updateProductQuery, [
+      newProductName,
+      newProductDescription,
+      newProductAllergens,
+      newProductPrice,
+      product_id,
+    ]);
+
+    res.status(200).send("Product information updated successfully");
   } catch (err) {
-      console.error("Error updating product information:", err);
-      res.status(500).send("Error updating product information");
+    console.error("Error updating product information:", err);
+    res.status(500).send("Error updating product information");
   }
 });
 
