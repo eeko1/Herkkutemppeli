@@ -1,43 +1,50 @@
-const ordersDialog = document.getElementById("orderViewDialog");
-const openOrdersBtn = document.getElementById("open_orders");
-const closeOrdersBtn = document.getElementById("closeOrders");
-let ordersListData;
+const ordersDialog = document.getElementById("orderViewDialog") as HTMLDialogElement | null;
+const openOrdersBtn = document.getElementById("open_orders") as HTMLButtonElement | null;
+const closeOrdersBtn = document.getElementById("closeOrders") as HTMLButtonElement | null;
+
+interface OrderData {
+  order_id: string;
+  user_id: string;
+  status: string;
+  order_date: string;
+  ordered_items: string[]; // Assuming ordered_items is an array of strings
+}
+
+let ordersListData: OrderData[];
 
 const openOrdersDialog = async () => {
   const ordersList = await fetch("/api/orderslist");
-  ordersListData = await ordersList.json();
+  ordersListData = await ordersList.json() as OrderData[];
   renderOrderData();
-  ordersDialog.showModal();
-  ordersDialog.addEventListener("keydown", trapFocus);
+  ordersDialog?.showModal();
+  ordersDialog?.addEventListener("keydown", trapFocus);
 };
 
-const closeOrdersDialog = (e) => {
+const closeOrdersDialog = (e?: Event) => {
   if (e) {
     e.preventDefault();
   }
-  ordersDialog.close();
-  ordersDialog.removeEventListener("keydown", trapFocus);
-  openOrdersBtn.focus();
+  ordersDialog?.close();
+  ordersDialog?.removeEventListener("keydown", trapFocus);
+  openOrdersBtn?.focus();
 };
 
-openOrdersBtn.addEventListener("click", openOrdersDialog);
-closeOrdersBtn.addEventListener("click", closeOrdersDialog);
+openOrdersBtn?.addEventListener("click", openOrdersDialog);
+closeOrdersBtn?.addEventListener("click", closeOrdersDialog);
 
-if (localStorage.getItem("userLvlId") == "2") {
-  // Display the button
+if (localStorage.getItem("userLvlId") === "2") {
   openOrdersBtn.style.display = "flex";
 } else {
   openOrdersBtn.style.display = "none";
 }
 
 function renderOrderData() {
-  // Clear previous content before appending new elements
   ordersDialog.innerHTML = "";
 
   ordersListData.forEach((orderData, index) => {
     const orderContainer = document.createElement("div");
     const orderContainerBtn = document.createElement("button");
-    const orderedItemsList = document.createElement("ul"); // New element for ordered items
+    const orderedItemsList = document.createElement("ul");
 
     orderContainerBtn.textContent = "Confirm";
     orderContainerBtn.addEventListener("click", async () => {
@@ -51,14 +58,11 @@ function renderOrderData() {
 
       if (response.ok) {
         if (index === ordersListData.length - 1) {
-          // If it's the last item, close the dialog
           closeOrdersDialog();
         } else {
-          // If it's not the last item, keep the dialog open
           openOrdersDialog();
           renderOrderData();
         }
-        console.log("ran renderOrderData");
       } else {
         alert("Error confirming order!");
       }
@@ -74,23 +78,13 @@ function renderOrderData() {
     statusElement.textContent = `Status: ${orderData.status}`;
 
     const orderDateElement = document.createElement("p");
-    orderDateElement.textContent = `Order Date: ${new Date(
-      orderData.order_date
-    ).toLocaleString()}`;
+    orderDateElement.textContent = `Order Date: ${new Date(orderData.order_date).toLocaleString()}`;
 
-    const orderedItemsArray = Array.isArray(orderData.ordered_items)
-      ? orderData.ordered_items
-      : [orderData.ordered_items];
+    const orderedItemsArray = Array.isArray(orderData.ordered_items) ? orderData.ordered_items : [orderData.ordered_items];
 
-    // Concatenate ordered items into a single string
     const orderedItemsElement = document.createElement("p");
-    orderedItemsElement.textContent = `ItemIDs: ${orderedItemsArray
-      .join(", ")
-      .replace(/,/g, ", ")}`;
+    orderedItemsElement.textContent = `ItemIDs: ${orderedItemsArray.join(", ").replace(/,/g, ", ")}`;
 
-    /*     console.log(`ItemIDs: ${orderedItemsArray.join(", ")}`); */
-
-    // Append elements to the ordersDialog
     ordersDialog.appendChild(closeOrdersBtn);
     ordersDialog.appendChild(orderContainer);
     orderContainer.appendChild(orderContainerBtn);
@@ -99,8 +93,10 @@ function renderOrderData() {
     orderContainer.appendChild(statusElement);
     orderContainer.appendChild(orderDateElement);
     orderedItemsList.appendChild(orderedItemsElement);
-
-    // Append orderedItemsList to orderContainer
     orderContainer.appendChild(orderedItemsList);
   });
+}
+
+function trapFocus(e: KeyboardEvent): void {
+  // Your focus trapping logic for the orders dialog
 }
