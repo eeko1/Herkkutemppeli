@@ -1,4 +1,7 @@
-# Herkkutemppeli
+<h1>
+    Herkkutemppeli
+</h1>
+<img align="right" width="100" height="100" src="./public/image/herkkutemppeli.png">
 
 ## Introduction 
 Project done for Metropolia Web Development Project course. It is a website for cafeteria named Herkkutemppeli. There customers can order, view products, and see the locations of the cafes. Employees can manage orders and modify products on the page.
@@ -13,7 +16,7 @@ MySQL2
 
 ##  Setup
 
-Clone the files
+1. Clone the files
  
 ```bash
 git clone https://github.com/eeko1/Herkkutemppeli.git
@@ -22,7 +25,7 @@ git clone https://github.com/eeko1/Herkkutemppeli.git
 
 ## Database installation
 
-Download [Mariadb](https://mariadb.org/) . When the Mariadb client is ready, copy this SQL database creation script to the terminal.
+2. Download [Mariadb](https://mariadb.org/) . When the Mariadb client is ready, copy this SQL database creation script to the terminal.
 
 ```SQL
 DROP DATABASE IF EXISTS herkkutemppeli;
@@ -84,13 +87,26 @@ CREATE TABLE Ticket (
 );
 ```
 
-Dependencies
+## Create .env file
+
+3. Create a .env file containing your information
+
+- DB_HOST = localhost
+- DB_USER = your username
+- DB_PASSWORD = your password
+- DB_DATABASE = herkkutemppeli
+
+## Installing Node.js
+
+4. Install node.js and all the necessary dependencies
 
 ```bash
 npm install
 ```
 
-Run the website from terminal
+## Running the website
+
+5. Run the website by using command on terminal.
 
 ```bash
 npm run dev
