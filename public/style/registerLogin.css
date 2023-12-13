@@ -1,8 +1,6 @@
 @import url(root.css);
 
-#registerSignup::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-}
+/* Your existing CSS styles here */
 
 #registerSignup {
   background-color: var(--pink);
@@ -67,8 +65,12 @@ h1#welcomeHeading {
   border: 1px solid black;
 }
 
-.tab:hover,
 .tab.active {
+  background: var(--primary-color-3);
+  color: var(--text);
+}
+
+.tab:not(.active):hover {
   background: var(--pink);
   color: var(--text);
 }
@@ -78,27 +80,9 @@ h1#welcomeHeading {
   display: none;
 }
 
-/* Adjust form input and button styles for signup and login */
-#signupForm-registerLogin input[type="text"],
-#signupForm-registerLogin input[type="email"],
-#signupForm-registerLogin input[type="tel"],
-#signupForm-registerLogin input[type="password"],
-#signupForm-registerLogin button[type="submit"],
-#loginForm-registerLogin input[type="text"],
-#loginForm-registerLogin input[type="password"],
-#loginForm-registerLogin button[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  background: var(--pink);
-  color: var(--text);
-}
-
-#signupForm-registerLogin button[type="submit"],
-#loginForm-registerLogin button[type="submit"] {
+/* Button styles for signup and login */
+#signupSubmitButton,
+#loginSubmitButton {
   background: var(--background);
   color: var(--pink);
   font-size: 16px;
@@ -106,32 +90,23 @@ h1#welcomeHeading {
 }
 
 /* Click effect for form inputs */
-#signupForm-registerLogin input[type="text"]:focus,
-#signupForm-registerLogin input[type="email"]:focus,
-#signupForm-registerLogin input[type="tel"]:focus,
-#signupForm-registerLogin input[type="password"]:focus,
-#signupForm-registerLogin button[type="submit"]:focus,
-#loginForm-registerLogin input[type="text"]:focus,
-#loginForm-registerLogin input[type="password"]:focus,
-#loginForm-registerLogin button[type="submit"]:focus {
+#signupNameInput:focus,
+#signupEmailInput:focus,
+#signupPhoneInput:focus,
+#signupPasswordInput:focus,
+#signupSubmitButton:focus,
+#loginEmailInput:focus,
+#loginPasswordInput:focus,
+#loginSubmitButton:focus {
   border-color: var(--pink);
   box-shadow: 0 0 5px var(--pink);
 }
 
-/* Remove the default browser outline for focused elements */
-#signupForm-registerLogin input:focus,
-#signupForm-registerLogin button:focus,
-#loginForm-registerLogin input:focus,
-#loginForm-registerLogin button:focus {
-  outline: none;
-}
-
 /* Remove hover effect for both signup and login form buttons */
-#signupForm-registerLogin button[type="submit"]:hover,
-#loginForm-registerLogin button[type="submit"]:hover {
-  background-color: var(--background);
-  color: var(--pink);
-  transform: none;
+#signupSubmitButton:hover,
+#loginSubmitButton:hover {
+  background-color: var(--pink);
+  transform: scale(1.1);
 }
 
 /* Add glass frame styles to signup form */
@@ -148,6 +123,14 @@ h1#welcomeHeading {
   cursor: pointer;
 }
 
+/* Hover effect for both signup and login tabs */
+#signupTabButton:hover,
+#loginTabButton:hover {
+  background: var(--pink);
+  color: var(--text);
+}
+
+/* Media queries if any */
 @media only screen and (max-width: 600px) {
   #registerSignup {
     width: 90%;
