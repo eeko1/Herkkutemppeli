@@ -188,6 +188,10 @@ nav {
 }
 
 
+#navbarUsername:hover {
+  background-color: var(--primary-color-3);
+  transform: scale(1.1);}
+
 @media screen and (max-width: 530px) {
   .navli a {
     padding: 0px 10px;
@@ -197,6 +201,7 @@ nav {
   padding: 0px 10px;
 }
 }
+
 
 
 @keyframes fadeInOut {
