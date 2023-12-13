@@ -64,20 +64,26 @@ document.getElementById("signout").addEventListener("click", function () {
 
 document.addEventListener("DOMContentLoaded", () => {
   const username = localStorage.getItem("username");
+  const navbarUsername = document.getElementById("navbarUsername");
   const logoutButton = document.getElementById("signout");
 
   if (username) {
     // Display the username
-    document.getElementById("navbarUsername").textContent = username;
+    navbarUsername.textContent = username;
 
     // Show logout button
-    if (signout) {
-      signout.style.display = "block";
+    if (logoutButton) {
+      logoutButton.style.display = "block";
     }
   } else {
-    // Hide logout button
-    if (signout) {
-      signout.style.display = "none";
+    // Remove username and its click functionality
+    if (navbarUsername) {
+      navbarUsername.parentNode.removeChild(navbarUsername);
+    }
+
+    // Hide logout button or remove it as well
+    if (logoutButton) {
+      logoutButton.parentNode.removeChild(logoutButton);
     }
   }
 });

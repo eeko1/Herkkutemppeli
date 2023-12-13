@@ -103,3 +103,9 @@ button[type="submit"]:hover,
   width: calc(100% - 160px);
 }
 
+@media (max-width: 500px) {
+
+  #closeModifyProduct {
+    right: auto;
+  }
+}
