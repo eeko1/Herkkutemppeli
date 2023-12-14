@@ -43,13 +43,16 @@ function renderOrderData() {
     orderContainerBtn.textContent = "Confirm";
     orderContainerBtn.addEventListener("click", async () => {
       try {
-        const response = await fetch("/api/confirm-order", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ order_id: orderData.order_id }),
-        });
+        const response = await fetch(
+          "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/confirm-order",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ order_id: orderData.order_id }),
+          }
+        );
         if (response.ok) {
           if (index === ordersListData.length - 1) {
             // If it's the last item, close the dialog
