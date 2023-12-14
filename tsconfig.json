@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "outDir": "./public/build",
+    "target": "ESNext",
+    "module": "ESNext",
+    "noImplicitAny": true,
+    "strict": true,
+    "moduleResolution": "node",
+  },
+  "include": ["./public/**/*"]
+}
