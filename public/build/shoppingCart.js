@@ -42,7 +42,9 @@ checkoutBtn.addEventListener("click", async (e) => {
     alert("You need to add products to the shopping cart first!");
     return;
   }
-  const latestOrderResponse = await fetch("/api/latest-order-id");
+  const latestOrderResponse = await fetch(
+    "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/latest-order-id"
+  );
   const latestOrderData = await latestOrderResponse.json();
   console.log(latestOrderData, "latestOrderData");
   const orderUserId = getOrderUserId();

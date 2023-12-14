@@ -1,0 +1,9 @@
+### GET
+GET http://localhost:3000/api/latest-order-id
+
+### GET
+GET http://localhost:3000/api/products
+
+### GET
+GET http://localhost:3000/api/orderslist
+

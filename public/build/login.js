@@ -61,23 +61,20 @@ if (logoutButton) {
 document.addEventListener("DOMContentLoaded", () => {
   const username = localStorage.getItem("username");
   const navbarUsername = document.getElementById("navbarUsername");
+
   if (navbarUsername) {
-    const usernameValue = navbarUsername.innerText;
-    if (usernameValue === "") {
+    if (!username) {
+      // Hide navbarUsername if username is not present
       navbarUsername.style.display = "none";
+    } else {
+      // Display the username
+      navbarUsername.textContent = username;
+      navbarUsername.style.display = "flex";
     }
   }
-  if (username && navbarUsername) {
-    // Display the username
-    navbarUsername.textContent = username;
-    // Show logout button
-    if (logoutButton) {
-      logoutButton.style.display = "block";
-    }
-  } else {
-    // Hide logout button
-    if (logoutButton) {
-      logoutButton.style.display = "none";
-    }
+
+  if (username && logoutButton) {
+    // Show logout button if username is present
+    logoutButton.style.display = "block";
   }
 });

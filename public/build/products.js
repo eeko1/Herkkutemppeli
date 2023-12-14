@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const products = await response.json();
     allProducts = products;
     renderProducts(products);
-    checkButtons();
   } catch (error) {
     console.error("Error fetching products:", error);
     displayErrorMessage();
@@ -97,6 +96,7 @@ const fetchAndRenderProducts = async () => {
     const products = await response.json();
     allProducts = products;
     renderProducts(products);
+    checkButtons();
   } catch (error) {
     console.error("Error fetching products:", error);
     displayErrorMessage();
