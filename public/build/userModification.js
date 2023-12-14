@@ -38,16 +38,13 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     try {
       console.log("formData:", formData);
-      const response = await fetch(
-        "https://herkkutemppelijami.northeurope.cloudapp.azure.com/user/update",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("/user/update", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
       if (response.ok) {
         alert("User information updated successfully");
         // Additional actions upon successful update

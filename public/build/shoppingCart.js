@@ -42,9 +42,7 @@ checkoutBtn.addEventListener("click", async (e) => {
     alert("You need to add products to the shopping cart first!");
     return;
   }
-  const latestOrderResponse = await fetch(
-    "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/latest-order-id"
-  );
+  const latestOrderResponse = await fetch("/latest-order-id");
   const latestOrderData = await latestOrderResponse.json();
   console.log(latestOrderData, "latestOrderData");
   const orderUserId = getOrderUserId();
@@ -56,32 +54,26 @@ checkoutBtn.addEventListener("click", async (e) => {
   };
   try {
     // Send a POST request to create an order in the database
-    const orderResponse = await fetch(
-      "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/orders",
-      {
+    const orderResponse = await fetch("/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        order_id: orderData.order_id,
+        user_id: orderData.user_id,
+      }),
+    });
+    if (orderResponse.ok) {
+      console.log("Order created successfully!");
+      // Now that the order is created, proceed with checkout
+      const checkoutResponse = await fetch("/api/checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          order_id: orderData.order_id,
-          user_id: orderData.user_id,
-        }),
-      }
-    );
-    if (orderResponse.ok) {
-      console.log("Order created successfully!");
-      // Now that the order is created, proceed with checkout
-      const checkoutResponse = await fetch(
-        "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/checkout",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(orderData),
-        }
-      );
+        body: JSON.stringify(orderData),
+      });
       if (checkoutResponse.ok) {
         console.log("Checkout and ticket creation successful!");
         closeShoppingCartDialog(e);
@@ -129,9 +121,7 @@ function searchItemId() {
   console.log(cartIds);
 }
 function fetchAllProducts() {
-  fetch(
-    "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/products"
-  )
+  fetch("/api/products")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");

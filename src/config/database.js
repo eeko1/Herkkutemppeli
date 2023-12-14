@@ -3,15 +3,7 @@ import mysql from "mysql2/promise";
 import { resolve } from "path";
 import fs from "fs";
 
-const envPath = "/home/jamina/Herkkutemppeli/.env";
-
-try {
-  const envFileContent = fs.readFileSync(envPath, "utf-8");
-} catch (error) {
-  console.error("Error reading .env file", error.message);
-}
-
-dotenv.config({ path: envPath });
+dotenv.config();
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,

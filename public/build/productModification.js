@@ -12,9 +12,7 @@ function openModifyProductModal(productId, productName) {
     document.getElementById("newProductCategory").value;
   const newProductAllergens = document.getElementById("newProductAllergens");
   const newProductPrice = document.getElementById("newProductPrice");
-  fetch(
-    `https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/products/${productId}`
-  )
+  fetch(`/api/products/${productId}`)
     .then((response) => response.json())
     .then((product) => {
       productNameField.value = product.product_name;
@@ -67,16 +65,13 @@ function modifyProductInfo() {
   }
   console.log("updated data:", updatedData);
   // Send the updated data to the server
-  fetch(
-    `https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/products/${productId}`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedData),
-    }
-  )
+  fetch(`/api/products/${productId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedData),
+  })
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");

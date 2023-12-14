@@ -5,9 +5,7 @@ const closeOrdersBtn = document.getElementById("closeOrders");
 let ordersListData;
 const openOrdersDialog = async () => {
   try {
-    const ordersListResponse = await fetch(
-      "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/orderslist"
-    );
+    const ordersListResponse = await fetch("/api/orderslist");
     ordersListData = await ordersListResponse.json();
     renderOrderData();
     ordersDialog.showModal();

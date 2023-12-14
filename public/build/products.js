@@ -33,9 +33,7 @@ const renderProducts = (products) => {
 let allProducts = [];
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch(
-      "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/products"
-    );
+    const response = await fetch("/api/products");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -87,9 +85,7 @@ function checkButtons() {
 // Function to fetch products from the server and render them
 const fetchAndRenderProducts = async () => {
   try {
-    const response = await fetch(
-      "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/products"
-    );
+    const response = await fetch("/api/products");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
