@@ -15,103 +15,108 @@ const createProductHTML = (product) => `
 `;
 // Function to render all products to the DOM
 const renderProducts = (products) => {
-    const productsContainer = document.getElementById("productsContainer");
-    const loadingMessage = document.getElementById("loadingMessage");
-    // Check if productsContainer is not null or undefined before accessing innerHTML
-    if (productsContainer) {
-        productsContainer.innerHTML = ""; // Clear existing content
-    }
-    // Check if products array is not empty and loadingMessage is not null
-    if (products.length > 0 && loadingMessage) {
-        loadingMessage.style.display = "none";
-    }
-    // Use nullish coalescing operator to provide a default value for productsContainer
-    (productsContainer ?? document.createElement("div")).innerHTML += products.map(createProductHTML).join("");
+  const productsContainer = document.getElementById("productsContainer");
+  const loadingMessage = document.getElementById("loadingMessage");
+  // Check if productsContainer is not null or undefined before accessing innerHTML
+  if (productsContainer) {
+    productsContainer.innerHTML = ""; // Clear existing content
+  }
+  // Check if products array is not empty and loadingMessage is not null
+  if (products.length > 0 && loadingMessage) {
+    loadingMessage.style.display = "none";
+  }
+  // Use nullish coalescing operator to provide a default value for productsContainer
+  (productsContainer ?? document.createElement("div")).innerHTML += products
+    .map(createProductHTML)
+    .join("");
 };
 let allProducts = [];
 document.addEventListener("DOMContentLoaded", async () => {
-    try {
-        const response = await fetch("http://localhost:3000/api/products");
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
-        const products = await response.json();
-        allProducts = products;
-        renderProducts(products);
-        checkButtons();
+  try {
+    const response = await fetch(
+      "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/products"
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
     }
-    catch (error) {
-        console.error("Error fetching products:", error);
-        displayErrorMessage();
-    }
+    const products = await response.json();
+    allProducts = products;
+    renderProducts(products);
+    checkButtons();
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    displayErrorMessage();
+  }
 });
 function checkButtons() {
-    const addButtons = document.querySelectorAll(".productAdd");
-    console.log("Number of buttons:", addButtons.length);
-    const modifyProductBtns = document.querySelectorAll(".productIcon");
-    if (localStorage.getItem("userLvlId") === "2") {
-        console.log("Displaying the buttons");
-        modifyProductBtns.forEach((button) => {
-            button.style.display = "flex";
-        });
-    }
-    else {
-        console.log("Hiding the buttons");
-        modifyProductBtns.forEach((button) => {
-            button.style.display = "none";
-        });
-    }
-    addButtons.forEach((button) => {
-        // Use optional chaining to safely access properties
-        const productElement = button.closest(".product");
-        const productPrice = productElement
-            ?.querySelector(".productPrice")?.innerText;
-        const productName = productElement
-            ?.querySelector(".productName")?.innerText;
-        const productImage = productElement
-            ?.querySelector(".productImage")?.src;
-        if (productPrice && productName && productImage) {
-            // Add a click event listener to each button
-            button.addEventListener("click", () => {
-                console.log("Button clicked!");
-                addToCart(productName, productPrice, productImage);
-            });
-        }
+  const addButtons = document.querySelectorAll(".productAdd");
+  console.log("Number of buttons:", addButtons.length);
+  const modifyProductBtns = document.querySelectorAll(".productIcon");
+  if (localStorage.getItem("userLvlId") === "2") {
+    console.log("Displaying the buttons");
+    modifyProductBtns.forEach((button) => {
+      button.style.display = "flex";
     });
-    // Retry after a short delay if buttons are not found
-    if (addButtons.length === 0) {
-        console.log("Did not find buttons yet, retrying...");
-        setTimeout(checkButtons, 100);
+  } else {
+    console.log("Hiding the buttons");
+    modifyProductBtns.forEach((button) => {
+      button.style.display = "none";
+    });
+  }
+  addButtons.forEach((button) => {
+    // Use optional chaining to safely access properties
+    const productElement = button.closest(".product");
+    const productPrice =
+      productElement?.querySelector(".productPrice")?.innerText;
+    const productName =
+      productElement?.querySelector(".productName")?.innerText;
+    const productImage = productElement?.querySelector(".productImage")?.src;
+    if (productPrice && productName && productImage) {
+      // Add a click event listener to each button
+      button.addEventListener("click", () => {
+        console.log("Button clicked!");
+        addToCart(productName, productPrice, productImage);
+      });
     }
+  });
+  // Retry after a short delay if buttons are not found
+  if (addButtons.length === 0) {
+    console.log("Did not find buttons yet, retrying...");
+    setTimeout(checkButtons, 100);
+  }
 }
 // Function to fetch products from the server and render them
 const fetchAndRenderProducts = async () => {
-    try {
-        const response = await fetch("http://localhost:3000/api/products");
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
-        const products = await response.json();
-        allProducts = products;
-        renderProducts(products);
+  try {
+    const response = await fetch(
+      "https://herkkutemppelijami.northeurope.cloudapp.azure.com/api/products"
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
     }
-    catch (error) {
-        console.error("Error fetching products:", error);
-        displayErrorMessage();
-    }
+    const products = await response.json();
+    allProducts = products;
+    renderProducts(products);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    displayErrorMessage();
+  }
 };
 const filterProducts = (categoryId) => {
-    const filteredProducts = categoryId === "all"
-        ? allProducts
-        : allProducts.filter((product) => product.product_category_id === categoryId);
-    renderProducts(filteredProducts);
-    checkButtons();
+  const filteredProducts =
+    categoryId === "all"
+      ? allProducts
+      : allProducts.filter(
+          (product) => product.product_category_id === categoryId
+        );
+  renderProducts(filteredProducts);
+  checkButtons();
 };
 const displayErrorMessage = () => {
-    const productsContainer = document.getElementById("productsContainer");
-    if (!productsContainer) {
-        return;
-    }
-    productsContainer.innerHTML = "<p>Sorry, products were unable to load.</p>";
+  const productsContainer = document.getElementById("productsContainer");
+  if (!productsContainer) {
+    return;
+  }
+  productsContainer.innerHTML = "<p>Sorry, products were unable to load.</p>";
 };
 document.addEventListener("DOMContentLoaded", fetchAndRenderProducts);
